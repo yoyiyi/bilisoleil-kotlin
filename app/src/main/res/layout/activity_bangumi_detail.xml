@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:scrollbars="none"/>
+
+        <include layout="@layout/common_layout_error"/>
+        <com.yoyiyi.soleil.widget.ProgressWheel
+            android:id="@+id/pw_loading"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:layout_centerInParent="true"
+            app:matProg_barColor="@color/colorPrimary"
+            app:matProg_barWidth="@dimen/dp4"
+            app:matProg_fillRadius="false"
+            app:matProg_linearProgress="true"
+            app:matProg_progressIndeterminate="true"/>
+
+    </RelativeLayout>
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp81"
+        android:fitsSystemWindows="false"
+        android:minHeight="?attr/actionBarSize"
+        android:paddingTop="@dimen/statusbar_view_height"
+        app:contentInsetStart="@dimen/dp30"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextAppearance="@style/Toolbar.TitleText">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_16"/>
+    </android.support.v7.widget.Toolbar>
+</android.support.design.widget.CoordinatorLayout>

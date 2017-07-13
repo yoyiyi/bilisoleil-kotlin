@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+
+    <LinearLayout
+        android:id="@+id/ll_root"
+        android:layout_width="@dimen/dp130"
+        android:layout_height="@dimen/dp85"
+        android:layout_marginBottom="@dimen/dp10"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp10"
+        android:background="@drawable/selector_bangumi_detail_bt_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp5"
+            android:text="ddddd"
+            android:textColor="@color/select_bangumi_detail_index_bg"
+          />
+
+        <TextView
+            android:id="@+id/tv_index_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_index"
+            android:ellipsize="end"
+            android:minLines="1"
+            android:padding="@dimen/dp5"
+            android:textColor="@color/select_bangumi_detail_index_title_bg"
+            />
+    </LinearLayout>
+    <Space
+        android:id="@+id/space"
+        android:layout_width="@dimen/dp10"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+</LinearLayout>

@@ -1,0 +1,605 @@
+{
+  "code": 0,
+  "data": {
+    "aid": 9938411,
+    "attribute": 49152,
+    "copyright": 1,
+    "ctime": 1497424534,
+    "desc": "纯黑直播间：www.zhanqi.tv/666666新浪微博：weibo.com/chunheigk纯黑零食店：chlsd.taobao.com",
+    "dislike_reasons": [
+      {
+        "reason_id": 5,
+        "reason_name": "标题党/封面党"
+      },
+      {
+        "reason_id": 6,
+        "reason_name": "内容质量差"
+      },
+      {
+        "reason_id": 7,
+        "reason_name": "内容/封面令人不适"
+      },
+      {
+        "reason_id": 8,
+        "reason_name": "营销广告"
+      }
+    ],
+    "duration": 1319,
+    "elec": {
+      "count": 83,
+      "elec_num": 0,
+      "elec_set": {
+        "elec_list": [
+          {
+            "elec_num": 20,
+            "is_customize": 0,
+            "title": "20电池"
+          },
+          {
+            "elec_num": 60,
+            "is_customize": 0,
+            "title": "60电池"
+          },
+          {
+            "elec_num": 450,
+            "is_customize": 0,
+            "title": "450电池"
+          },
+          {
+            "elec_num": 880,
+            "is_customize": 0,
+            "title": "880电池"
+          },
+          {
+            "elec_num": 0,
+            "is_customize": 1,
+            "max_elec": 99999,
+            "min_elec": 20,
+            "title": "自定义"
+          }
+        ],
+        "elec_theme": 0,
+        "integrity_rate": 10.00,
+        "rmb_rate": 10.00,
+        "round_mode": 0
+      },
+      "show": true,
+      "total": 10065
+    },
+    "owner": {
+      "face": "http://i1.hdslb.com/bfs/face/e8ab7b02d6576f4141ea857734b68b9dd35a5730.jpg",
+      "mid": 585267,
+      "name": "纯黑叔"
+    },
+    "owner_ext": {
+      "fans": 1391942,
+      "vip": {
+        "accessStatus": 1,
+        "dueRemark": "",
+        "vipDueDate": 1504195200000,
+        "vipStatus": 1,
+        "vipStatusWarn": "",
+        "vipType": 1
+      }
+    },
+    "pages": [
+      {
+        "cid": 16428959,
+        "dmlink": "http://comment.bilibili.com/16428959.xml",
+        "duration": 1319,
+        "from": "vupload",
+        "metas": [
+          {
+            "format": "mp4",
+            "quality": 1,
+            "size": 102288
+          },
+          {
+            "format": "hdmp4",
+            "quality": 2,
+            "size": 240849
+          },
+          {
+            "format": "flv",
+            "quality": 3,
+            "size": 470091
+          },
+          {
+            "format": "flv",
+            "quality": 4,
+            "size": 760271
+          }
+        ],
+        "page": 1,
+        "part": "",
+        "vid": "",
+        "weblink": ""
+      }
+    ],
+    "pic": "http://i1.hdslb.com/bfs/archive/f350374ac3a130aec3c92e608fc3c72d72340394.jpg",
+    "pubdate": 1492539219,
+    "relates": [
+      {
+        "aid": 2165903,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "纯黑叔"
+        },
+        "pic": "http://i1.hdslb.com/bfs/archive/7241c7de343ba7b106c39c2d2de30f15caa45640.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 6794,
+          "favorite": 6363,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 12844,
+          "share": 0,
+          "view": 563330
+        },
+        "title": "本视频将封印至17年愚人节"
+      },
+      {
+        "aid": 9083821,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "世界Wir"
+        },
+        "pic": "http://i1.hdslb.com/bfs/archive/a55c668ab2eda23c535e0db49fa97ca762cd1b21.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 129,
+          "favorite": 669,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 189,
+          "share": 0,
+          "view": 110118
+        },
+        "title": "震惊！！听说纯黑又爆（nve）照（fen）了！！？"
+      },
+      {
+        "aid": 6984920,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "何悠悠玩VR"
+        },
+        "pic": "http://i1.hdslb.com/bfs/archive/84308b4028ebdcf7a3528d6fc2efeed25edaed95.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 1080,
+          "favorite": 2896,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 1386,
+          "share": 0,
+          "view": 926137
+        },
+        "title": "使用VR泄欲的正确姿势 ＃何悠悠玩VR＃"
+      },
+      {
+        "aid": 10007398,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "拔总zz"
+        },
+        "pic": "http://i2.hdslb.com/bfs/archive/046e1174a2ea66bb18b981b63c294ebbf89ad29f.png",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 379,
+          "favorite": 171,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 217,
+          "share": 0,
+          "view": 23801
+        },
+        "title": "【拔总】来自肌肉猛男的么么哒"
+      },
+      {
+        "aid": 1707128,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "纯黑叔"
+        },
+        "pic": "http://i0.hdslb.com/bfs/archive/79b8d5490c8caf7037c3c567da33cc5f52f58752.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 32036,
+          "favorite": 7943,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 1985,
+          "share": 0,
+          "view": 1370296
+        },
+        "title": "纯黑《刺客信条：大革命》第一期 完美同步攻略解说"
+      },
+      {
+        "aid": 5100283,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "纯黑叔"
+        },
+        "pic": "http://i2.hdslb.com/bfs/archive/31d043e2863493f5f986e00b21d1a266f309b66d.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 19122,
+          "favorite": 3769,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 4147,
+          "share": 0,
+          "view": 644622
+        },
+        "title": "纯黑《神秘海域4》惨烈超难攻略解说 第七期"
+      },
+      {
+        "aid": 10434593,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "折腾5号"
+        },
+        "pic": "http://i2.hdslb.com/bfs/archive/04ffab757544a1624a3a793be84a5083f838796f.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 547,
+          "favorite": 96,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 215,
+          "share": 0,
+          "view": 38041
+        },
+        "title": "《绝地求生大逃杀》还有这种吃鸡的方法？！"
+      },
+      {
+        "aid": 7685893,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "陈瀚Siri"
+        },
+        "pic": "http://i1.hdslb.com/bfs/archive/49d8ff0b83d7f440c6d9cbc855dc4d77863244af.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 651,
+          "favorite": 148,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 371,
+          "share": 0,
+          "view": 20200
+        },
+        "title": "【陈瀚Siri】闲逛英国圣诞节市场"
+      },
+      {
+        "aid": 10370651,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "轩雨星晴"
+        },
+        "pic": "http://i1.hdslb.com/bfs/archive/e1119f6726578b6ae8c643bb1bf1d608bf082ef7.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 89,
+          "favorite": 4,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 69,
+          "share": 0,
+          "view": 1467
+        },
+        "title": "【轩雨星晴语音解说】精灵宝可梦日月6V6对战实况05"
+      },
+      {
+        "aid": 3852397,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "纯黑叔"
+        },
+        "pic": "http://i0.hdslb.com/bfs/archive/2090debbd2b07a9d554b18eec22f50f0da0ec7d1.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 32756,
+          "favorite": 6226,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 3492,
+          "share": 0,
+          "view": 779638
+        },
+        "title": "纯黑《零：濡鸦之巫女》第一期 乳摇的污女"
+      },
+      {
+        "aid": 10151928,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "敖厂长"
+        },
+        "pic": "http://i0.hdslb.com/bfs/archive/6001bf94a2ee8d58056b6a3fd4107a4badb40227.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 24730,
+          "favorite": 5558,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 9732,
+          "share": 0,
+          "view": 1967237
+        },
+        "title": "【敖厂长】腾讯游戏惨遭停运"
+      },
+      {
+        "aid": 10520722,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "渗透之C君"
+        },
+        "pic": "http://i0.hdslb.com/bfs/archive/82626ba9034eac2a2e8b9882861a53447e1e05c0.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 22785,
+          "favorite": 3747,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 5376,
+          "share": 0,
+          "view": 813535
+        },
+        "title": "【C菌】分手! 那些和朋友玩了就会撕哔的游戏!【第二期】"
+      },
+      {
+        "aid": 11159467,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "袜子ψ(｀∇´)ψ"
+        },
+        "pic": "http://i2.hdslb.com/bfs/archive/f0832d98d695c45297d3597f5c474d41936bc530.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 2813,
+          "favorite": 6688,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 397,
+          "share": 0,
+          "view": 499908
+        },
+        "title": "【游戏集锦】那些意外搞笑的游戏失败瞬间 133 It's Spiderman!"
+      },
+      {
+        "aid": 10204083,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "纯黑叔"
+        },
+        "pic": "http://i0.hdslb.com/bfs/archive/b542297a9f88270c717b5de11dfa6764e063c6ae.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 16327,
+          "favorite": 1373,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 2793,
+          "share": 0,
+          "view": 341422
+        },
+        "title": "【纯黑】《逃生2》直播录像P5 血雨腥风"
+      },
+      {
+        "aid": 3952940,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "纯黑叔"
+        },
+        "pic": "http://i1.hdslb.com/bfs/archive/70c348a1c5d2fce58506735cc040463328b3f77b.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 7823,
+          "favorite": 2133,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 1824,
+          "share": 0,
+          "view": 286055
+        },
+        "title": "纯黑《零：濡鸦之巫女》第二期 湿身的污女"
+      },
+      {
+        "aid": 8165165,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "纯黑叔"
+        },
+        "pic": "http://i1.hdslb.com/bfs/archive/5349e34c375e993743f3988bbbf3c95c8525cd50.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 12923,
+          "favorite": 1595,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 1729,
+          "share": 0,
+          "view": 325771
+        },
+        "title": "纯黑直播《返校》我不怂的恐怖游戏 P2"
+      },
+      {
+        "aid": 8145597,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "纯黑叔"
+        },
+        "pic": "http://i1.hdslb.com/bfs/archive/9619104d06012b74f256923a9b212d5b344e1b1e.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 29298,
+          "favorite": 4927,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 3133,
+          "share": 0,
+          "view": 688632
+        },
+        "title": "纯黑直播《返校》我完全不怂的恐怖游戏"
+      },
+      {
+        "aid": 8306491,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "纯黑叔"
+        },
+        "pic": "http://i1.hdslb.com/bfs/archive/591fe61e3e20ba8dbb06884369576ccd1baf9e8e.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 10583,
+          "favorite": 866,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 2209,
+          "share": 0,
+          "view": 233841
+        },
+        "title": "纯黑直播《返校》我不怂的惊悚游戏 P4"
+      },
+      {
+        "aid": 11103774,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "起小点是大腿"
+        },
+        "pic": "http://i1.hdslb.com/bfs/archive/bb3c35d4128fa3ea606897206b6f7eae5e219301.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 6612,
+          "favorite": 448,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 1680,
+          "share": 0,
+          "view": 399020
+        },
+        "title": "主播真会玩主机篇07：听说你是刺客大师？"
+      },
+      {
+        "aid": 10033090,
+        "owner": {
+          "face": "",
+          "mid": 0,
+          "name": "EdmundDZhang"
+        },
+        "pic": "http://i2.hdslb.com/bfs/archive/7ed762519c4c44b78bb3c3948bc9e4f1060c6600.jpg",
+        "stat": {
+          "aid": 0,
+          "coin": 0,
+          "danmaku": 9780,
+          "favorite": 3359,
+          "his_rank": 0,
+          "now_rank": 0,
+          "reply": 3672,
+          "share": 0,
+          "view": 734743
+        },
+        "title": "【老E】职业老王VS绿帽王"
+      }
+    ],
+    "req_user": {
+      "attention": -999,
+      "favorite": 0
+    },
+    "rights": {
+      "bp": 0,
+      "download": 1,
+      "elec": 1,
+      "hd5": 0,
+      "movie": 0,
+      "no_reprint": 0,
+      "pay": 0
+    },
+    "stat": {
+      "aid": 9938411,
+      "coin": 15516,
+      "danmaku": 6411,
+      "favorite": 3362,
+      "his_rank": 3,
+      "now_rank": 0,
+      "reply": 3663,
+      "share": 658,
+      "view": 827412
+    },
+    "state": 0,
+    "tag": [
+      {
+        "tag_id": 723488,
+        "tag_name": "失踪人口回归！"
+      },
+      {
+        "tag_id": 125158,
+        "tag_name": "纯黑"
+      },
+      {
+        "tag_id": 3419954,
+        "tag_name": "无伤吃鸡"
+      },
+      {
+        "tag_id": 54705,
+        "tag_name": "大逃杀"
+      },
+      {
+        "tag_id": 3428143,
+        "tag_name": "大吉大利，晚上吃鸡"
+      },
+      {
+        "tag_id": 3243689,
+        "tag_name": "绝地求生"
+      },
+      {
+        "tag_id": 3473367,
+        "tag_name": "HANDSOMEBlack"
+      }
+    ],
+    "tid": 17,
+    "title": "【纯黑】《我能吹一年》无伤吃鸡攻略解说？",
+    "tname": "单机联机",
+    "videos": 1
+  },
+  "message": "",
+  "ttl": 1
+}
