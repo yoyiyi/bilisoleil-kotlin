@@ -1,6 +1,7 @@
 package com.soleil.bilisoleil.module
 
 import android.os.Bundle
+
 import android.support.v7.app.AppCompatActivity
 import com.soleil.bilisoleil.R
 
@@ -11,7 +12,4 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
 }
