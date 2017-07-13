@@ -12,10 +12,9 @@ import dagger.Provides
  * * 描述:App模型
  */
 @Module
-class AppModule(private val mContext: Context) {
+class AppModule(val context: Context) {
 
     @Provides
-    fun provideContext(): Context {
-        return mContext
-    }
+    fun provideContext(): Context = context
+
 }

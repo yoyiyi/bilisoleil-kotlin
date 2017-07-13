@@ -14,11 +14,9 @@ import dagger.Provides
  * * 描述:Activity模型
  */
 @Module
-class ActivityModule(private val mActivity: Activity) {
+class ActivityModule(val activity: Activity) {
 
     @Provides
     @ActivityScope
-    fun provideActivity(): Activity {
-        return mActivity
-    }
+    fun provideActivity(): Activity = activity
 }

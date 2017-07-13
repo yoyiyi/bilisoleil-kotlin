@@ -1,9 +1,9 @@
-package com.soleil.bilisoleil.module
+package com.yoyiyi.soleil.module
 
 import android.os.Bundle
 
 import android.support.v7.app.AppCompatActivity
-import com.soleil.bilisoleil.R
+import com.yoyiyi.soleil.R
 
 class SplashActivity : AppCompatActivity() {
 

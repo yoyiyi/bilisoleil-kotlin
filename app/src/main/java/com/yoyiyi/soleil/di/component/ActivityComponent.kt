@@ -15,36 +15,36 @@ import dagger.Component
 @Component(dependencies = arrayOf(AppComponent::class), modules = arrayOf(ActivityModule::class))
 interface ActivityComponent {
 
-    val activity: Activity
+    fun getActivity(): Activity
 
-   /* fun inject(splashActivity: SplashActivity)
+    /* fun inject(splashActivity: SplashActivity)
 
-    fun inject(totalSearchActivity: TotalSearchActivity)
+     fun inject(totalSearchActivity: TotalSearchActivity)
 
-    fun inject(regionTypeActivity: RegionTypeActivity)
+     fun inject(regionTypeActivity: RegionTypeActivity)
 
-    fun inject(topicCenterActivity: TopicCenterActivity)
+     fun inject(topicCenterActivity: TopicCenterActivity)
 
-    fun inject(activityCenterActivity: ActivityCenterActivity)
+     fun inject(activityCenterActivity: ActivityCenterActivity)
 
-    fun inject(gameCenterActivity: GameCenterActivity)
+     fun inject(gameCenterActivity: GameCenterActivity)
 
-    fun inject(allGameActivity: AllGameActivity)
+     fun inject(allGameActivity: AllGameActivity)
 
-    fun inject(bangumiScheduleActivity: BangumiScheduleActivity)
+     fun inject(bangumiScheduleActivity: BangumiScheduleActivity)
 
-    fun inject(bangumiIndexActivity: BangumiIndexActivity)
+     fun inject(bangumiIndexActivity: BangumiIndexActivity)
 
-    fun inject(adActivity: AdActivity)
+     fun inject(adActivity: AdActivity)
 
-    fun inject(bangumiDetailActivity: BangumiDetailActivity)
+     fun inject(bangumiDetailActivity: BangumiDetailActivity)
 
-    fun inject(videoDetailActivity: VideoDetailActivity)
+     fun inject(videoDetailActivity: VideoDetailActivity)
 
-    fun inject(upDetailActivity: UpDetailActivity)
+     fun inject(upDetailActivity: UpDetailActivity)
 
-    fun inject(searchActivity: SearchActivity)
+     fun inject(searchActivity: SearchActivity)
 
-    fun inject(videoPlayerActivity: VideoPlayerActivity)*/
+     fun inject(videoPlayerActivity: VideoPlayerActivity)*/
 
 }

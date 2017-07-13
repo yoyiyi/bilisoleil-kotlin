@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.di.component
 
+import android.app.Activity
 import com.yoyiyi.soleil.di.module.FragmentModule
 import com.yoyiyi.soleil.di.scope.FragmentScope
 import dagger.Component
@@ -14,47 +15,49 @@ import dagger.Component
 @Component(dependencies = arrayOf(AppComponent::class), modules = arrayOf(FragmentModule::class))
 interface FragmentComponent {
 
-  /*  val activity: Activity
+    fun getActivity(): Activity
 
-    fun inject(liveFragment: LiveFragment)
+    /*  val activity: Activity
 
-    fun inject(recommendFragment: RecommendFragment)
+      fun inject(liveFragment: LiveFragment)
 
-    fun inject(regionFragment: RegionFragment)
+      fun inject(recommendFragment: RecommendFragment)
 
-    fun inject(chaseBangumiFragment: ChaseBangumiFragment)
+      fun inject(regionFragment: RegionFragment)
 
-    fun inject(discoverFragment: DiscoverFragment)
+      fun inject(chaseBangumiFragment: ChaseBangumiFragment)
 
-    fun inject(archiveFragment: ArchiveFragment)
+      fun inject(discoverFragment: DiscoverFragment)
 
-    fun inject(regionTypeRecommendFragment: RegionTypeRecommendFragment)
+      fun inject(archiveFragment: ArchiveFragment)
 
-    fun inject(regionTypeFragment: RegionTypeFragment)
+      fun inject(regionTypeRecommendFragment: RegionTypeRecommendFragment)
 
-    fun inject(allRegionRankFragment: AllRegionRankFragment)
+      fun inject(regionTypeFragment: RegionTypeFragment)
 
-    fun inject(allStationRankFragment: AllStationRankFragment)
+      fun inject(allRegionRankFragment: AllRegionRankFragment)
 
-    fun inject(interestFragment: InterestFragment)
+      fun inject(allStationRankFragment: AllStationRankFragment)
 
-    fun inject(dynamicFragment: DynamicFragment)
+      fun inject(interestFragment: InterestFragment)
 
-    fun inject(summaryFragment: SummaryFragment)
+      fun inject(dynamicFragment: DynamicFragment)
 
-    fun inject(commentFragment: CommentFragment)
+      fun inject(summaryFragment: SummaryFragment)
 
-    fun inject(archiveFragment: com.yoyiyi.soleil.module.app.up.ArchiveFragment)
+      fun inject(commentFragment: CommentFragment)
 
-    fun inject(submitedVideoFragment: SubmitedVideoFragment)
+      fun inject(archiveFragment: com.yoyiyi.soleil.module.app.up.ArchiveFragment)
 
-    fun inject(favouriteFragment: FavouriteFragment)
+      fun inject(submitedVideoFragment: SubmitedVideoFragment)
 
-    fun inject(movieFragment: MovieFragment)
+      fun inject(favouriteFragment: FavouriteFragment)
 
-    fun inject(upFragment: UpFragment)
+      fun inject(movieFragment: MovieFragment)
 
-    fun inject(seasonFragment: SeasonFragment)*/
+      fun inject(upFragment: UpFragment)
+
+      fun inject(seasonFragment: SeasonFragment)*/
 
 
 }
