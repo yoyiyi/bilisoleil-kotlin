@@ -8,6 +8,7 @@ package com.yoyiyi.soleil.network.helper
  */
 
 import android.content.Context
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.yoyiyi.soleil.network.support.ApiConstants
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.FileUtils
@@ -21,28 +22,27 @@ import java.util.concurrent.TimeUnit
 /**
  * 全局统一使用的OkHttpClient工具，okhttp版本：okhttp3
  */
-class OkHttpHelper private constructor () {
+class OkHttpHelper private constructor() {
 
     companion object {
         //读取时间
-        val DEFAULT_READ_TIMEOUT_MILLIS = (20 * 1000).toLong()
+        const val DEFAULT_READ_TIMEOUT_MILLIS = (20 * 1000).toLong()
         //写入时间
-        val DEFAULT_WRITE_TIMEOUT_MILLIS = (20 * 1000).toLong()
+        const val DEFAULT_WRITE_TIMEOUT_MILLIS = (20 * 1000).toLong()
         //超时时间
-        val DEFAULT_CONNECT_TIMEOUT_MILLIS = (20 * 1000).toLong()
+        const val DEFAULT_CONNECT_TIMEOUT_MILLIS = (20 * 1000).toLong()
         //最大缓存
-        private val HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = (20 * 1024 * 1024).toLong()//设置20M
+        const private val HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = (20 * 1024 * 1024).toLong()//设置20M
         //长缓存有效期为7天
-        val CACHE_STALE_LONG = 60 * 60 * 24 * 7
+        const val CACHE_STALE_LONG = 60 * 60 * 24 * 7
+        @Volatile var okHttpClient: OkHttpClient = null!!
 
         lateinit var okHttpHelper: OkHttpHelper//单例模式
-        lateinit var okHttpClient: OkHttpClient
     }
-
-
 
     init {
         val loggingInterceptor = HttpLoggingInterceptor()
+        //var okHttpClient: OkHttpClient
         //包含header、body数据
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         okHttpClient = OkHttpClient.Builder()
@@ -56,7 +56,7 @@ class OkHttpHelper private constructor () {
                 .addNetworkInterceptor(RewriteCacheControlInterceptor())
                 .addInterceptor(RewriteCacheControlInterceptor())
                 //FaceBook 网络调试器，可在Chrome调试网络请求，查看SharePreferences,数据库等
-                //.addNetworkInterceptor(StethoInterceptor())
+                .addNetworkInterceptor(StethoInterceptor())
                 //http数据log，日志中打印出HTTP请求&响应数据
                 .addInterceptor(loggingInterceptor)
                 //便于查看json
@@ -64,6 +64,8 @@ class OkHttpHelper private constructor () {
                 .addInterceptor(UserAgentInterceptor())
                 .build()
     }
+
+    fun getOkHttpClient(): OkHttpClient = okHttpClient
 
 
     /**
@@ -75,7 +77,7 @@ class OkHttpHelper private constructor () {
         val baseDir = context.applicationContext.cacheDir
         if (baseDir != null) {
             val cacheDir = File(baseDir, "CopyCache")
-            okHttpClient.newBuilder().cache(Cache(cacheDir, HTTP_RESPONSE_DISK_CACHE_MAX_SIZE))
+            okHttpClient!!.newBuilder().cache(Cache(cacheDir, HTTP_RESPONSE_DISK_CACHE_MAX_SIZE))
         }
     }
 

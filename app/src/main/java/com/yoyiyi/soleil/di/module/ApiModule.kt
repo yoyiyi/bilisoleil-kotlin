@@ -20,7 +20,7 @@ import javax.inject.Singleton
  * * 描述:Api网络模型
  */
 @Module
- class ApiModule {
+class ApiModule {
     fun createRetrofit(builder: Retrofit.Builder, client: OkHttpClient, url: String): Retrofit
             = builder
             .baseUrl(url)
@@ -31,7 +31,7 @@ import javax.inject.Singleton
 
     @Singleton
     @Provides
-    fun provideOkHttpClient(): OkHttpClient = OkHttpHelper.okHttpClient
+    fun provideOkHttpClient(): OkHttpClient = OkHttpHelper.okHttpClient!!
 
     @Singleton
     @Provides

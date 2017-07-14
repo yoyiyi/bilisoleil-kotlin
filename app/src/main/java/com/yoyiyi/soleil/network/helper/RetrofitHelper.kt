@@ -21,8 +21,7 @@ class RetrofitHelper(private val appService: AppService,
                      private val im9Service: Im9Service) {
 
 
-    /* */
-    /*******************************AppApi */
+    /*******************************AppApi ****************************************************/
     fun getSplash(): Flowable<Splash> = appService.getSplash()
 
 

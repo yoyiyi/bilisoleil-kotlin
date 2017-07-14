@@ -5,12 +5,12 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/iv_splash"
+        android:id="@+id/ivSplash"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
     <LinearLayout
-        android:id="@+id/ll_count_down"
+        android:id="@+id/llCountDown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -28,7 +28,7 @@
             android:textSize="@dimen/text_size_14"/>
 
         <TextView
-            android:id="@+id/tv_count_down"
+            android:id="@+id/tvCountDown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp10"
