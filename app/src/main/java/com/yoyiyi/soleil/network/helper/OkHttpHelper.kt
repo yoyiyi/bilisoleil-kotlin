@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit
 /**
  * 全局统一使用的OkHttpClient工具，okhttp版本：okhttp3
  */
-class OkHttpHelper {
+class OkHttpHelper private constructor () {
 
     companion object {
         //读取时间
@@ -38,6 +38,7 @@ class OkHttpHelper {
         lateinit var okHttpHelper: OkHttpHelper//单例模式
         lateinit var okHttpClient: OkHttpClient
     }
+
 
 
     init {
