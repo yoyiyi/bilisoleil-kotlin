@@ -1,7 +1,9 @@
 package com.yoyiyi.soleil.network.helper
 
 
+import com.yoyiyi.soleil.bean.app.Splash
 import com.yoyiyi.soleil.network.api.*
+import io.reactivex.Flowable
 
 
 /**
@@ -11,16 +13,19 @@ import com.yoyiyi.soleil.network.api.*
  * * 描述:RetrofitHelper 帮助类
  */
 
-class RetrofitHelper(val appService: AppService,
-                     val liveService: LiveService,
-                     val bangumiService: BangumiService,
-                     val rankService: RankService,
-                     val apiService: ApiService,
-                     val im9Service: Im9Service) {
+class RetrofitHelper(private val appService: AppService,
+                     private val liveService: LiveService,
+                     private val bangumiService: BangumiService,
+                     private val rankService: RankService,
+                     private val apiService: ApiService,
+                     private val im9Service: Im9Service) {
 
 
     /* */
     /*******************************AppApi */
+    fun getSplash(): Flowable<Splash> = appService.getSplash()
+
+
     /*
         val splash: Flowable<Splash>
             get() = mAppService.getSplash()
