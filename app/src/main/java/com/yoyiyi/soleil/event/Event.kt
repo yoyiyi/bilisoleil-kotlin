@@ -11,6 +11,10 @@ class Event {
         var position: Int = -1
     }
 
+    class StartNavigationEvent {
+        var start: Boolean = false
+    }
+
 }
 
 

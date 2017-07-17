@@ -7,7 +7,6 @@ import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.Toast
-
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.yoyiyi.soleil.BiliSoleilApplication
 import com.yoyiyi.soleil.R
@@ -16,7 +15,6 @@ import com.yoyiyi.soleil.di.component.DaggerActivityComponent
 import com.yoyiyi.soleil.di.module.ActivityModule
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil
-
 import javax.inject.Inject
 
 
@@ -27,11 +25,11 @@ import javax.inject.Inject
 abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActivity(), BaseContract.BaseView {
 
     @Inject
-    protected lateinit var mPresenter: T
-    protected var mToolbar: Toolbar? = null//Toolbar
-    protected var mContext: Context? = null//上下文环境
-    protected var mBack = true
-    private var mError: ConstraintLayout? = null
+    lateinit var mPresenter: T
+    var mToolbar: Toolbar? = null//Toolbar
+    var mContext: Context? = null//上下文环境
+    open var mBack = true
+    var mError: ConstraintLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,9 +58,9 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
     }
 
 
-    protected fun getActivityModule(): ActivityModule = ActivityModule(this)
+    fun getActivityModule(): ActivityModule = ActivityModule(this)
 
-    protected fun getActivityComponent(): ActivityComponent =
+    fun getActivityComponent(): ActivityComponent =
             DaggerActivityComponent.builder()
                     .appComponent(BiliSoleilApplication.appComponent)
                     .activityModule(getActivityModule())
@@ -71,23 +69,23 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
     /**
      * 注入依赖
      */
-    protected fun initInject() {
+    open fun initInject() {
 
     }
 
-    protected fun initRecyclerView() {
+    open fun initRecyclerView() {
 
     }
 
     /**
      * 完成请求
      */
-    protected fun finishTask() {}
+    open fun finishTask() {}
 
     /**
      * 初始化StatusBar
      */
-    protected fun initStatusBar() {
+    open fun initStatusBar() {
         StatusBarUtil.setColorNoTranslucent(mContext as Activity, AppUtils.getColor(R.color.colorPrimary))
     }
 
@@ -98,7 +96,7 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
     /**
      * 初始化Presenter
      */
-    private fun initPresenter() {
+    fun initPresenter() {
         mPresenter?.attachView(this as Nothing)
 
     }
@@ -124,7 +122,7 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
     /**
      * 初始化Toolbar
      */
-    protected fun initToolbar() {
+    open fun initToolbar() {
         if (mBack) mToolbar?.setNavigationIcon(R.drawable.ic_clip_back_white)
     }
 
@@ -139,31 +137,31 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
     /**
      * 初始化控件
      */
-    protected fun initWidget() {}
+    open fun initWidget() {}
 
     /**
      * 加载数据
      */
-    protected fun loadData() {}
+    open fun loadData() {}
 
     /**
      * 初始化数据
      */
-    protected fun initDatas() {
+    open fun initDatas() {
         loadData()
     }
 
     /**
      * 初始化变量
      */
-    protected fun initVariables() {}
+    open fun initVariables() {}
 
 
     /**
      * 隐藏View
      * @param views 视图
      */
-    protected fun gone(vararg views: View) {
+    fun gone(vararg views: View) {
         if (views != null && views.size > 0) {
             for (view in views) {
                 view?.visibility = View.GONE
@@ -175,7 +173,7 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
      * 显示View
      * @param views 视图
      */
-    protected fun visible(vararg views: View) {
+    fun visible(vararg views: View) {
         if (views != null && views.size > 0) {
             for (view in views) {
                 view?.visibility = View.VISIBLE
