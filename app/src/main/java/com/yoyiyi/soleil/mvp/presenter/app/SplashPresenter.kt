@@ -16,7 +16,7 @@ import javax.inject.Inject
  * @date 创建时间：2017/7/14 11:14
  * 描述:欢迎界面Presenter
  */
-class SplashPresenter @Inject constructor(val retrofitHelper: RetrofitHelper) : RxPresenter<SplashContract.View>(), SplashContract.Presenter<SplashContract.View> {
+class SplashPresenter  @Inject constructor(val retrofitHelper: RetrofitHelper) : RxPresenter<SplashContract.View>(), SplashContract.Presenter<SplashContract.View> {
 
     override fun setCountDown() {
         val count = 5L
