@@ -88,6 +88,7 @@ class SplashActivity : RxAppCompatActivity(), SplashContract.View {
      */
     fun loadData() {
         mPresenter.getSplashData()
+        mPresenter.setCountDown()
     }
 
 

@@ -35,9 +35,8 @@ class OkHttpHelper private constructor() {
         //最大缓存
         const private val HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = (20 * 1024 * 1024).toLong()//设置20M
         //长缓存有效期为7天
-        const val CACHE_STALE_LONG = 60 * 60 * 24 * 7
-        //    @Volatile var okHttpClient: OkHttpClient = null!!
-        lateinit var okHttpHelper: OkHttpHelper//单例模式
+        const val CACHE_STALE_LONG = (60 * 60 * 24 * 7).toLong()
+        val okHttpHelper: OkHttpHelper = OkHttpHelper()//单例模式
     }
 
     init {
