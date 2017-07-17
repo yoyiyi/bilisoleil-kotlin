@@ -7,7 +7,7 @@ package com.yoyiyi.soleil.bean.app
  * * 描述:欢迎界面
  */
 
-class Splash {
+ class Splash{
 
 
     /**
