@@ -23,6 +23,7 @@ import java.util.concurrent.TimeUnit
  * 全局统一使用的OkHttpClient工具，okhttp版本：okhttp3
  */
 class OkHttpHelper private constructor() {
+    @Volatile var mOkHttpClient: OkHttpClient
 
     companion object {
         //读取时间
@@ -35,8 +36,7 @@ class OkHttpHelper private constructor() {
         const private val HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = (20 * 1024 * 1024).toLong()//设置20M
         //长缓存有效期为7天
         const val CACHE_STALE_LONG = 60 * 60 * 24 * 7
-        @Volatile var okHttpClient: OkHttpClient = null!!
-
+        //    @Volatile var okHttpClient: OkHttpClient = null!!
         lateinit var okHttpHelper: OkHttpHelper//单例模式
     }
 
@@ -45,7 +45,7 @@ class OkHttpHelper private constructor() {
         //var okHttpClient: OkHttpClient
         //包含header、body数据
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-        okHttpClient = OkHttpClient.Builder()
+        mOkHttpClient = OkHttpClient.Builder()
                 .readTimeout(DEFAULT_READ_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
                 .writeTimeout(DEFAULT_WRITE_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
                 .connectTimeout(DEFAULT_CONNECT_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
@@ -65,7 +65,7 @@ class OkHttpHelper private constructor() {
                 .build()
     }
 
-    fun getOkHttpClient(): OkHttpClient = okHttpClient
+    fun getOkHttpClient(): OkHttpClient = mOkHttpClient
 
 
     /**
@@ -77,7 +77,7 @@ class OkHttpHelper private constructor() {
         val baseDir = context.applicationContext.cacheDir
         if (baseDir != null) {
             val cacheDir = File(baseDir, "CopyCache")
-            okHttpClient!!.newBuilder().cache(Cache(cacheDir, HTTP_RESPONSE_DISK_CACHE_MAX_SIZE))
+            mOkHttpClient.newBuilder().cache(Cache(cacheDir, HTTP_RESPONSE_DISK_CACHE_MAX_SIZE))
         }
     }
 

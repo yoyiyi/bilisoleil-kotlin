@@ -14,7 +14,7 @@ import io.reactivex.processors.PublishProcessor
  * * 描述:RxBus类
  */
 enum class RxBus// PublishSubject只会把在订阅发生的时间点之后来自原始Flowable的数据发射给观察者
-private constructor() {
+{
     INSTANCE;
 
     private val bus: FlowableProcessor<Any>

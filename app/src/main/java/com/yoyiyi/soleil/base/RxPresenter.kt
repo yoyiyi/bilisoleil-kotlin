@@ -11,17 +11,20 @@ import io.reactivex.functions.Consumer
  */
 open class RxPresenter<T : BaseContract.BaseView> : BaseContract.BasePresenter<T> {
 
-
     var mView: T? = null
     var mCompositeDisposable: CompositeDisposable? = null
 
-    fun unSubscribe() = mCompositeDisposable?.dispose()
+    fun unSubscribe() {
+        mCompositeDisposable?.dispose()
+    }
 
-    fun addSubscribe(disposable: Disposable) = mCompositeDisposable?.add(disposable) ?: CompositeDisposable()
+    fun addSubscribe(disposable: Disposable) {
+        mCompositeDisposable?.add(disposable) ?: CompositeDisposable()
+    }
 
-    fun <K> addRxBusSubscribe(eventType: Class<K>, act: Consumer<K>) =
-            mCompositeDisposable?.add(RxBus.INSTANCE.toDefaultFlowable(eventType, act)) ?: CompositeDisposable()
-
+    fun <K> addRxBusSubscribe(eventType: Class<K>, act: Consumer<K>) {
+        mCompositeDisposable?.add(RxBus.INSTANCE.toDefaultFlowable(eventType, act)) ?: CompositeDisposable()
+    }
 
     override fun detachView() {
         this.mView = null
