@@ -20,14 +20,14 @@ interface BaseContract {
         fun complete()
     }
 
-    interface BasePresenter<T> {
+    interface BasePresenter<in T> {
 
         /**
          * 绑定
 
          * @param view view
          */
-        fun attachView(view: T)
+        fun  attachView(view: T)
 
         /**
          * 解绑

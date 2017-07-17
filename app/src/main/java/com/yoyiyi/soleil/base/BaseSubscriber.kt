@@ -11,21 +11,22 @@ import java.net.SocketTimeoutException
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
- * *
  * @date 创建时间：2017/5/12 11:40
- * * 描述:统一处理订阅者
+ * 描述:统一处理订阅者
  */
 
 abstract class BaseSubscriber<T>(private val view: BaseContract.BaseView?) : ResourceSubscriber<T>() {
 
-    private val msg: String? = null
+    private var msg: String? = null
 
     abstract fun onSuccess(t: T)
 
-    constructor(view: BaseContract.BaseView?, msg: String?) : this(view)
+    constructor(view: BaseContract.BaseView?, msg: String?) : this(view) {
+        this.msg = msg
+    }
 
     open fun onFailure(code: Int, message: String) {
-        
+
     }
 
     override fun onStart() {
@@ -51,7 +52,7 @@ abstract class BaseSubscriber<T>(private val view: BaseContract.BaseView?) : Res
 
     override fun onError(e: Throwable) {
         view?.let {
-            if (msg != null && !TextUtils.isEmpty(msg)) view.showError(msg)
+            if (msg != null && !TextUtils.isEmpty(msg)) view.showError(msg!!)
             else {
                 when (e) {
                     is ApiException -> view.showError(e.toString())
