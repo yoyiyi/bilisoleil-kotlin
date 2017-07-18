@@ -9,19 +9,15 @@ import io.reactivex.processors.PublishProcessor
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
- * *
+ *
  * @date 创建时间：2017/4/7 15:50
- * * 描述:RxBus类
+ * 描述:RxBus类
  */
 enum class RxBus// PublishSubject只会把在订阅发生的时间点之后来自原始Flowable的数据发射给观察者
 {
     INSTANCE;
 
-    private val bus: FlowableProcessor<Any>
-
-    init {
-        bus = PublishProcessor.create<Any>().toSerialized()
-    }
+    private val bus: FlowableProcessor<Any> = PublishProcessor.create<Any>().toSerialized()
 
     // 提供了一个新的事件 发射数据
     fun post(o: Any) {

@@ -21,6 +21,8 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
     override fun getLayoutId(): Int = R.layout.activity_main
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+
+
         return false
     }
 
