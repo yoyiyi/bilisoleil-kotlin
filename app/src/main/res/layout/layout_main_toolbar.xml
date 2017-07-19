@@ -25,7 +25,7 @@
 
 
                 <LinearLayout
-                    android:id="@+id/ll_navigation"
+                    android:id="@+id/llNavigation"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
@@ -38,7 +38,7 @@
                         android:src="@drawable/ic_drawer_home"/>
 
                     <com.yoyiyi.soleil.widget.CircleImageView
-                        android:id="@+id/toolbar_user_avatar"
+                        android:id="@+id/toolbarUserAvatar"
                         android:layout_width="@dimen/dp35"
                         android:layout_height="@dimen/dp35"
                         android:layout_marginEnd="@dimen/dp3"
@@ -59,7 +59,7 @@
             </android.support.v7.widget.Toolbar>
 
             <com.flyco.tablayout.SlidingTabLayout
-                android:id="@+id/stl_tabs"
+                android:id="@+id/stlTabs"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp48"
                 android:background="@color/colorPrimary"
@@ -72,14 +72,14 @@
         </android.support.design.widget.AppBarLayout>
 
         <com.yoyiyi.soleil.widget.NoScrollViewPager
-            android:id="@+id/view_pager"
+            android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:overScrollMode="never"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
     </android.support.design.widget.CoordinatorLayout>
     <com.miguelcatalan.materialsearchview.MaterialSearchView
-        android:id="@+id/search_view"
+        android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </FrameLayout>

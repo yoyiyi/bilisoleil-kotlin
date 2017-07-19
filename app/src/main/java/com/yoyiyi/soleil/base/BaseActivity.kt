@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.Toolbar
 import android.view.View
-import android.widget.Toast
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.yoyiyi.soleil.BiliSoleilApplication
 import com.yoyiyi.soleil.R
@@ -26,10 +25,10 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
 
     @Inject
     lateinit var mPresenter: T
-    var mToolbar: Toolbar? = null//Toolbar
-    var mContext: Context? = null//上下文环境
-    open var mBack = true
-    var mError: ConstraintLayout? = null
+    protected var mToolbar: Toolbar? = null//Toolbar
+    protected var mContext: Context? = null//上下文环境
+    protected var mBack = true //是否返回
+    protected var mError: ConstraintLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +36,7 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
         mContext = this
         mToolbar = this.findViewById(R.id.toolbar) as Toolbar?
         mError = this.findViewById(R.id.cl_error) as ConstraintLayout?
+
         initStatusBar()
         initInject()
         initPresenter()
@@ -46,16 +46,17 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
             //初始化Toolbar
             initToolbar()
             //让组件支持Toolbar
-            setSupportActionBar(mToolbar)
+            //setSupportActionBar(mToolbar)
+            supportActionBar
             if (mBack) mToolbar?.setNavigationOnClickListener { finish() }
         }
         initWidget()
         initDatas()
     }
 
-    protected fun toast(msg: String, length: Int = Toast.LENGTH_LONG) {
-        Toast.makeText(this, msg, length).show()
-    }
+    /* protected fun toast(msg: String, length: Int = Toast.LENGTH_LONG) {
+         Toast.makeText(this, msg, length).show()
+     }*/
 
 
     fun getActivityModule(): ActivityModule = ActivityModule(this)
@@ -132,7 +133,7 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
      * @return 布局文件
      */
 
-    protected abstract fun getLayoutId(): Int
+    abstract fun getLayoutId(): Int
 
     /**
      * 初始化控件

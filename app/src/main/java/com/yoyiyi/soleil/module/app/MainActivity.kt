@@ -2,6 +2,7 @@ package com.yoyiyi.soleil.module
 
 import android.support.design.internal.NavigationMenuView
 import android.support.design.widget.NavigationView
+import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.view.KeyEvent
 import android.view.MenuItem
@@ -9,6 +10,7 @@ import com.yoyiyi.soleil.BiliSoleilApplication
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.base.BaseActivity
 import com.yoyiyi.soleil.event.Event
+import com.yoyiyi.soleil.module.home.HomeFragment
 import com.yoyiyi.soleil.rx.RxBus
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.ToastUtils
@@ -16,14 +18,20 @@ import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSelectedListener {
-    internal var exitTime = 0L
+    private var exitTime = 0L
+    private var mCurrentPos = -1
+    private var mFragments: List<Fragment>? = null
 
     override fun getLayoutId(): Int = R.layout.activity_main
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
-
         return false
+    }
+
+    private fun initFragment() {
+        mFragments = arrayListOf(HomeFragment.newInstance())
+
     }
 
     override fun initWidget() {
@@ -32,8 +40,15 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
         switchFragmentIndex(0)//初始化位置
     }
 
-    fun switchFragmentIndex(i: Int) {
-
+    fun switchFragmentIndex(index: Int) {
+        val transaction = supportFragmentManager.beginTransaction()
+        if (mCurrentPos != -1)
+            transaction.hide(mFragments!![mCurrentPos])
+        if (!mFragments!![index].isAdded()) {
+            transaction.add(R.id.fl_content, mFragments!![index])
+        }
+        transaction.show(mFragments!![index]).commit()
+        mCurrentPos = index
     }
 
     /**
@@ -43,7 +58,7 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
      */
     private fun disableNavigationViewScrollbars(navigationView: NavigationView?) {
         navigationView.let {
-            val navigationMenuView = navigationView!!.getChildAt(0) as NavigationMenuView
+            val navigationMenuView = navigationView?.getChildAt(0) as NavigationMenuView
             navigationMenuView?.isVerticalFadingEdgeEnabled = false
         }
     }
@@ -62,10 +77,6 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
                         toggleDrawer()//打开
                     }
                 })
-    }
-
-    fun initFragment() {
-
     }
 
     /**
