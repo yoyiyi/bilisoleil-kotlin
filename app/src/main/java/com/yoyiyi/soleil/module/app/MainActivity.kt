@@ -17,11 +17,13 @@ import com.yoyiyi.soleil.utils.ToastUtils
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
+import kotlin.concurrent.timerTask
 
 class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSelectedListener {
     private var exitTime = 0L
     private var mCurrentPos = -1
     private var mFragments: List<Fragment> = ArrayList()
+    var mTimer: Timer = Timer()
     override fun getLayoutId(): Int = R.layout.activity_main
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
@@ -30,6 +32,7 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
 
     private fun initFragment() {
         mFragments = arrayListOf(HomeFragment.newInstance())
+        mTimer.schedule(timerTask {  }, 500L, 100L)
 
     }
 
