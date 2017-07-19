@@ -10,9 +10,8 @@ import io.reactivex.schedulers.Schedulers
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
- * *
  * @date 创建时间：2017/4/7 15:37
- * * 描述:RxUtils
+ * 描述:RxUtils
  */
 
 class RxUtils {
@@ -47,11 +46,9 @@ class RxUtils {
 
         /**
          * 生成Flowable
-
          * @param <T>
-         * *
-         * @return
-        </T> */
+         * @return <T>
+         */
         fun <T> createData(t: List<T>): Flowable<List<T>> =
                 Flowable.create<List<T>>({ emitter ->
                     try {
@@ -75,10 +72,8 @@ class RxUtils {
                     httpResponseFlowable
                             .flatMap<T> { httpResponse ->
                                 if (httpResponse.code == 0) {
-                                    if (httpResponse.data != null)
-                                        return@flatMap createData(httpResponse.data)
-                                    if (httpResponse.result != null)
-                                        return@flatMap createData(httpResponse.result)
+                                    httpResponse.data.let { return@flatMap createData(httpResponse.data) }
+                                    httpResponse.result.let { return@flatMap createData(httpResponse.result) }
                                     return@flatMap Flowable.error <T>(ApiException("服务器返回error"))
                                 } else {
                                     return@flatMap Flowable.error <T>(ApiException("服务器返回error"))
@@ -97,17 +92,14 @@ class RxUtils {
                     httpResponseFlowable
                             .flatMap<List<T>> { httpResponse ->
                                 if (httpResponse.code == 0) {
-                                    if (httpResponse.data != null)
-                                        return@flatMap createData(httpResponse.data!!)
-                                    if (httpResponse.result != null)
-                                        return@flatMap createData(httpResponse.result!!)
+                                    httpResponse.data.let { return@flatMap createData(httpResponse.data!!) }
+                                    httpResponse.result.let { return@flatMap createData(httpResponse.result!!) }
                                     return@flatMap Flowable.error <List<T>>(ApiException("服务器返回error"))
                                 } else {
                                     return@flatMap Flowable.error <List<T>>(ApiException("服务器返回error"))
                                 }
                             }
                 }
-
     }
 }
 
