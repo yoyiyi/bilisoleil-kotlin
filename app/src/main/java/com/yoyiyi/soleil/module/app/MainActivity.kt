@@ -16,14 +16,13 @@ import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.ToastUtils
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSelectedListener {
     private var exitTime = 0L
     private var mCurrentPos = -1
-    private var mFragments: List<Fragment>? = null
-
+    private var mFragments: List<Fragment> = ArrayList()
     override fun getLayoutId(): Int = R.layout.activity_main
-
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         return false
@@ -33,10 +32,6 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
         mFragments = arrayListOf(HomeFragment.newInstance())
 
     }
-
-  /*  override fun initInject() {
-        getActivityComponent().inject(this)
-    }*/
 
     override fun initWidget() {
         disableNavigationViewScrollbars(navView)
@@ -48,9 +43,9 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
     fun switchFragmentIndex(index: Int) {
         val transaction = supportFragmentManager.beginTransaction()
         if (mCurrentPos != -1)
-            transaction.hide(mFragments!![mCurrentPos])
-        if (!mFragments!![index].isAdded()) {
-            transaction.add(R.id.flContent, mFragments!![index])
+            transaction.hide(mFragments[mCurrentPos])
+        if (!mFragments[index].isAdded()) {
+            transaction.add(R.id.flContent, mFragments[index])
         }
         transaction.show(mFragments!![index]).commit()
         mCurrentPos = index
