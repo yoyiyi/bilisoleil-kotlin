@@ -36,7 +36,6 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
         mContext = this
         mToolbar = this.findViewById(R.id.toolbar) as Toolbar?
         mError = this.findViewById(R.id.cl_error) as ConstraintLayout?
-
         initStatusBar()
         initInject()
         initPresenter()
@@ -54,14 +53,9 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
         initDatas()
     }
 
-    /* protected fun toast(msg: String, length: Int = Toast.LENGTH_LONG) {
-         Toast.makeText(this, msg, length).show()
-     }*/
-
-
     fun getActivityModule(): ActivityModule = ActivityModule(this)
 
-    fun getActivityComponent(): ActivityComponent =
+     fun getActivityComponent(): ActivityComponent =
             DaggerActivityComponent.builder()
                     .appComponent(BiliSoleilApplication.appComponent)
                     .activityModule(getActivityModule())
@@ -97,9 +91,8 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
     /**
      * 初始化Presenter
      */
-    fun initPresenter() {
-        mPresenter?.attachView(this as Nothing)
-
+   open fun initPresenter() {
+      //  mPresenter?.attachView(this)
     }
 
 

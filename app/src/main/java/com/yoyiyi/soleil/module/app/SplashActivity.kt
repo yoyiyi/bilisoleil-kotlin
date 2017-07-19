@@ -25,7 +25,8 @@ import javax.inject.Inject
 
 class SplashActivity : RxAppCompatActivity(), SplashContract.View {
 
-    @Inject lateinit var mPresenter: SplashPresenter
+    @Inject
+    lateinit var mPresenter: SplashPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +56,6 @@ class SplashActivity : RxAppCompatActivity(), SplashContract.View {
     override fun onDestroy() {
         mPresenter.detachView()
         super.onDestroy()
-
     }
 
     /**

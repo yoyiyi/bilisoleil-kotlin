@@ -130,7 +130,7 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
      * 初始化Presenter
      */
     private fun initPresenter() {
-        mPresenter?.attachView(this as Nothing)
+//        mPresenter?.attachView(this as Nothing)
     }
 
 

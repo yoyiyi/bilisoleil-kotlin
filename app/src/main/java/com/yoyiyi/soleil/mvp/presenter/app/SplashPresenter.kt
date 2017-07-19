@@ -24,7 +24,7 @@ class SplashPresenter  @Inject constructor(val retrofitHelper: RetrofitHelper) :
                 .map { it -> count - it }
                 .take(count + 1)
                 .compose(RxUtils.rxSchedulerHelper())
-                .subscribe { it -> mView!!.showCountDown(it.toInt()) })
+                .subscribe { it -> mView?.showCountDown(it.toInt()) })
     }
 
     override fun getSplashData() {
@@ -32,11 +32,11 @@ class SplashPresenter  @Inject constructor(val retrofitHelper: RetrofitHelper) :
                 .compose(RxUtils.rxSchedulerHelper())
                 .subscribeWith(object : BaseSubscriber<Splash>(mView) {
                     override fun onSuccess(splash: Splash) {
-                        if (splash.code == 0) mView!!.showSplash(splash)
+                        if (splash.code == 0) mView?.showSplash(splash)
                     }
 
                     override fun onFailure(code: Int, message: String) {
-                        mView!!.showError(message)
+                        mView?.showError(message)
                     }
                 }))
     }

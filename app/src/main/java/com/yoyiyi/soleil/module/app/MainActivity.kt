@@ -34,18 +34,23 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
 
     }
 
+  /*  override fun initInject() {
+        getActivityComponent().inject(this)
+    }*/
+
     override fun initWidget() {
-        disableNavigationViewScrollbars(mNavView)
-        mNavView.setNavigationItemSelectedListener(this)
+        disableNavigationViewScrollbars(navView)
+        navView.setNavigationItemSelectedListener(this)
         switchFragmentIndex(0)//初始化位置
     }
+
 
     fun switchFragmentIndex(index: Int) {
         val transaction = supportFragmentManager.beginTransaction()
         if (mCurrentPos != -1)
             transaction.hide(mFragments!![mCurrentPos])
         if (!mFragments!![index].isAdded()) {
-            transaction.add(R.id.fl_content, mFragments!![index])
+            transaction.add(R.id.flContent, mFragments!![index])
         }
         transaction.show(mFragments!![index]).commit()
         mCurrentPos = index
@@ -59,7 +64,7 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
     private fun disableNavigationViewScrollbars(navigationView: NavigationView?) {
         navigationView.let {
             val navigationMenuView = navigationView?.getChildAt(0) as NavigationMenuView
-            navigationMenuView?.isVerticalFadingEdgeEnabled = false
+            navigationMenuView.isVerticalFadingEdgeEnabled = false
         }
     }
 
