@@ -55,7 +55,7 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
 
     fun getActivityModule(): ActivityModule = ActivityModule(this)
 
-     fun getActivityComponent(): ActivityComponent =
+    fun getActivityComponent(): ActivityComponent =
             DaggerActivityComponent.builder()
                     .appComponent(BiliSoleilApplication.appComponent)
                     .activityModule(getActivityModule())
@@ -91,10 +91,14 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
     /**
      * 初始化Presenter
      */
-   open fun initPresenter() {
-      //  mPresenter?.attachView(this)
+    open fun initPresenter() {
+         // mPresenter?.attachView(this as Nothing)
     }
 
+   /* fun <K : BaseContract.BaseView> attach(k: K) {
+        mPresenter?.attachView(k as Nothing)
+    }
+*/
 
     override fun showError(msg: String) {
         mError?.visibility = View.VISIBLE
