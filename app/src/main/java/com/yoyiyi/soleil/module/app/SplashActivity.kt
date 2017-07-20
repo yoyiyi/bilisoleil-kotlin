@@ -106,7 +106,7 @@ class SplashActivity : RxAppCompatActivity(), SplashContract.View {
             if (urls.isNotEmpty()) {
                 val pos = Random().nextInt(urls.size)
                 Glide.with(this)
-                        .load(splash.data!![pos].thumb)
+                        .load(urls[pos].thumb)
                         //.load("http://i0.hdslb.com/bfs/archive/ba17d4df28fb0c28c8f596082d7328b4415ee28b.png")
                         .centerCrop()
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
