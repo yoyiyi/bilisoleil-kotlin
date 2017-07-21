@@ -35,6 +35,10 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
 
     }
 
+  /*  override fun initInject() {
+        activityComponent.inject(this)
+    }*/
+
     override fun initWidget() {
         disableNavigationViewScrollbars(navView)
         navView.setNavigationItemSelectedListener(this)
@@ -46,7 +50,7 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
         val transaction = supportFragmentManager.beginTransaction()
         if (mCurrentPos != -1)
             transaction.hide(mFragments[mCurrentPos])
-        if (!mFragments[index].isAdded()) {
+        if (!mFragments[index].isAdded) {
             transaction.add(R.id.flContent, mFragments[index])
         }
         transaction.show(mFragments[index]).commit()

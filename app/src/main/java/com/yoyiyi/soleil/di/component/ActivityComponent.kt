@@ -20,7 +20,6 @@ interface ActivityComponent {
 
     fun inject(splashActivity: SplashActivity)
 
-    //fun inject(mainActivity: MainActivity)
 
     /* fun inject(splashActivity: SplashActivity)
 

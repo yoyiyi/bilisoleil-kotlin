@@ -102,7 +102,7 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
      * 初始化Presenter
      */
     open fun initPresenter() {
-       // mPresenter?.attachView(this)
+      //  mPresenter?.attachView(this)
     }
 
     override fun showError(msg: String) {
@@ -117,7 +117,7 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
      * 销毁
      */
     override fun onDestroy() {
-        mPresenter.detachView()
+        mPresenter?.detachView()
         BiliSoleilApplication.instance.removeActivity(this)
         super.onDestroy()
     }
