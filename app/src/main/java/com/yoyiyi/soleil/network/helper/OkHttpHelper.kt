@@ -109,9 +109,12 @@ class OkHttpHelper private constructor() {
                     .removeHeader("User-Agent")
                     .addHeader("User-Agent", ApiConstants.COMMON_UA_STR)
                     .build()
-            return chain!!.proceed(requestWithUserAgent)
+            return chain?.proceed(requestWithUserAgent)
         }
     }
+
+
+
 
     private class RewriteCacheControlInterceptor : Interceptor {
         @Throws(IOException::class)
