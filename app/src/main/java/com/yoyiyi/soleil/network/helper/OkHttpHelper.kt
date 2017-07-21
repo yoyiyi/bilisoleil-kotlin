@@ -103,21 +103,21 @@ class OkHttpHelper private constructor() {
      */
     private class UserAgentInterceptor : Interceptor {
         @Throws(IOException::class)
-        override fun intercept(chain: Interceptor.Chain?): Response {
-            val originalRequest = chain!!.request()
+        override fun intercept(chain: Interceptor.Chain): Response {
+            val originalRequest = chain.request()
             val requestWithUserAgent = originalRequest.newBuilder()
                     .removeHeader("User-Agent")
                     .addHeader("User-Agent", ApiConstants.COMMON_UA_STR)
                     .build()
-            return chain?.proceed(requestWithUserAgent)
+            return chain.proceed(requestWithUserAgent)
         }
     }
 
 
     private class RewriteCacheControlInterceptor : Interceptor {
         @Throws(IOException::class)
-        override fun intercept(chain: Interceptor.Chain?): Response {
-            var request = chain!!.request()
+        override fun intercept(chain: Interceptor.Chain): Response {
+            var request = chain.request()
             if (!NetworkUtils.isConnected(AppUtils.getAppContext())) {
                 request = request.newBuilder().cacheControl(CacheControl.FORCE_CACHE).build()
             }
