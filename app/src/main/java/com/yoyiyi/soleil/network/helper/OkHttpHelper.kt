@@ -94,7 +94,7 @@ class OkHttpHelper private constructor() {
             val cacheDir = File(baseDir, "CopyCache")
             cache = Cache(cacheDir, HTTP_RESPONSE_DISK_CACHE_MAX_SIZE)
         }
-        return cache!!
+        return cache ?: throw IllegalStateException("cache is null")
     }
 
 
@@ -112,8 +112,6 @@ class OkHttpHelper private constructor() {
             return chain?.proceed(requestWithUserAgent)
         }
     }
-
-
 
 
     private class RewriteCacheControlInterceptor : Interceptor {

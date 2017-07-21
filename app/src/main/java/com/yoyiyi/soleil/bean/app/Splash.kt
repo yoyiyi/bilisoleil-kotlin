@@ -3,7 +3,7 @@ package com.yoyiyi.soleil.bean.app
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/7/20 17:15
- * 描述:
+ * 描述:欢迎界面
  */
 data class Splash(var code: Int,
                   var message: String,

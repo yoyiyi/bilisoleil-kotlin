@@ -53,6 +53,8 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
         mCurrentPos = index
     }
 
+
+
     /**
      * 去掉滚动条
 

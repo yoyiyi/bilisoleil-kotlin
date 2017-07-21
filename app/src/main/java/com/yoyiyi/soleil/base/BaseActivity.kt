@@ -29,6 +29,16 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
     protected var mContext: Context? = null//上下文环境
     protected var mBack = true //是否返回
     protected var mError: ConstraintLayout? = null
+    //优先使用属性
+
+    val activityModule: ActivityModule
+        get() = ActivityModule(this)
+
+    val activityComponent: ActivityComponent
+        get() = DaggerActivityComponent.builder()
+                .appComponent(BiliSoleilApplication.appComponent)
+                .activityModule(activityModule)
+                .build()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,21 +55,22 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
             //初始化Toolbar
             initToolbar()
             //让组件支持Toolbar
-            //setSupportActionBar(mToolbar)
-            supportActionBar
+            setSupportActionBar(mToolbar)
+            // supportActionBar
             if (mBack) mToolbar?.setNavigationOnClickListener { finish() }
         }
         initWidget()
         initDatas()
     }
 
-    fun getActivityModule(): ActivityModule = ActivityModule(this)
 
-    fun getActivityComponent(): ActivityComponent =
-            DaggerActivityComponent.builder()
-                    .appComponent(BiliSoleilApplication.appComponent)
-                    .activityModule(getActivityModule())
-                    .build()
+    /* fun getActivityModule(): ActivityModule = ActivityModule(this)
+
+     fun getActivityComponent(): ActivityComponent =
+             DaggerActivityComponent.builder()
+                     .appComponent(BiliSoleilApplication.appComponent)
+                     .activityModule(getActivityModule())
+                     .build()*/
 
     /**
      * 注入依赖
@@ -92,13 +103,13 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
      * 初始化Presenter
      */
     open fun initPresenter() {
-         // mPresenter?.attachView(this as Nothing)
+       // mPresenter?.attachView(this)
     }
 
-   /* fun <K : BaseContract.BaseView> attach(k: K) {
-        mPresenter?.attachView(k as Nothing)
-    }
-*/
+    /* fun <K : BaseContract.BaseView> attach(k: K) {
+         mPresenter?.attachView(k as Nothing)
+     }
+ */
 
     override fun showError(msg: String) {
         mError?.visibility = View.VISIBLE
