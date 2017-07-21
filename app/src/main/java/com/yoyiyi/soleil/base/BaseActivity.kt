@@ -105,11 +105,6 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
        // mPresenter?.attachView(this)
     }
 
-    /* fun <K : BaseContract.BaseView> attach(k: K) {
-         mPresenter?.attachView(k as Nothing)
-     }
- */
-
     override fun showError(msg: String) {
         mError?.visibility = View.VISIBLE
     }
@@ -122,7 +117,7 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
      * 销毁
      */
     override fun onDestroy() {
-        mPresenter?.detachView()
+        mPresenter.detachView()
         BiliSoleilApplication.instance.removeActivity(this)
         super.onDestroy()
     }
@@ -170,9 +165,9 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
      * @param views 视图
      */
     fun gone(vararg views: View) {
-        if (views != null && views.size > 0) {
+        if (views.isNotEmpty()) {
             for (view in views) {
-                view?.visibility = View.GONE
+                view.visibility = View.GONE
             }
         }
     }
@@ -182,9 +177,9 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
      * @param views 视图
      */
     fun visible(vararg views: View) {
-        if (views != null && views.size > 0) {
+        if (views.isNotEmpty()) {
             for (view in views) {
-                view?.visibility = View.VISIBLE
+                view.visibility = View.VISIBLE
             }
         }
     }

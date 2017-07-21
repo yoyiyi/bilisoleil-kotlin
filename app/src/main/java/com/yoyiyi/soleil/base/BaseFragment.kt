@@ -55,7 +55,7 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, state: Bundle?): View? {
         if (mRootView != null) {
             val parent = mRootView?.parent as ViewGroup
-            parent?.removeView(mRootView)
+            parent.removeView(mRootView)
         } else {
             mRootView = inflater?.inflate(getLayoutId(), container, false)
             mActivity = getSupportActivity()
@@ -90,8 +90,8 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
     }
 
     override fun onDestroy() {
+        mPresenter.detachView()
         super.onDestroy()
-        mPresenter?.detachView()
     }
 
     /**
@@ -249,9 +249,9 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
      * @param views 视图
      */
     fun gone(vararg views: View) {
-        if (views != null && views.size > 0) {
+        if (views.isNotEmpty()) {
             for (view in views) {
-                view?.visibility = View.GONE
+                view.visibility = View.GONE
             }
         }
     }
@@ -261,9 +261,9 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
      * @param views 视图
      */
     fun visible(vararg views: View) {
-        if (views != null && views.size > 0) {
+        if (views.isNotEmpty()) {
             for (view in views) {
-                view?.visibility = View.VISIBLE
+                view.visibility = View.VISIBLE
             }
         }
     }
