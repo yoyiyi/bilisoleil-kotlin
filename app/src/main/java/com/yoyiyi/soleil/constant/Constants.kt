@@ -5,28 +5,26 @@ package com.yoyiyi.soleil.constant
  * @date 创建时间：2017/7/13 14:20
  * 描述:常量
  */
-class Constants {
-    companion object {
-        //是否登录过
-        val IS_LOGINED_FLAG = "is_logined_flag"
-        val EXTRA_KEYWORD = "extra_keywork"
+object Constants {
+    //是否登录过
+    const val IS_LOGINED_FLAG = "is_logined_flag"
+    const val EXTRA_KEYWORD = "extra_keywork"
 
-        val EXTRA_PARCELABLE = "extra_parcelable"
-        val EXTRA_TITLE = "extra_title"
-        val EXTRA_TID = "extra_tid"
-        val EXTRA_BUNDLE = "extra_bundle"
-        val EXTRA_RID = "extra_rid"
-        val EXTRA_POSITION = "extra_position"
+    const val EXTRA_PARCELABLE = "extra_parcelable"
+    const val EXTRA_TITLE = "extra_title"
+    const val EXTRA_TID = "extra_tid"
+    const val EXTRA_BUNDLE = "extra_bundle"
+    const val EXTRA_RID = "extra_rid"
+    const val EXTRA_POSITION = "extra_position"
 
-        val EXTRA_TYPE = "extra_type"
+    const val EXTRA_TYPE = "extra_type"
 
-        val EXTRA_URL = "extra_url"
-        val SHOP_URL = "http://bmall.bilibili.com/"
-        val VIP_URL = "http://vip.bilibili.com/site/vip-faq-h5.html#yv1"
-        val BLACK_URL = "https://www.bilibili.com/blackroom/#/"
-        //免流量
-        val BLACK_BOARD_URL = "http://www.bilibili.com/blackboard/activity-unicomopen.html"
-        val EXTRA_SETTING = "extra_setting"
-        val EXTRA_IMAGE = "extra_image"
-    }
+    const val EXTRA_URL = "extra_url"
+    const val SHOP_URL = "http://bmall.bilibili.com/"
+    const val VIP_URL = "http://vip.bilibili.com/site/vip-faq-h5.html#yv1"
+    const val BLACK_URL = "https://www.bilibili.com/blackroom/#/"
+    //免流量
+    const val BLACK_BOARD_URL = "http://www.bilibili.com/blackboard/activity-unicomopen.html"
+    const val EXTRA_SETTING = "extra_setting"
+    const val EXTRA_IMAGE = "extra_image"
 }
