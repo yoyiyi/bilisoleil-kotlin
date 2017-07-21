@@ -30,7 +30,6 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
     protected var mBack = true //是否返回
     protected var mError: ConstraintLayout? = null
     //优先使用属性
-
     val activityModule: ActivityModule
         get() = ActivityModule(this)
 

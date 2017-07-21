@@ -36,6 +36,15 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
     protected var isVisiblez: Boolean = false
     protected var mError: ConstraintLayout? = null
 
+    val fragmentComponent: FragmentModule
+        get() = FragmentModule(this)
+
+    val activityComponent: FragmentComponent
+        get() = DaggerFragmentComponent.builder()
+                .appComponent(BiliSoleilApplication.appComponent)
+                .fragmentModule(fragmentComponent)
+                .build()
+
     override fun onAttach(context: Context?) {
         mActivity = context as Activity?
         mContext = context
@@ -94,7 +103,7 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
     }
 
 
-    protected open fun getFragmentComponent(): FragmentComponent
+    /*protected open fun getFragmentComponent(): FragmentComponent
             = DaggerFragmentComponent.builder()
             .appComponent(BiliSoleilApplication.appComponent)
             .fragmentModule(getFragmentModule())
@@ -102,7 +111,7 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
 
 
     private fun getFragmentModule(): FragmentModule
-            = FragmentModule(this)
+            = FragmentModule(this)*/
 
     /**
      * 初始化RV
