@@ -63,14 +63,6 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
     }
 
 
-    /* fun getActivityModule(): ActivityModule = ActivityModule(this)
-
-     fun getActivityComponent(): ActivityComponent =
-             DaggerActivityComponent.builder()
-                     .appComponent(BiliSoleilApplication.appComponent)
-                     .activityModule(getActivityModule())
-                     .build()*/
-
     /**
      * 注入依赖
      */

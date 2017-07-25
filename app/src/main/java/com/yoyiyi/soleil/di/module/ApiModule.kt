@@ -66,7 +66,7 @@ class ApiModule {
     @Singleton
     @Provides
     fun provideLiveService(@LiveUrl retrofit: Retrofit): LiveService
-            = retrofit.create<LiveService>(LiveService::class.java!!)
+            = retrofit.create<LiveService>(LiveService::class.java)
 
 
     @Singleton
@@ -79,7 +79,7 @@ class ApiModule {
     @Singleton
     @Provides
     fun provideBangumiService(@BangumiUrl retrofit: Retrofit): BangumiService
-            = retrofit.create<BangumiService>(BangumiService::class.java!!)
+            = retrofit.create<BangumiService>(BangumiService::class.java)
 
 
     @Singleton
@@ -92,7 +92,7 @@ class ApiModule {
     @Singleton
     @Provides
     fun provideRankService(@RankUrl retrofit: Retrofit): RankService
-            = retrofit.create<RankService>(RankService::class.java!!)
+            = retrofit.create<RankService>(RankService::class.java)
 
 
     @Singleton
@@ -105,7 +105,7 @@ class ApiModule {
     @Singleton
     @Provides
     fun provideApiService(@ApiUrl retrofit: Retrofit): ApiService
-            = retrofit.create<ApiService>(ApiService::class.java!!)
+            = retrofit.create<ApiService>(ApiService::class.java)
 
 
     @Singleton
@@ -118,6 +118,6 @@ class ApiModule {
     @Singleton
     @Provides
     fun provideIm9Service(@Im9Url retrofit: Retrofit): Im9Service
-            = retrofit.create<Im9Service>(Im9Service::class.java!!)
+            = retrofit.create<Im9Service>(Im9Service::class.java)
 
 }
