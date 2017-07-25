@@ -4,6 +4,7 @@ import android.app.Activity
 import android.support.v4.app.Fragment
 
 import com.yoyiyi.soleil.di.scope.FragmentScope
+import com.yoyiyi.soleil.module.home.LiveFragment
 
 import dagger.Module
 import dagger.Provides
@@ -20,4 +21,5 @@ import dagger.Provides
     @Provides
     @FragmentScope
     fun provideActivity(): Activity = fragment.activity
+
 }

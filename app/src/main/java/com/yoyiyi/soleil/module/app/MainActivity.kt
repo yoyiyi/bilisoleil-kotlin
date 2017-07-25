@@ -25,6 +25,8 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
 
 
     override fun getLayoutId(): Int = R.layout.activity_main
+
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         return false
@@ -35,9 +37,6 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
 
     }
 
-  /*  override fun initInject() {
-        activityComponent.inject(this)
-    }*/
 
     override fun initWidget() {
         disableNavigationViewScrollbars(navView)
@@ -78,7 +77,7 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
     override fun initVariables() {
         initFragment()
         //监听事件
-        RxBus.INSTANCE.toFlowable(Event.StartNavigationEvent::class.java!!)
+        RxBus.get().toFlowable(Event.StartNavigationEvent::class.java)
                 .compose(bindToLifecycle())
                 .subscribe({ it ->
                     if (it.start) {

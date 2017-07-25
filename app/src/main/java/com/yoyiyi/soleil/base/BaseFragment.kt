@@ -28,21 +28,21 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
     lateinit var mPresenter: T
     protected var mRootView: View? = null
     protected var mActivity: Activity? = null
-    protected var inflater: LayoutInflater? = null
+    protected var mInflater: LayoutInflater? = null
     protected var mContext: Context? = null
     // 标志位 标志已经初始化完成。
-    protected var isPrepared: Boolean = false
+    protected var mIsPrepared: Boolean = false
     //标志位 fragment是否可见
-    protected var isVisiblez: Boolean = false
+    protected var mIsVisible: Boolean = false
     protected var mError: ConstraintLayout? = null
 
-    val fragmentComponent: FragmentModule
+    val fragmentModule: FragmentModule
         get() = FragmentModule(this)
 
-    val activityComponent: FragmentComponent
+    val fragmentComponent: FragmentComponent
         get() = DaggerFragmentComponent.builder()
                 .appComponent(BiliSoleilApplication.appComponent)
-                .fragmentModule(fragmentComponent)
+                .fragmentModule(fragmentModule)
                 .build()
 
     override fun onAttach(context: Context?) {
@@ -60,7 +60,7 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
             mRootView = inflater?.inflate(getLayoutId(), container, false)
             mActivity = getSupportActivity()
             mContext = mActivity
-            this.inflater = inflater
+            this.mInflater = inflater
         }
         return mRootView
     }
@@ -70,7 +70,7 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
         initInject()
         initPresenter()
         initVariables()
-        mError = mActivity?.findViewById(R.id.cl_error) as ConstraintLayout?
+        mError = mRootView?.findViewById(R.id.cl_error) as ConstraintLayout?
         initWidget()
         finishCreateView(savedInstanceState)
         initDatas()
@@ -84,8 +84,8 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
         loadData()
     }
 
-    fun finishCreateView(state: Bundle?) {
-        isPrepared = true
+    open fun finishCreateView(state: Bundle?) {
+        mIsPrepared = true
         lazyLoad()
     }
 
@@ -102,16 +102,6 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
         super.onDetach()
     }
 
-
-    /*protected open fun getFragmentComponent(): FragmentComponent
-            = DaggerFragmentComponent.builder()
-            .appComponent(BiliSoleilApplication.appComponent)
-            .fragmentModule(getFragmentModule())
-            .build()
-
-
-    private fun getFragmentModule(): FragmentModule
-            = FragmentModule(this)*/
 
     /**
      * 初始化RV
@@ -138,7 +128,7 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
     /**
      * 初始化Presenter
      */
-    private fun initPresenter() {
+    protected open fun initPresenter() {
 //        mPresenter?.attachView(this as Nothing)
     }
 
@@ -151,10 +141,10 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
     /**
      * 懒加载
      */
-    protected fun lazyLoad() {
-        if (!isPrepared || !isVisible) return
+    protected open fun lazyLoad() {
+        if (!mIsPrepared || !mIsVisible) return@lazyLoad
         lazyLoadData()
-        isPrepared = false
+        mIsPrepared = false
     }
 
     protected open fun onInvisible() {
@@ -182,7 +172,7 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
     }
 
 
-    protected fun finishTask() {
+    protected open fun finishTask() {
 
     }
 
@@ -211,10 +201,10 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
         if (userVisibleHint) {
-            isVisiblez = true
+            mIsVisible = true
             onVisible()
         } else {
-            isVisiblez = false
+            mIsVisible = false
             onInvisible()
         }
     }

@@ -34,7 +34,7 @@ class HomeFragment : BaseHomeFragment() {
         llNavigation.setOnClickListener {
             val event = Event.StartNavigationEvent()
             event.start = true
-            RxBus.INSTANCE.post(event)
+            RxBus.get().post(event)
         }
     }
 
@@ -58,6 +58,6 @@ class HomeFragment : BaseHomeFragment() {
         viewPager.offscreenPageLimit = 5
         viewPager.adapter = adapter
         stlTabs.setViewPager(viewPager)
-        viewPager.currentItem = 1
+        viewPager.currentItem = 0
     }
 }

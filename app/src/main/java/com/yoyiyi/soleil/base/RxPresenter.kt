@@ -23,7 +23,7 @@ open class RxPresenter<T : BaseContract.BaseView> : BaseContract.BasePresenter<T
     }
 
     fun <K> addRxBusSubscribe(eventType: Class<K>, act: Consumer<K>) {
-        mCompositeDisposable?.add(RxBus.INSTANCE.toDefaultFlowable(eventType, act)) ?: CompositeDisposable()
+        mCompositeDisposable?.add(RxBus.get().toDefaultFlowable(eventType, act)) ?: CompositeDisposable()
     }
 
     override fun detachView() {
