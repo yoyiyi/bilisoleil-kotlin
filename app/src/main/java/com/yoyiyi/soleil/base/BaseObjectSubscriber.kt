@@ -55,7 +55,7 @@ abstract class BaseObjectSubscriber<T>(private val view: BaseContract.BaseView?)
 
     override fun onError(e: Throwable) {
         view?.let {
-            if (msg != null && !TextUtils.isEmpty(msg)) view.showError(msg!!)
+            if (msg != null && !TextUtils.isEmpty(msg)) view.showError(msg)
             else {
                 when (e) {
                     is ApiException -> view.showError(e.toString())
