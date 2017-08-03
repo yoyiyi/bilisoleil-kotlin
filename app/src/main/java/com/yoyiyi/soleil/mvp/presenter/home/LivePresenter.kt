@@ -11,13 +11,13 @@ import javax.inject.Inject
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
- * *
+ *
  * @date 创建时间：2017/5/23 22:04
- * * 描述:首页直播Presenter
+ * 描述:首页直播Presenter
  */
 class LivePresenter @Inject constructor(val retrofitHelper: RetrofitHelper) : RxPresenter<LiveContract.View>(), LiveContract.Presenter<LiveContract.View> {
     override fun getLiveData() {
-        val subscriber = retrofitHelper.getLivePartition()
+        addSubscribe(retrofitHelper.getLivePartition()
                 .compose(RxUtils.handleResult())
                 .flatMap({ livePartition ->
                     mView?.showLivePartition(livePartition)
@@ -28,8 +28,6 @@ class LivePresenter @Inject constructor(val retrofitHelper: RetrofitHelper) : Rx
                     override fun onSuccess(liveRecommend: LiveRecommend) {
                         mView?.showLiveRecommend(liveRecommend)
                     }
-                })
-        addSubscribe(subscriber)
+                }))
     }
-
 }
