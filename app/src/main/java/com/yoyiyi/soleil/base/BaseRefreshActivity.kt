@@ -2,6 +2,7 @@ package com.yoyiyi.soleil.base
 
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.RecyclerView
+import android.view.View
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.ToastUtils
@@ -10,9 +11,9 @@ import java.util.*
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
- * *
+ *
  * @date 创建时间：2017/6/5 22:43
- * * 描述:基础刷新Activity
+ * 描述:基础刷新Activity
  */
 abstract class BaseRefreshActivity<T : BaseContract.BasePresenter<*>, K> : BaseActivity<T>(), SwipeRefreshLayout.OnRefreshListener {
     protected var mRecycler: RecyclerView? = null
@@ -22,7 +23,7 @@ abstract class BaseRefreshActivity<T : BaseContract.BasePresenter<*>, K> : BaseA
     private var mLoading: ProgressWheel? = null
 
     protected fun initRefreshLayout() {
-        if (mRefresh != null) {
+        mRefresh?.let {
             mRefresh?.setColorSchemeResources(R.color.colorPrimary)
             mRecycler?.post {
                 mRefresh?.isRefreshing = true
@@ -34,14 +35,9 @@ abstract class BaseRefreshActivity<T : BaseContract.BasePresenter<*>, K> : BaseA
 
 
     override fun initWidget() {
-        findViewById(R.id.refresh)
-        findViewById(R.id.recycler)
-        findViewById(R.id.pw_loading)
-
-      /*  mRefresh = ButterKnife.findById(this, R.id.refresh)
-        mRecycler = ButterKnife.findById(this, R.id.recycler)
-        //加载框
-        mLoading = ButterKnife.findById(this, R.id.pw_loading)*/
+        mRefresh = findViewById(R.id.refresh) as SwipeRefreshLayout?
+        mRecycler = findViewById(R.id.recycler) as RecyclerView?
+        mLoading = findViewById(R.id.pw_loading) as ProgressWheel?
         initRefreshLayout()
         initRecyclerView()
     }
@@ -57,34 +53,27 @@ abstract class BaseRefreshActivity<T : BaseContract.BasePresenter<*>, K> : BaseA
 
     override fun complete() {
         super.complete()
-        AppUtils.runOnUIDelayed({
-            if (mRefresh != null)
-                mRefresh!!.isRefreshing = false
-        }, 650)
+        AppUtils.runOnUIDelayed({ mRefresh?.isRefreshing = false }, 650)
         if (mIsRefreshing) {
-            if (mList != null) mList!!.clear()
+            mList?.clear()
             clear()
             ToastUtils.showSingleLongToast("刷新成功")
         }
         mIsRefreshing = false
-
-        if (mLoading != null) {
-            gone(mLoading!!)
-        }
+        mLoading?.visibility = View.GONE
     }
 
     protected fun clear() {
 
     }
 
-     override fun initDatas() {
-        if (mRefresh == null) {//
-            if (mLoading != null) {
-                visible(mLoading!!)
+    override fun initDatas() {
+        mRefresh?.let {
+            mLoading?.let {
+                mLoading?.visibility = View.VISIBLE
                 AppUtils.runOnUIDelayed({ loadData() }, 650)
-            } else {
-                super.initDatas()
-            }
+            } ?: super.initDatas()
+
         }
     }
 }

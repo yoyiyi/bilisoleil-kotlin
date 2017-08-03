@@ -68,14 +68,18 @@ class BiliSoleilApplication : Application() {
      * @param act act
      */
     fun addActivity(act: Activity) {
-        allActivities?.add(act) ?: HashSet<Activity>()
+        if (allActivities == null) {
+            allActivities = HashSet<Activity>()
+        } else {
+            allActivities?.add(act)
+        }
     }
 
     /**
      * 移除Activity
      * @param act act
      */
-    fun removeActivity(act: Activity?) {
+    fun removeActivity(act: Activity) {
         allActivities?.remove(act)
     }
 
@@ -84,8 +88,8 @@ class BiliSoleilApplication : Application() {
      */
     fun exitApp() {
         allActivities.let {
-            synchronized(lock = allActivities!!){
-                for (act in allActivities!!){
+            synchronized(lock = allActivities!!) {
+                for (act in allActivities!!) {
                     act.finish()
                 }
             }
