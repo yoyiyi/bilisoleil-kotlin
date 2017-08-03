@@ -109,7 +109,7 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
      * 销毁
      */
     override fun onDestroy() {
-        mPresenter?.detachView()
+        mPresenter.detachView()
         BiliSoleilApplication.instance.removeActivity(this)
         super.onDestroy()
     }

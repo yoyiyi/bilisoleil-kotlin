@@ -31,8 +31,8 @@ class SplashPresenter  @Inject constructor(val retrofitHelper: RetrofitHelper) :
         addSubscribe(retrofitHelper.getSplash()
                 .compose(RxUtils.rxSchedulerHelper())
                 .subscribeWith(object : BaseSubscriber<Splash>(mView) {
-                    override fun onSuccess(splash: Splash) {
-                        if (splash.code == 0) mView?.showSplash(splash)
+                    override fun onSuccess(t: Splash) {
+                        if (t.code == 0) mView?.showSplash(t)
                     }
 
                     override fun onFailure(code: Int, message: String) {

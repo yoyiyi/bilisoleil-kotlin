@@ -12,17 +12,17 @@ import io.reactivex.processors.PublishProcessor
  * @date 创建时间：2017/4/7 15:50
  * 描述:RxBus类
  */
-class RxBus private constructor(val bus: FlowableProcessor<Any> = PublishProcessor.create<Any>().toSerialized())// PublishSubject只会把在订阅发生的时间点之后来自原始Flowable的数据发射给观察者
-{
+// PublishSubject只会把在订阅发生的时间点之后来自原始Flowable的数据发射给观察者
+class RxBus private constructor(val bus: FlowableProcessor<Any> = PublishProcessor.create<Any>().toSerialized()) {
 
     companion object {
         fun get(): RxBus {
-            return Inner.anotherSingle
+            return Inner.single
         }
     }
 
     private object Inner {
-        val anotherSingle = RxBus()
+        val single = RxBus()
     }
 
     // 提供了一个新的事件 发射数据
@@ -31,12 +31,10 @@ class RxBus private constructor(val bus: FlowableProcessor<Any> = PublishProcess
     }
 
     // 根据传递的 eventType 类型返回特定类型(eventType)的 被观察者
-    fun <T> toFlowable(eventType: Class<T>): Flowable<T> {
-        return bus.ofType(eventType)
-    }
+    fun <T> toFlowable(eventType: Class<T>): Flowable<T> = bus.ofType(eventType)
+
 
     //封装默认订阅
-    fun <T> toDefaultFlowable(eventType: Class<T>, act: Consumer<T>): Disposable {
-        return bus.ofType(eventType).compose(RxUtils.rxSchedulerHelper<T>()).subscribe(act)
-    }
+    fun <T> toDefaultFlowable(eventType: Class<T>, act: Consumer<T>): Disposable = bus.ofType(eventType).compose(RxUtils.rxSchedulerHelper<T>()).subscribe(act)
+
 }

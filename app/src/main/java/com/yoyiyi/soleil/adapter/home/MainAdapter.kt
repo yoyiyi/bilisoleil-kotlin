@@ -9,15 +9,14 @@ import com.yoyiyi.soleil.utils.AppUtils
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
- * *
+ *
  * @date 创建时间：2017/5/23 18:25
- * * 描述:主页Tag
+ * 描述:主页Tag
  */
 
 class MainAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     private val mTitle = AppUtils.getStringArray(R.array.main_title)
     private val mFragment = arrayOfNulls<Fragment>(mTitle.size)
-
 
     override fun getItem(position: Int): Fragment? {
         if (mFragment[position] == null) {
@@ -40,8 +39,7 @@ class MainAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
                 5 ->
                     //发现
                     mFragment[position] = LiveFragment.newInstance()
-                else -> {
-                }
+                else -> { }
             }
         }
         return mFragment[position]
