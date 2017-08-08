@@ -8,6 +8,8 @@ import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.adapter.home.MainAdapter
 import com.yoyiyi.soleil.event.Event
 import com.yoyiyi.soleil.rx.RxBus
+import kotlinx.android.synthetic.main.activity_search.view.*
+import kotlinx.android.synthetic.main.common_entrance_toolbar.view.*
 import kotlinx.android.synthetic.main.layout_main_toolbar.*
 
 /**

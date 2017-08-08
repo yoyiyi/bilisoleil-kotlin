@@ -102,7 +102,7 @@ class SplashActivity : RxAppCompatActivity(), SplashContract.View {
 
     override fun showSplash(splash: Splash) {
         val urls = splash.data
-        urls?.let {
+        urls.let {
             if (urls.isNotEmpty()) {
                 val pos = Random().nextInt(urls.size)
                 Glide.with(this)

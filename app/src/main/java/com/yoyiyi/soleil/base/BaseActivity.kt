@@ -27,13 +27,13 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
     lateinit var mPresenter: T
     protected var mToolbar: Toolbar? = null//Toolbar
     protected var mContext: Context? = null//上下文环境
-    protected var mBack = true //是否返回
+    protected open val mBack = true //是否返回
     protected var mError: ConstraintLayout? = null
     //优先使用属性
-    val activityModule: ActivityModule
+    protected val activityModule: ActivityModule
         get() = ActivityModule(this)
 
-    val activityComponent: ActivityComponent
+    protected val activityComponent: ActivityComponent
         get() = DaggerActivityComponent.builder()
                 .appComponent(BiliSoleilApplication.appComponent)
                 .activityModule(activityModule)
@@ -94,7 +94,7 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
      * 初始化Presenter
      */
     open fun initPresenter() {
-      //  mPresenter?.attachView(this)
+        //  mPresenter?.attachView(this)
     }
 
     override fun showError(msg: String) {

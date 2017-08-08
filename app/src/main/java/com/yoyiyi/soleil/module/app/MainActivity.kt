@@ -16,13 +16,11 @@ import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.ToastUtils
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 
 class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSelectedListener {
     private var exitTime = 0L
     private var mCurrentPos = -1
-    private var mFragments: List<Fragment> = ArrayList()
-
+    private var mFragments: List<Fragment> = arrayListOf()
 
     override fun getLayoutId(): Int = R.layout.activity_main
 
@@ -39,6 +37,7 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
 
 
     override fun initWidget() {
+
         disableNavigationViewScrollbars(navView)
         navView.setNavigationItemSelectedListener(this)
         switchFragmentIndex(0)//初始化位置
@@ -55,7 +54,6 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
         transaction.show(mFragments[index]).commit()
         mCurrentPos = index
     }
-
 
 
     /**
