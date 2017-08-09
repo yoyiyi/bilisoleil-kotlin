@@ -26,13 +26,13 @@ object OkHttpHelper {
     @Volatile var mOkHttpClient: OkHttpClient
 
     //读取时间
-    const val DEFAULT_READ_TIMEOUT_MILLIS = (20 * 1000).toLong()
+    const val DEFAULT_READ_TIMEOUT_MILLIS = 20_000L
     //写入时间
-    const val DEFAULT_WRITE_TIMEOUT_MILLIS = (20 * 1000).toLong()
+    const val DEFAULT_WRITE_TIMEOUT_MILLIS = 20_000L
     //超时时间
-    const val DEFAULT_CONNECT_TIMEOUT_MILLIS = (20 * 1000).toLong()
+    const val DEFAULT_CONNECT_TIMEOUT_MILLIS = 20_000L
     //最大缓存
-    const private val HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = (20 * 1024 * 1024).toLong()//设置20M
+    const private val HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = 20_000_000L //设置20M
     //长缓存有效期为7天
     const val CACHE_STALE_LONG = (60 * 60 * 24 * 7).toLong()
 
@@ -83,14 +83,12 @@ object OkHttpHelper {
      * @return cache
      */
     fun getCache(context: Context): Cache {
-        var cache: Cache? = null
+        var cache: Cache?
         val path = FileUtils.createRootPath(context)
         val baseDir = File(path)
-        if (baseDir != null) {
-            val cacheDir = File(baseDir, "CopyCache")
-            cache = Cache(cacheDir, HTTP_RESPONSE_DISK_CACHE_MAX_SIZE)
-        }
-        return cache ?: throw IllegalStateException("cache is null")
+        val cacheDir = File(baseDir, "CopyCache")
+        cache = Cache(cacheDir, HTTP_RESPONSE_DISK_CACHE_MAX_SIZE)
+        return cache
     }
 
 
