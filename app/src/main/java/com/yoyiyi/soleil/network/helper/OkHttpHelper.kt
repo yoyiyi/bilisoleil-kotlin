@@ -24,7 +24,6 @@ import java.util.concurrent.TimeUnit
  */
 object OkHttpHelper {
     @Volatile var mOkHttpClient: OkHttpClient
-
     //读取时间
     const val DEFAULT_READ_TIMEOUT_MILLIS = 20_000L
     //写入时间
@@ -83,7 +82,7 @@ object OkHttpHelper {
      * @return cache
      */
     fun getCache(context: Context): Cache {
-        var cache: Cache?
+        val cache: Cache?
         val path = FileUtils.createRootPath(context)
         val baseDir = File(path)
         val cacheDir = File(baseDir, "CopyCache")
