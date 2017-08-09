@@ -22,26 +22,22 @@ import java.util.concurrent.TimeUnit
 /**
  * 全局统一使用的OkHttpClient工具，okhttp版本：okhttp3
  */
-class OkHttpHelper private constructor() {
+object OkHttpHelper {
     @Volatile var mOkHttpClient: OkHttpClient
 
-    companion object {
-        //读取时间
-        const val DEFAULT_READ_TIMEOUT_MILLIS = (20 * 1000).toLong()
-        //写入时间
-        const val DEFAULT_WRITE_TIMEOUT_MILLIS = (20 * 1000).toLong()
-        //超时时间
-        const val DEFAULT_CONNECT_TIMEOUT_MILLIS = (20 * 1000).toLong()
-        //最大缓存
-        const private val HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = (20 * 1024 * 1024).toLong()//设置20M
-        //长缓存有效期为7天
-        const val CACHE_STALE_LONG = (60 * 60 * 24 * 7).toLong()
-        val okHttpHelper: OkHttpHelper = OkHttpHelper()//单例模式
-    }
+    //读取时间
+    const val DEFAULT_READ_TIMEOUT_MILLIS = (20 * 1000).toLong()
+    //写入时间
+    const val DEFAULT_WRITE_TIMEOUT_MILLIS = (20 * 1000).toLong()
+    //超时时间
+    const val DEFAULT_CONNECT_TIMEOUT_MILLIS = (20 * 1000).toLong()
+    //最大缓存
+    const private val HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = (20 * 1024 * 1024).toLong()//设置20M
+    //长缓存有效期为7天
+    const val CACHE_STALE_LONG = (60 * 60 * 24 * 7).toLong()
 
     init {
         val loggingInterceptor = HttpLoggingInterceptor()
-        //var okHttpClient: OkHttpClient
         //包含header、body数据
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         mOkHttpClient = OkHttpClient.Builder()

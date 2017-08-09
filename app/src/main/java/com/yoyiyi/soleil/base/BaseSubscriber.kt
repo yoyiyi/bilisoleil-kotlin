@@ -1,6 +1,5 @@
 package com.yoyiyi.soleil.base
 
-import android.text.TextUtils
 import com.yoyiyi.soleil.network.exception.ApiException
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.LogUtils
@@ -52,7 +51,7 @@ abstract class BaseSubscriber<T>(private val view: BaseContract.BaseView?) : Res
 
     override fun onError(e: Throwable) {
         view?.let {
-            if (msg != null && !TextUtils.isEmpty(msg)) view.showError(msg!!)
+            if (!msg.isNullOrEmpty()) view.showError(msg!!)
             else {
                 when (e) {
                     is ApiException -> view.showError(e.toString())

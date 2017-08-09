@@ -13,7 +13,6 @@ import com.trello.rxlifecycle2.components.support.RxFragment
 import com.yoyiyi.soleil.BiliSoleilApplication
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.di.component.DaggerFragmentComponent
-import com.yoyiyi.soleil.di.component.FragmentComponent
 import com.yoyiyi.soleil.di.module.FragmentModule
 import javax.inject.Inject
 
@@ -36,14 +35,12 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
     protected var mIsVisible: Boolean = false
     protected var mError: ConstraintLayout? = null
 
-    val fragmentModule: FragmentModule
-        get() = FragmentModule(this)
+    val fragmentModule get() = FragmentModule(this)
 
-    val fragmentComponent: FragmentComponent
-        get() = DaggerFragmentComponent.builder()
-                .appComponent(BiliSoleilApplication.appComponent)
-                .fragmentModule(fragmentModule)
-                .build()
+    val fragmentComponent get() = DaggerFragmentComponent.builder()
+            .appComponent(BiliSoleilApplication.appComponent)
+            .fragmentModule(fragmentModule)
+            .build()
 
     override fun onAttach(context: Context?) {
         mActivity = context as Activity?

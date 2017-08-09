@@ -9,7 +9,6 @@ import android.view.View
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.yoyiyi.soleil.BiliSoleilApplication
 import com.yoyiyi.soleil.R
-import com.yoyiyi.soleil.di.component.ActivityComponent
 import com.yoyiyi.soleil.di.component.DaggerActivityComponent
 import com.yoyiyi.soleil.di.module.ActivityModule
 import com.yoyiyi.soleil.utils.AppUtils
@@ -30,11 +29,9 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
     protected open val mBack = true //是否返回
     protected var mError: ConstraintLayout? = null
     //优先使用属性
-    protected val activityModule: ActivityModule
-        get() = ActivityModule(this)
+    protected val activityModule get() = ActivityModule(this)
 
-    protected val activityComponent: ActivityComponent
-        get() = DaggerActivityComponent.builder()
+    protected val activityComponent get() = DaggerActivityComponent.builder()
                 .appComponent(BiliSoleilApplication.appComponent)
                 .activityModule(activityModule)
                 .build()
