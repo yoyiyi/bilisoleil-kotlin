@@ -75,7 +75,7 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
     override fun initVariables() {
         initFragment()
         //监听事件
-        RxBus.get().toFlowable(Event.StartNavigationEvent::class.java)
+        RxBus.toFlowable(Event.StartNavigationEvent::class.java)
                 .compose(bindToLifecycle())
                 .subscribe({ it ->
                     if (it.start) {

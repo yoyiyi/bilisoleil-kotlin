@@ -72,8 +72,8 @@ class RxUtils {
                     httpResponseFlowable
                             .flatMap<T> { httpResponse ->
                                 if (httpResponse.code == 0) {
-                                    httpResponse.data.let { return@flatMap createData(httpResponse.data) }
-                                    httpResponse.result.let { return@flatMap createData(httpResponse.result) }
+                                    httpResponse.data?.let { return@flatMap createData(httpResponse.data) }
+                                    httpResponse.result?.let { return@flatMap createData(httpResponse.result) }
                                     return@flatMap Flowable.error <T>(ApiException("服务器返回error"))
                                 } else {
                                     return@flatMap Flowable.error <T>(ApiException("服务器返回error"))
@@ -92,8 +92,8 @@ class RxUtils {
                     httpResponseFlowable
                             .flatMap<List<T>> { httpResponse ->
                                 if (httpResponse.code == 0) {
-                                    httpResponse.data.let { return@flatMap createData(httpResponse.data!!) }
-                                    httpResponse.result.let { return@flatMap createData(httpResponse.result!!) }
+                                    httpResponse.data?.let { return@flatMap createData(httpResponse.data!!) }
+                                    httpResponse.result?.let { return@flatMap createData(httpResponse.result!!) }
                                     return@flatMap Flowable.error <List<T>>(ApiException("服务器返回error"))
                                 } else {
                                     return@flatMap Flowable.error <List<T>>(ApiException("服务器返回error"))
