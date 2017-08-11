@@ -87,7 +87,7 @@ class BiliSoleilApplication : Application() {
      * 退出应用
      */
     fun exitApp() {
-        allActivities.let {
+        allActivities?.let {
             synchronized(lock = allActivities!!) {
                 for (act in allActivities!!) {
                     act.finish()

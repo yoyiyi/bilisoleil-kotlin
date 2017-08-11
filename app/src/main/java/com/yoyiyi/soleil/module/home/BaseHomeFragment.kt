@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.base.BaseFragment
+import org.jetbrains.anko.find
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -28,7 +29,7 @@ abstract class BaseHomeFragment : BaseFragment<Nothing>() {
 
     @SuppressLint("CheckResult")
     private fun initToolbar() {
-        mToolbar = mRootView?.findViewById(R.id.toolbar) as Toolbar?
+        mToolbar = mRootView?.find<Toolbar>(R.id.toolbar)
         mToolbar.let {
             mToolbar?.title = ""
             (activity as AppCompatActivity).setSupportActionBar(mToolbar)

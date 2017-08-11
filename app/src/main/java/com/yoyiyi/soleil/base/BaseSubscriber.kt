@@ -45,7 +45,7 @@ abstract class BaseSubscriber<T>(private val view: BaseContract.BaseView?) : Res
         view?.let {
             view.complete()
             onSuccess(response)
-        } ?: return
+        } ?: return@onNext
     }
 
 
