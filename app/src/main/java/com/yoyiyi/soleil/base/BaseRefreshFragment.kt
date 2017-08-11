@@ -5,8 +5,8 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.RecyclerView
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.utils.AppUtils
-import com.yoyiyi.soleil.utils.ToastUtils
 import org.jetbrains.anko.find
+import org.jetbrains.anko.toast
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -64,7 +64,7 @@ abstract class BaseRefreshFragment<T : BaseContract.BasePresenter<*>, K> : BaseF
         if (mIsRefreshing) {
             mList.clear()
             clear()
-            ToastUtils.showSingleLongToast("刷新成功")
+            activity.toast("刷新成功")
         }
         mIsRefreshing = false
     }

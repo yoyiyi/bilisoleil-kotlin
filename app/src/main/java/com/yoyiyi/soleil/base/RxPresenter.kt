@@ -1,7 +1,6 @@
 package com.yoyiyi.soleil.base
 
 import com.yoyiyi.soleil.rx.RxBus
-import com.yoyiyi.soleil.rx.RxBus.toDefaultFlowable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.Consumer
@@ -21,7 +20,7 @@ open class RxPresenter<T : BaseContract.BaseView> : BaseContract.BasePresenter<T
 
     fun addSubscribe(disposable: Disposable) {
         if (mCompositeDisposable == null) {
-            mCompositeDisposable = CompositeDisposable();
+            mCompositeDisposable = CompositeDisposable()
         } else {
             mCompositeDisposable?.add(disposable)
         }
@@ -29,7 +28,7 @@ open class RxPresenter<T : BaseContract.BaseView> : BaseContract.BasePresenter<T
 
     fun <K> addRxBusSubscribe(eventType: Class<K>, act: Consumer<K>) {
         if (mCompositeDisposable == null) {
-            mCompositeDisposable = CompositeDisposable();
+            mCompositeDisposable = CompositeDisposable()
         } else {
             mCompositeDisposable?.add(RxBus.toDefaultFlowable(eventType, act))
         }

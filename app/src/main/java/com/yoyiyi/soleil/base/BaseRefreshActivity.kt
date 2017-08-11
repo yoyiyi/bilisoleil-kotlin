@@ -5,9 +5,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.utils.AppUtils
-import com.yoyiyi.soleil.utils.ToastUtils
 import com.yoyiyi.soleil.widget.ProgressWheel
 import org.jetbrains.anko.find
+import org.jetbrains.anko.toast
 import java.util.*
 
 /**
@@ -58,7 +58,7 @@ abstract class BaseRefreshActivity<T : BaseContract.BasePresenter<*>, K> : BaseA
         if (mIsRefreshing) {
             mList?.clear()
             clear()
-            ToastUtils.showSingleLongToast("刷新成功")
+            toast("刷新成功")
         }
         mIsRefreshing = false
         mLoading?.visibility = View.GONE
