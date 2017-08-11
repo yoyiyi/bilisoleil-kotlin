@@ -60,9 +60,7 @@ abstract class BaseRefreshFragment<T : BaseContract.BasePresenter<*>, K> : BaseF
 
     override fun complete() {
         super.complete()
-        AppUtils.runOnUIDelayed({
-            mRefresh.let { mRefresh?.isRefreshing = false }
-        }, 650)
+        AppUtils.runOnUIDelayed({ mRefresh?.let { mRefresh?.isRefreshing = false } }, 650)
         if (mIsRefreshing) {
             mList.clear()
             clear()
