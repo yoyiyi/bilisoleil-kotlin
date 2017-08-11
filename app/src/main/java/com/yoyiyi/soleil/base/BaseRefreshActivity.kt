@@ -7,6 +7,7 @@ import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.ToastUtils
 import com.yoyiyi.soleil.widget.ProgressWheel
+import org.jetbrains.anko.find
 import java.util.*
 
 /**
@@ -35,9 +36,9 @@ abstract class BaseRefreshActivity<T : BaseContract.BasePresenter<*>, K> : BaseA
 
 
     override fun initWidget() {
-        mRefresh = findViewById(R.id.refresh) as SwipeRefreshLayout?
-        mRecycler = findViewById(R.id.recycler) as RecyclerView?
-        mLoading = findViewById(R.id.pw_loading) as ProgressWheel?
+        mRefresh = find<SwipeRefreshLayout>(R.id.refresh)
+        mRecycler = find<RecyclerView>(R.id.recycler)
+        mLoading = find<ProgressWheel>(R.id.pw_loading)
         initRefreshLayout()
         initRecyclerView()
     }

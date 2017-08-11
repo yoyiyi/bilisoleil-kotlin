@@ -9,10 +9,12 @@ import android.view.View
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.yoyiyi.soleil.BiliSoleilApplication
 import com.yoyiyi.soleil.R
+import com.yoyiyi.soleil.di.component.ActivityComponent
 import com.yoyiyi.soleil.di.component.DaggerActivityComponent
 import com.yoyiyi.soleil.di.module.ActivityModule
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil
+import org.jetbrains.anko.find
 import javax.inject.Inject
 
 
@@ -31,17 +33,17 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
     //优先使用属性
     protected val activityModule get() = ActivityModule(this)
 
-    protected val activityComponent get() = DaggerActivityComponent.builder()
-                .appComponent(BiliSoleilApplication.appComponent)
-                .activityModule(activityModule)
-                .build()
+    protected val activityComponent: ActivityComponent get() = DaggerActivityComponent.builder()
+            .appComponent(BiliSoleilApplication.appComponent)
+            .activityModule(activityModule)
+            .build()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
         mContext = this
-        mToolbar = this.findViewById(R.id.toolbar) as Toolbar?
-        mError = this.findViewById(R.id.cl_error) as ConstraintLayout?
+        mToolbar = find<Toolbar>(R.id.toolbar)
+        mError = find<ConstraintLayout>(R.id.cl_error)
         initStatusBar()
         initInject()
         initPresenter()

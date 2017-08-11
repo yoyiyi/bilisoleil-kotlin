@@ -1,6 +1,5 @@
 package com.yoyiyi.soleil.base
 
-import android.text.TextUtils
 import com.yoyiyi.soleil.network.exception.ApiException
 import com.yoyiyi.soleil.network.response.HttpResponse
 import com.yoyiyi.soleil.utils.AppUtils
@@ -18,8 +17,14 @@ import java.net.SocketTimeoutException
  */
 
 abstract class BaseObjectSubscriber<T>(private val view: BaseContract.BaseView?) : ResourceSubscriber<HttpResponse<T>>() {
-    private val msg: String? = null
 
+
+    private var msg: String? = null
+
+
+    constructor(view: BaseContract.BaseView?, msg: String?) : this(view) {
+        this.msg = msg
+    }
 
     abstract fun onSuccess(t: T)
 

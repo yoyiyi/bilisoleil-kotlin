@@ -13,7 +13,9 @@ import com.trello.rxlifecycle2.components.support.RxFragment
 import com.yoyiyi.soleil.BiliSoleilApplication
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.di.component.DaggerFragmentComponent
+import com.yoyiyi.soleil.di.component.FragmentComponent
 import com.yoyiyi.soleil.di.module.FragmentModule
+import org.jetbrains.anko.find
 import javax.inject.Inject
 
 /**
@@ -37,7 +39,7 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
 
     val fragmentModule get() = FragmentModule(this)
 
-    val fragmentComponent get() = DaggerFragmentComponent.builder()
+    val fragmentComponent: FragmentComponent get() = DaggerFragmentComponent.builder()
             .appComponent(BiliSoleilApplication.appComponent)
             .fragmentModule(fragmentModule)
             .build()
@@ -67,7 +69,7 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
         initInject()
         initPresenter()
         initVariables()
-        mError = mRootView?.findViewById(R.id.cl_error) as ConstraintLayout?
+        mError = mRootView?.find<ConstraintLayout>(R.id.cl_error)
         initWidget()
         finishCreateView(savedInstanceState)
         initDatas()

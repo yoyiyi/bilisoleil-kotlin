@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.ToastUtils
+import org.jetbrains.anko.find
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -43,14 +44,14 @@ abstract class BaseRefreshFragment<T : BaseContract.BasePresenter<*>, K> : BaseF
     }
 
     override fun finishCreateView(state: Bundle?) {
-        mRefresh = mRootView?.findViewById(R.id.refresh) as SwipeRefreshLayout?
-        mRecycler = mRootView?.findViewById(R.id.recycler) as RecyclerView?
+        mRefresh = mRootView?.find<SwipeRefreshLayout>(R.id.refresh)
+        mRecycler = mRootView?.find<RecyclerView>(R.id.recycler)
         mIsPrepared = true
         lazyLoad()
     }
 
     override fun lazyLoad() {
-        if (!mIsPrepared || !mIsVisible) return
+        if (!mIsPrepared || !mIsVisible) return@lazyLoad
         initRefreshLayout()
         initRecyclerView()
         mRefresh ?: lazyLoadData()
