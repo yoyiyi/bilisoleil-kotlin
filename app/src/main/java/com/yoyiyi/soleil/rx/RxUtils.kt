@@ -1,3 +1,5 @@
+
+@file:JvmName("RxUtils")
 package com.yoyiyi.soleil.rx
 
 import com.yoyiyi.soleil.network.exception.ApiException
@@ -10,9 +12,9 @@ import io.reactivex.schedulers.Schedulers
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
- * *
+ *
  * @date 创建时间：2017/8/14 9:58
- * * 描述:
+ *  描述:
  */
 
 

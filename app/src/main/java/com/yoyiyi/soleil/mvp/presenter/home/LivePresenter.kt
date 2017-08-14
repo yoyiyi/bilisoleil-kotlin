@@ -6,6 +6,8 @@ import com.yoyiyi.soleil.base.RxPresenter
 import com.yoyiyi.soleil.bean.live.LiveRecommend
 import com.yoyiyi.soleil.mvp.contract.home.LiveContract
 import com.yoyiyi.soleil.network.helper.RetrofitHelper
+import com.yoyiyi.soleil.rx.handleResult
+import com.yoyiyi.soleil.rx.rxSchedulerHelper
 import javax.inject.Inject
 
 /**
@@ -17,12 +19,12 @@ import javax.inject.Inject
 class LivePresenter @Inject constructor(val retrofitHelper: RetrofitHelper) : RxPresenter<LiveContract.View>(), LiveContract.Presenter<LiveContract.View> {
     override fun getLiveData() {
         addSubscribe(retrofitHelper.getLivePartition()
-                .compose(RxUtils.handleResult())
+                .compose(handleResult())
                 .flatMap({ livePartition ->
                     mView?.showLivePartition(livePartition)
                     retrofitHelper.getLiveRecommend()
                 })
-                .compose(RxUtils.rxSchedulerHelper())
+                .compose(rxSchedulerHelper())
                 .subscribeWith(object : BaseObjectSubscriber<LiveRecommend>(mView) {
                     override fun onSuccess(liveRecommend: LiveRecommend) {
                         mView?.showLiveRecommend(liveRecommend)
