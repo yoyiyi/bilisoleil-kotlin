@@ -6,7 +6,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.yoyiyi.soleil.R
-import com.yoyiyi.soleil.bean.live.LivePartition
 import com.yoyiyi.soleil.bean.live.LiveRecommend
 import com.yoyiyi.soleil.utils.NumberUtils
 
@@ -15,9 +14,9 @@ import com.yoyiyi.soleil.utils.NumberUtils
  * @date 创建时间：2017/8/14 15:38
  * 描述:
  */
-class LiveRecommendAdapter(data: List<LiveRecommend.RecommendDataBean.LivesBean>)
-    : BaseQuickAdapter<LiveRecommend.RecommendDataBean.LivesBean, BaseViewHolder>(R.layout.layout_item_home_live_body, data) {
-    override fun convert(holder: BaseViewHolder, item: LiveRecommend.RecommendDataBean.LivesBean) {
+class LiveRecommendAdapter(data: List<LiveRecommend.RecommendData.Lives>)
+    : BaseQuickAdapter<LiveRecommend.RecommendData.Lives, BaseViewHolder>(R.layout.layout_item_home_live_body, data) {
+    override fun convert(holder: BaseViewHolder, item: LiveRecommend.RecommendData.Lives) {
         Glide.with(mContext)
                 .load(item.cover?.src)
                 .centerCrop()

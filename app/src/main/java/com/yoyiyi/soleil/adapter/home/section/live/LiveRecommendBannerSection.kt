@@ -16,7 +16,7 @@ import com.yoyiyi.soleil.widget.section.ViewHolder
  * @date 创建时间：2017/5/21 11:57
  * * 描述:首页直播推荐主播section（音乐台）
  */
-class LiveRecommendBannerSection(private val mData: LiveRecommend.RecommendDataBean.BannerDataBean) : StatelessSection<Nothing>(R.layout.layout_item_home_live_body, R.layout.layout_empty) {
+class LiveRecommendBannerSection(private val mData: LiveRecommend.RecommendData.BannerData) : StatelessSection<Nothing>(R.layout.layout_item_home_live_body, R.layout.layout_empty) {
 
     override fun onBindHeaderViewHolder(holder: ViewHolder) {
         Glide.with(mContext)

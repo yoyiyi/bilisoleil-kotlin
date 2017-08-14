@@ -1,6 +1,6 @@
 package com.yoyiyi.soleil.module.home
 
-import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.adapter.home.live.LiveAdapter
 import com.yoyiyi.soleil.base.BaseRefreshFragment
@@ -10,9 +10,9 @@ import com.yoyiyi.soleil.mvp.presenter.home.LivePresenter
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
- * *
+ *
  * @date 创建时间：2017/5/23 14:23
- * * 描述:推荐
+ * 描述:推荐
  */
 
 class LiveFragment : BaseRefreshFragment<LivePresenter, MulLive>(), LiveContract.View {
@@ -43,10 +43,8 @@ class LiveFragment : BaseRefreshFragment<LivePresenter, MulLive>(), LiveContract
 
     override fun initRecyclerView() {
         mLiveAdapter = LiveAdapter(mList)
-        val mLayoutManager = GridLayoutManager(activity, 2)
-        mLiveAdapter?.setSpanSizeLookup { _, position ->
-            mList[position].mSpanSize
-        }
+        mRecycler?.setHasFixedSize(true)
+        val mLayoutManager = LinearLayoutManager(activity)
         mRecycler?.layoutManager = mLayoutManager
         mRecycler?.adapter = mLiveAdapter
 

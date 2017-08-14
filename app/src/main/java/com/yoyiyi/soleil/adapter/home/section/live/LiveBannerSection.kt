@@ -18,7 +18,7 @@ import com.yoyiyi.soleil.widget.section.ViewHolder
  * @date 创建时间：2017/5/23 22:27
  * * 描述:首页直播轮播条
  */
-class LiveBannerSection(private val list: List<LivePartition.BannerBean>) : StatelessSection<Nothing>(R.layout.layout_banner, R.layout.layout_empty) {
+class LiveBannerSection(private val list: List<LivePartition.Banner>) : StatelessSection<Nothing>(R.layout.layout_banner, R.layout.layout_empty) {
 
     override fun onBindHeaderViewHolder(holder: ViewHolder) {
         val bannar = holder.getView<Banner>(R.id.banner)

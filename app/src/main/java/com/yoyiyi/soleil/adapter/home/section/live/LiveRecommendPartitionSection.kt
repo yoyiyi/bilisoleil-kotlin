@@ -23,12 +23,12 @@ import java.util.*
 class LiveRecommendPartitionSection(private val mTitle: String,
                                     private val mUrl: String,
                                     private val mCount: String,
-                                    data: List<LivePartition.PartitionsBean.LivesBean>) : StatelessSection<LivePartition.PartitionsBean.LivesBean>(R.layout.layout_item_home_live_head, R.layout.layout_item_home_live_footer, R.layout.layout_item_home_live_body, data) {
+                                    data: List<LivePartition.Partitions.Lives>) : StatelessSection<LivePartition.Partitions.Lives>(R.layout.layout_item_home_live_head, R.layout.layout_item_home_live_footer, R.layout.layout_item_home_live_body, data) {
     private val mRandom: Random = Random()
     private var mhasMore = false
 
     constructor(hasMore: Boolean, title: String, url: String, count: String,
-                data: List<LivePartition.PartitionsBean.LivesBean>) : this(title, url, count, data) {
+                data: List<LivePartition.Partitions.Lives>) : this(title, url, count, data) {
         this.mhasMore = hasMore
     }
 
@@ -50,7 +50,7 @@ class LiveRecommendPartitionSection(private val mTitle: String,
 
     }
 
-    override fun convert(holder: ViewHolder, livesBean: LivePartition.PartitionsBean.LivesBean, position: Int) {
+    override fun convert(holder: ViewHolder, livesBean: LivePartition.Partitions.Lives, position: Int) {
         Glide.with(mContext)
                 .load(livesBean.cover?.src)
                 .centerCrop()

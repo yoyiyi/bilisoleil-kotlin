@@ -15,7 +15,6 @@ import com.yoyiyi.soleil.bean.live.LiveRecommend
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.NumberUtils
 import com.yoyiyi.soleil.utils.SpanUtils
-import com.yoyiyi.soleil.utils.ToastUtils
 import com.yoyiyi.soleil.widget.section.StatelessSection
 import com.yoyiyi.soleil.widget.section.ViewHolder
 import java.util.*
@@ -31,12 +30,12 @@ class LiveRecommendSection(val mHasHead: Boolean,
                            val mTitle: String,
                            val mUrl: String,
                            val mCount: String,
-                           data: List<LiveRecommend.RecommendDataBean.LivesBean>) : StatelessSection<LiveRecommend.RecommendDataBean.LivesBean>(R.layout.layout_item_home_live_head, R.layout.layout_item_home_live_footer, R.layout.layout_item_home_live_body, data) {
+                           data: List<LiveRecommend.RecommendData.Lives>) : StatelessSection<LiveRecommend.RecommendData.Lives>(R.layout.layout_item_home_live_head, R.layout.layout_item_home_live_footer, R.layout.layout_item_home_live_body, data) {
     private val mRandom: Random = Random()
-    private var mBannerDataBean: LiveRecommend.RecommendDataBean.BannerDataBean? = null
+    private var mBannerDataBean: LiveRecommend.RecommendData.BannerData? = null
 
     constructor(hasHead: Boolean, hasFooter: Boolean, title: String, url: String, count: String,
-                data: List<LiveRecommend.RecommendDataBean.LivesBean>, bannerDataBean: LiveRecommend.RecommendDataBean.BannerDataBean) : this(hasHead, hasFooter, title, url, count, data) {
+                data: List<LiveRecommend.RecommendData.Lives>, bannerDataBean: LiveRecommend.RecommendData.BannerData) : this(hasHead, hasFooter, title, url, count, data) {
         this.mBannerDataBean = bannerDataBean
     }
 
@@ -81,7 +80,7 @@ class LiveRecommendSection(val mHasHead: Boolean,
 
     }
 
-    override fun convert(holder: ViewHolder, livesBean: LiveRecommend.RecommendDataBean.LivesBean, position: Int) {
+    override fun convert(holder: ViewHolder, livesBean: LiveRecommend.RecommendData.Lives, position: Int) {
         Glide.with(mContext)
                 .load(livesBean.cover?.src)
                 .centerCrop()

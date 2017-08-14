@@ -14,9 +14,9 @@ import com.yoyiyi.soleil.utils.NumberUtils
  * @date 创建时间：2017/8/14 15:38
  * 描述:
  */
-class LivePartitionAdapter(data: List<LivePartition.PartitionsBean.LivesBean>)
-    : BaseQuickAdapter<LivePartition.PartitionsBean.LivesBean, BaseViewHolder>(R.layout.layout_item_home_live_body, data) {
-    override fun convert(holder: BaseViewHolder, item: LivePartition.PartitionsBean.LivesBean) {
+class LivePartitionAdapter(data: List<LivePartition.Partitions.Lives>)
+    : BaseQuickAdapter<LivePartition.Partitions.Lives, BaseViewHolder>(R.layout.layout_item_home_live_body, data) {
+    override fun convert(holder: BaseViewHolder, item: LivePartition.Partitions.Lives) {
         Glide.with(mContext)
                 .load(item.cover?.src)
                 .centerCrop()

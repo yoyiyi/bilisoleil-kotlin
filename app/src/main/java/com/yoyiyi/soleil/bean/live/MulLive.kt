@@ -11,17 +11,16 @@ import com.chad.library.adapter.base.entity.MultiItemEntity
 
 class MulLive : MultiItemEntity {
 
-    var mTitle: String? = null
-    var mUrl: String? = null
-    var mCount: String? = null
-    var mItemType: Int = 0
-    var mSpanSize: Int = 0
-    var mHasMore: Boolean = false //底部
-    var mBannerDataBean: LiveRecommend.RecommendDataBean.BannerDataBean? = null
-    var mBannerBeanList: List<LivePartition.BannerBean>? = null
+    var title: String? = null
+    var url: String? = null
+    var count: Int? = null
+    var itemTypez: Int = 0
+    var hasMore: Boolean = false //底部
+    var bannerData: LiveRecommend.RecommendData.BannerData? = null
 
-    var mRecommendLives: LiveRecommend.RecommendDataBean.LivesBean? = null
-    var mPartityLives: LivePartition.PartitionsBean.LivesBean? = null
+    var bannerBeanList: List<LivePartition.Banner>? = null
+    var recommendLives: List<LiveRecommend.RecommendData.Lives>? = null
+    var partityLives: List<LivePartition.Partitions.Lives>? = null
 
 
     companion object {
@@ -35,13 +34,53 @@ class MulLive : MultiItemEntity {
         val TYPE_BANNER = 5//
         val TYPE_ENTRANCE = 6//
 
-        val TWO_SPAN_SIZE = 2// 占2
-        val ONE_SPAN_SIZE = 1// 占1
     }
 
-    override fun getItemType(): Int = mItemType
+    override fun getItemType(): Int = itemTypez
+
+    fun title(title: String): MulLive {
+        this.title = title
+        return this
+    }
+
+    fun url(url: String): MulLive {
+        this.url = url
+        return this
+    }
+
+    fun count(count: Int): MulLive {
+        this.count = count
+        return this
+    }
 
 
+    fun itemTypez(itemTypez: Int): MulLive {
+        this.itemTypez = itemTypez
+        return this
+    }
+    fun hasMore(hasMore: Boolean): MulLive {
+        this.hasMore = hasMore
+        return this
+    }
 
+    fun bannerData(bannerData: LiveRecommend.RecommendData.BannerData?): MulLive {
+        this.bannerData = bannerData
+        return this
+    }
+
+    fun bannerBeanList(bannerBeanList: List<LivePartition.Banner>?): MulLive {
+        this.bannerBeanList = bannerBeanList
+        return this
+    }
+
+    fun recommendLives(recommendLives: List<LiveRecommend.RecommendData.Lives>?): MulLive {
+        this.recommendLives = recommendLives
+        return this
+    }
+
+    fun partityLives(partityLives: List<LivePartition.Partitions.Lives>?): MulLive {
+        this.partityLives = partityLives
+        return this
+    }
 
 }

@@ -17,7 +17,6 @@ import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.bean.live.MulLive
 import com.yoyiyi.soleil.bean.live.support.LiveEnter
 import com.yoyiyi.soleil.utils.AppUtils
-import com.yoyiyi.soleil.utils.NumberUtils
 import com.yoyiyi.soleil.utils.SpanUtils
 import java.util.*
 
@@ -44,8 +43,8 @@ class LiveAdapter(data: List<MulLive>) : BaseMultiItemQuickAdapter<MulLive, Base
         when (holder.itemViewType) {
             MulLive.TYPE_BANNER -> {
                 val banner = holder.getView<Banner>(R.id.banner)
-                val bannerBeanList = mulLive.mBannerBeanList
-                val urls = bannerBeanList?.map({ it -> it.img })
+                val bannerBeanList = mulLive.bannerBeanList
+                val urls = bannerBeanList?.map({ (img) -> img })
                 banner.setIndicatorGravity(BannerConfig.RIGHT)
                         .setImages(urls)
                         .setImageLoader(GlideImageLoader())
@@ -61,7 +60,7 @@ class LiveAdapter(data: List<MulLive>) : BaseMultiItemQuickAdapter<MulLive, Base
                 recyclerView.adapter = LiveEntranceAdapter(liveEnterList)
             }
             MulLive.TYPE_RECOMMEND_BANNER -> {
-                val bannerDataBean = mulLive.mBannerDataBean
+                val bannerDataBean = mulLive.bannerData
                 Glide.with(mContext)
                         .load(bannerDataBean?.cover?.src)
                         .centerCrop()
@@ -81,63 +80,40 @@ class LiveAdapter(data: List<MulLive>) : BaseMultiItemQuickAdapter<MulLive, Base
             }
             MulLive.TYPR_HEADER -> {
                 Glide.with(mContext)
-                        .load(mulLive.mUrl)
+                        .load(mulLive.url)
                         .centerCrop()
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .dontAnimate()
                         .into(holder.getView<ImageView>(R.id.iv_icon))
-                holder.setText(R.id.tv_title, mulLive.mTitle)
+                holder.setText(R.id.tv_title, mulLive.title)
                 holder.setText(R.id.tv_online, SpanUtils()
                         .append("当前")
-                        .append("${mulLive.mCount}")
+                        .append("${mulLive.count}")
                         .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
                         .append("个直播")
                         .create())
             }
             MulLive.TYPE_RECOMMEND_ITEM -> {
-                val recommendLivesBean = mulLive.mRecommendLivesBean
-                Glide.with(mContext)
-                        .load(recommendLivesBean?.cover?.src)
-                        .centerCrop()
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .placeholder(R.drawable.bili_default_image_tv)
-                        .dontAnimate()
-                        .into(holder.getView<ImageView>(R.id.iv_video_preview))
-
-                holder.setText(R.id.tv_video_live_up, recommendLivesBean?.owner?.name)//up
-                        .setText(R.id.tv_video_online, NumberUtils.format("${recommendLivesBean?.online}"))//在线人数;
-
-                holder.setText(R.id.tv_video_title, SpanUtils()
-                        .append("#${recommendLivesBean?.area}#")
-                        .setForegroundColor(AppUtils.getColor(R.color.pink_text_color))
-                        .append("${recommendLivesBean?.title}").create())
-            }
-            MulLive.TYPE_PARTY_ITEM -> {
-                val partityLivesBean = mulLive.mPartityLivesBean
-                Glide.with(mContext)
-                        .load(partityLivesBean?.cover?.src)
-                        .centerCrop()
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .placeholder(R.drawable.bili_default_image_tv)
-                        .dontAnimate()
-                        .into(holder.getView<ImageView>(R.id.iv_video_preview))
-
-                holder.setText(R.id.tv_video_live_up, partityLivesBean?.owner?.name)//up
-                        .setText(R.id.tv_video_online, NumberUtils.format("${partityLivesBean?.online}"))//在线人数;
-
-                holder.setText(R.id.tv_video_title, partityLivesBean?.title)
-
                 val recyclerView = holder.getView<RecyclerView>(R.id.recycler)
                 recyclerView.setHasFixedSize(false)
                 recyclerView.isNestedScrollingEnabled = false
-                val layoutManager = GridLayoutManager(mContext, 5)
+                val layoutManager = GridLayoutManager(mContext, 2)
                 recyclerView.layoutManager = layoutManager
-                recyclerView.adapter = LivePartitionAdapter(liveEnterList)
+                recyclerView.adapter = LiveRecommendAdapter(mulLive.recommendLives!!)
+
+            }
+            MulLive.TYPE_PARTY_ITEM -> {
+                val recyclerView = holder.getView<RecyclerView>(R.id.recycler)
+                recyclerView.setHasFixedSize(false)
+                recyclerView.isNestedScrollingEnabled = false
+                val layoutManager = GridLayoutManager(mContext, 2)
+                recyclerView.layoutManager = layoutManager
+                recyclerView.adapter = LivePartitionAdapter(mulLive.partityLives!!)
 
             }
             MulLive.TYPE_FOOTER -> {
                 val random = Random()
-                if (mulLive.mHasMore) {
+                if (mulLive.hasMore) {
                     holder.setVisible(R.id.bt_more_live, true)
                 } else {
                     holder.setVisible(R.id.bt_more_live, false)
@@ -165,9 +141,9 @@ class LiveAdapter(data: List<MulLive>) : BaseMultiItemQuickAdapter<MulLive, Base
         }
     }
 
-    *//**
+    /**
      * 初始化入口
-     *//*
+     */
     private fun initEntrance(): List<LiveEnter> = arrayListOf(
             LiveEnter("关注", R.drawable.live_home_follow_anchor),
             LiveEnter("中心", R.drawable.live_home_live_center),

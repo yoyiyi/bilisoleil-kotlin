@@ -30,7 +30,7 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
     protected open val mBack = true //是否返回
     protected var mError: ConstraintLayout? = null
     //优先使用属性
-    protected val activityModule get() = ActivityModule(this)
+    protected val activityModule: ActivityModule get() = ActivityModule(this)
 
     protected val activityComponent: ActivityComponent get() = DaggerActivityComponent.builder()
             .appComponent(BiliSoleilApplication.appComponent)

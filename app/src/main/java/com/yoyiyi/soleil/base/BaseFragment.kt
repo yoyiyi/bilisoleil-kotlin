@@ -36,7 +36,7 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
     protected var mIsVisible: Boolean = false
     protected var mError: ConstraintLayout? = null
 
-    val fragmentModule get() = FragmentModule(this)
+    val fragmentModule :FragmentModule get() = FragmentModule(this)
 
     val fragmentComponent: FragmentComponent get() = DaggerFragmentComponent.builder()
             .appComponent(BiliSoleilApplication.appComponent)
