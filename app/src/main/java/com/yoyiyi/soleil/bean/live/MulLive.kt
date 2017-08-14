@@ -4,9 +4,9 @@ import com.chad.library.adapter.base.entity.MultiItemEntity
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
- * *
+ *
  * @date 创建时间：2017/6/7 11:03
- * * 描述:直播多布局
+ * 描述:直播多布局
  */
 
 class MulLive(val title: String? = null,

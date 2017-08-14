@@ -54,7 +54,6 @@ class LivePresenter @Inject constructor(val retrofitHelper: RetrofitHelper) : Rx
                                         url = t.recommend_data.partition.sub_icon.src,
                                         count = t.recommend_data.partition.count))
 
-
                                 val part1 = t.recommend_data.lives.subList(0, allot) //主体
                                 mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
                                         recommendLives = part1))
@@ -71,13 +70,15 @@ class LivePresenter @Inject constructor(val retrofitHelper: RetrofitHelper) : Rx
                                 mulLives.add(MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER))
 
                             } else {
-                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_BANNER,
-                                        bannerData = (t.recommend_data.banner_data)[0]))
+
 
                                 mulLives.add(MulLive(itemTypez = TYPR_HEADER,
                                         title = t.recommend_data.partition.name,
                                         url = t.recommend_data.partition.sub_icon.src,
                                         count = t.recommend_data.partition.count))
+
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_BANNER,
+                                        bannerData = (t.recommend_data.banner_data)[0]))
 
                                 val part1 = t.recommend_data.lives.subList(0, allot) //主体
                                 mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
@@ -102,13 +103,13 @@ class LivePresenter @Inject constructor(val retrofitHelper: RetrofitHelper) : Rx
                                         url = element.partition.sub_icon.src,
                                         count = element.partition.count))
                                 val part = element.lives.subList(0, 4)
-                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_PARTY_ITEM,
                                         partityLives = part))
 
                                 if (index == livePartition?.partitions?.size?.minus(1)) {
-                                    mulLives.add(MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER))
-                                } else {
                                     mulLives.add(MulLive(hasMore = true, itemTypez = MulLive.TYPE_FOOTER))
+                                } else {
+                                    mulLives.add(MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER))
                                 }
                             }
                         }
