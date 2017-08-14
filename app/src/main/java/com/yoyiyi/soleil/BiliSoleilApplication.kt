@@ -11,6 +11,7 @@ import com.yoyiyi.soleil.di.module.AppModule
 import com.yoyiyi.soleil.utils.*
 import java.util.*
 
+@Suppress("DEPRECATION")
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * *

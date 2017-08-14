@@ -9,18 +9,15 @@ import com.chad.library.adapter.base.entity.MultiItemEntity
  * * 描述:直播多布局
  */
 
-class MulLive : MultiItemEntity {
-
-    var title: String? = null
-    var url: String? = null
-    var count: Int? = null
-    var itemTypez: Int = 0
-    var hasMore: Boolean = false //底部
-    var bannerData: LiveRecommend.RecommendData.BannerData? = null
-
-    var bannerBeanList: List<LivePartition.Banner>? = null
-    var recommendLives: List<LiveRecommend.RecommendData.Lives>? = null
-    var partityLives: List<LivePartition.Partitions.Lives>? = null
+class MulLive(val title: String? = null,
+              val url: String? = null,
+              val count: Int? = null,
+              val itemTypez: Int,
+              val hasMore: Boolean? = null,
+              val bannerData: LiveRecommend.RecommendData.BannerData? = null,
+              val bannerBeanList: List<LivePartition.Banner>? = null,
+              val recommendLives: List<LiveRecommend.RecommendData.Lives>? = null,
+              val partityLives: List<LivePartition.Partitions.Lives>? = null) : MultiItemEntity {
 
 
     companion object {
@@ -37,50 +34,5 @@ class MulLive : MultiItemEntity {
     }
 
     override fun getItemType(): Int = itemTypez
-
-    fun title(title: String): MulLive {
-        this.title = title
-        return this
-    }
-
-    fun url(url: String): MulLive {
-        this.url = url
-        return this
-    }
-
-    fun count(count: Int): MulLive {
-        this.count = count
-        return this
-    }
-
-
-    fun itemTypez(itemTypez: Int): MulLive {
-        this.itemTypez = itemTypez
-        return this
-    }
-    fun hasMore(hasMore: Boolean): MulLive {
-        this.hasMore = hasMore
-        return this
-    }
-
-    fun bannerData(bannerData: LiveRecommend.RecommendData.BannerData?): MulLive {
-        this.bannerData = bannerData
-        return this
-    }
-
-    fun bannerBeanList(bannerBeanList: List<LivePartition.Banner>?): MulLive {
-        this.bannerBeanList = bannerBeanList
-        return this
-    }
-
-    fun recommendLives(recommendLives: List<LiveRecommend.RecommendData.Lives>?): MulLive {
-        this.recommendLives = recommendLives
-        return this
-    }
-
-    fun partityLives(partityLives: List<LivePartition.Partitions.Lives>?): MulLive {
-        this.partityLives = partityLives
-        return this
-    }
 
 }

@@ -6,7 +6,6 @@ import com.yoyiyi.soleil.base.RxPresenter
 import com.yoyiyi.soleil.bean.live.LivePartition
 import com.yoyiyi.soleil.bean.live.LiveRecommend
 import com.yoyiyi.soleil.bean.live.MulLive
-import com.yoyiyi.soleil.bean.live.MulLive.Companion.TYPE_ENTRANCE
 import com.yoyiyi.soleil.bean.live.MulLive.Companion.TYPR_HEADER
 import com.yoyiyi.soleil.mvp.contract.home.LiveContract
 import com.yoyiyi.soleil.network.helper.RetrofitHelper
@@ -33,104 +32,83 @@ class LivePresenter @Inject constructor(val retrofitHelper: RetrofitHelper) : Rx
                 })
                 .compose(rxSchedulerHelper())
                 .subscribeWith(object : BaseObjectSubscriber<LiveRecommend>(mView) {
-                    override fun onSuccess(liveRecommend: LiveRecommend) {
-                        val allot = liveRecommend.recommend_data.lives.size.div(2)
-                        val mulLive = MulLive()
-                        mulLive.itemTypez = MulLive.TYPE_BANNER
+                    override fun onSuccess(t: LiveRecommend) {
+                        val allot = t.recommend_data.lives.size.div(2)
 
-                        mulLives.add(MulLive()
-                                .itemTypez(MulLive.TYPE_BANNER)
-                                .bannerBeanList(livePartition?.banner))//轮播条
+                        mulLives.add(MulLive(itemTypez = MulLive.TYPE_BANNER, bannerBeanList = livePartition?.banner))//轮播条
 
-                        mulLives.add(MulLive()
-                                .itemTypez(TYPE_ENTRANCE))//入口
+                        mulLives.add(MulLive(itemTypez = MulLive.TYPE_ENTRANCE))//入口
 
-                        if (liveRecommend.recommend_data.banner_data == null) {
-                            mulLives.add(MulLive()
-                                    .itemTypez(MulLive.TYPR_HEADER)
-                                    .title(liveRecommend.recommend_data.partition.name)
-                                    .url(liveRecommend.recommend_data.partition.sub_icon.src)
-                                    .count(liveRecommend.recommend_data.partition.count)
-                            )
-                            mulLives.add(MulLive()
-                                    .itemTypez(MulLive.TYPE_RECOMMEND_ITEM)
-                                    .recommendLives(liveRecommend.recommend_data.lives))
-                            mulLives.add(MulLive()
-                                    .hasMore(false))
+                        if (t.recommend_data.banner_data == null) {
+                            mulLives.add(MulLive(itemTypez = MulLive.TYPR_HEADER,
+                                    title = t.recommend_data.partition.name,
+                                    url = t.recommend_data.partition.sub_icon.src,
+                                    count = t.recommend_data.partition.count))
+                            mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
+                                    recommendLives = t.recommend_data.lives))
+                            mulLives.add(MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER))
                         } else {
-                            if (liveRecommend.recommend_data.banner_data.size == 1) {
-                                mulLives.add(MulLive()
-                                        .itemTypez(MulLive.TYPR_HEADER)
-                                        .title(liveRecommend.recommend_data.partition.name)
-                                        .url(liveRecommend.recommend_data.partition.sub_icon.src)
-                                        .count(liveRecommend.recommend_data.partition.count))
+                            if (t.recommend_data.banner_data.size == 1) {
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPR_HEADER,
+                                        title = t.recommend_data.partition.name,
+                                        url = t.recommend_data.partition.sub_icon.src,
+                                        count = t.recommend_data.partition.count))
 
 
-                                val part1 = liveRecommend.recommend_data.lives.subList(0, allot) //主体
-                                mulLives.add(MulLive()
-                                        .itemTypez(MulLive.TYPE_RECOMMEND_ITEM)
-                                        .recommendLives(part1))
+                                val part1 = t.recommend_data.lives.subList(0, allot) //主体
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
+                                        recommendLives = part1))
 
-                                mulLives.add(MulLive()
-                                        .itemTypez(MulLive.TYPE_RECOMMEND_BANNER)
-                                        .bannerData((liveRecommend.recommend_data.banner_data)[0]))
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_BANNER,
+                                        bannerData = (t.recommend_data.banner_data)[0]))
 
-                                val part2 = liveRecommend.recommend_data.lives.subList(allot, (liveRecommend.recommend_data.lives.size))
-                                mulLives.add(MulLive()
-                                        .itemTypez(MulLive.TYPE_RECOMMEND_ITEM)
-                                        .recommendLives(part2))
 
-                                mulLives.add(MulLive()
-                                        .hasMore(false))
+                                val part2 = t.recommend_data.lives.subList(allot, (t.recommend_data.lives.size))
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
+                                        recommendLives = part2))
+
+
+                                mulLives.add(MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER))
+
                             } else {
-                                mulLives.add(MulLive()
-                                        .itemTypez(MulLive.TYPE_RECOMMEND_BANNER)
-                                        .bannerData((liveRecommend.recommend_data.banner_data)[0]))
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_BANNER,
+                                        bannerData = (t.recommend_data.banner_data)[0]))
 
-                                mulLives.add(MulLive()
-                                        .itemTypez(TYPR_HEADER)
-                                        .title(liveRecommend.recommend_data.partition.name)
-                                        .url(liveRecommend.recommend_data.partition.sub_icon.src)
-                                        .count(liveRecommend.recommend_data.partition.count))
+                                mulLives.add(MulLive(itemTypez = TYPR_HEADER,
+                                        title = t.recommend_data.partition.name,
+                                        url = t.recommend_data.partition.sub_icon.src,
+                                        count = t.recommend_data.partition.count))
 
+                                val part1 = t.recommend_data.lives.subList(0, allot) //主体
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
+                                        recommendLives = part1))
 
-                                val part1 = liveRecommend.recommend_data.lives.subList(0, allot) //主体
-                                mulLives.add(MulLive()
-                                        .itemTypez(MulLive.TYPE_RECOMMEND_ITEM)
-                                        .recommendLives(part1))
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_BANNER,
+                                        bannerData = (t.recommend_data.banner_data)[1]))
 
-                                mulLives.add(MulLive()
-                                        .itemTypez(MulLive.TYPE_RECOMMEND_BANNER)
-                                        .bannerData((liveRecommend.recommend_data.banner_data)[1]))
+                                val part2 = t.recommend_data.lives.subList(allot, (t.recommend_data.lives.size))
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
+                                        recommendLives = part2))
 
-                                val part2 = liveRecommend.recommend_data.lives.subList(allot, (liveRecommend.recommend_data.lives.size))
-                                mulLives.add(MulLive()
-                                        .itemTypez(MulLive.TYPE_RECOMMEND_ITEM)
-                                        .recommendLives(part2))
+                                mulLives.add(MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER))
 
-                                mulLives.add(MulLive()
-                                        .hasMore(false))
                             }
                         }
 
                         livePartition?.partitions?.let {
                             for ((index, element) in livePartition?.partitions?.withIndex()!!) {
-                                mulLives.add(MulLive()
-                                        .itemTypez(MulLive.TYPR_HEADER)
-                                        .title(element.partition.name)
-                                        .url(element.partition.sub_icon.src)
-                                        .count(element.partition.count))
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPR_HEADER,
+                                        title = element.partition.name,
+                                        url = element.partition.sub_icon.src,
+                                        count = element.partition.count))
                                 val part = element.lives.subList(0, 4)
-                                mulLives.add(MulLive()
-                                        .itemTypez(MulLive.TYPE_RECOMMEND_ITEM)
-                                        .partityLives(part))
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
+                                        partityLives = part))
 
                                 if (index == livePartition?.partitions?.size?.minus(1)) {
-                                    mulLives.add(MulLive()
-                                            .hasMore(false))
+                                    mulLives.add(MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER))
                                 } else {
-                                    mulLives.add(MulLive()
-                                            .hasMore(true))
+                                    mulLives.add(MulLive(hasMore = true, itemTypez = MulLive.TYPE_FOOTER))
                                 }
                             }
                         }
