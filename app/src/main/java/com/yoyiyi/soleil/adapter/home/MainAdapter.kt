@@ -39,17 +39,14 @@ class MainAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
                 5 ->
                     //发现
                     mFragment[position] = LiveFragment.newInstance()
-                else -> { }
             }
         }
         return mFragment[position]
     }
 
-    override fun getCount(): Int {
-        return mTitle.size
-    }
+    override fun getCount(): Int = mTitle.size
 
-    override fun getPageTitle(position: Int): CharSequence {
-        return mTitle[position]
-    }
+
+    override fun getPageTitle(position: Int): CharSequence = mTitle[position]
+
 }

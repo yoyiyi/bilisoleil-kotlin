@@ -1,5 +1,5 @@
 
-@file:JvmName("RxUtils")
+
 package com.yoyiyi.soleil.rx
 
 import com.yoyiyi.soleil.network.exception.ApiException
