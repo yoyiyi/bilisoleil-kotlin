@@ -22,9 +22,9 @@ import java.util.*
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
- * *
+ *
  * @date 创建时间：2017/6/7 11:38
- *  描述:直播界面的Adapter
+ * 描述:直播界面的Adapter
  */
 
 class LiveAdapter(data: List<MulLive>) : BaseMultiItemQuickAdapter<MulLive, BaseViewHolder>(data) {
