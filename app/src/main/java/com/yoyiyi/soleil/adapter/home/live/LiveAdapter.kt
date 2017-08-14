@@ -113,12 +113,15 @@ class LiveAdapter(data: List<MulLive>) : BaseMultiItemQuickAdapter<MulLive, Base
             }
             MulLive.TYPE_FOOTER -> {
                 val random = Random()
-                if (mulLive.hasMore) {
-                    holder.setVisible(R.id.bt_more_live, true)
-                } else {
-                    holder.setVisible(R.id.bt_more_live, false)
-                    holder.getView<Button>(R.id.bt_more_live).setOnClickListener({ })
+                mulLive.hasMore?.let {
+                    if (mulLive.hasMore) {
+                        holder.setVisible(R.id.bt_more_live, true)
+                    } else {
+                        holder.setVisible(R.id.bt_more_live, false)
+                        holder.getView<Button>(R.id.bt_more_live).setOnClickListener({ })
+                    }
                 }
+
                 holder.setText(R.id.tv_dynamic, "${random.nextInt(200)}条新动态，点击这里刷新")
                 holder.getView<ImageView>(R.id.iv_refresh).setOnClickListener({ view ->
                     view.animate()
