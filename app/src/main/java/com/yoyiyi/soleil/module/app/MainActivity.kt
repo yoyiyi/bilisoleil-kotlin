@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.module
 
+import android.annotation.SuppressLint
 import android.support.design.internal.NavigationMenuView
 import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
@@ -44,15 +45,16 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
     }
 
 
+    @SuppressLint("CommitTransaction")
     fun switchFragmentIndex(index: Int) {
-        val transaction = supportFragmentManager.beginTransaction()
-        if (mCurrentPos != -1)
-            transaction.hide(mFragments[mCurrentPos])
-        if (!mFragments[index].isAdded) {
-            transaction.add(R.id.flContent, mFragments[index])
+        with(supportFragmentManager.beginTransaction()) {
+            if (mCurrentPos != -1)
+                hide(mFragments[mCurrentPos])
+            if (!mFragments[index].isAdded) {
+                add(R.id.flContent, mFragments[index])
+            }
+            show(mFragments[index]).commit()
         }
-        transaction.show(mFragments[index]).commit()
-        mCurrentPos = index
     }
 
 
