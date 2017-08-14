@@ -2,7 +2,7 @@ package com.yoyiyi.soleil.mvp.contract.home
 
 import com.yoyiyi.soleil.base.BaseContract
 import com.yoyiyi.soleil.bean.live.LivePartition
-import com.yoyiyi.soleil.bean.live.LiveRecommend
+import com.yoyiyi.soleil.bean.live.MulLive
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -12,9 +12,11 @@ import com.yoyiyi.soleil.bean.live.LiveRecommend
  */
 interface LiveContract {
     interface View : BaseContract.BaseView {
-        fun showLiveRecommend(liveRecommend: LiveRecommend)
+      //   fun showLiveRecommend(liveRecommend: LiveRecommend)
 
-        fun showLivePartition(livePartition: LivePartition)
+        // fun showLivePartition(livePartition: LivePartition)
+
+        fun showMulLive(mulLives: List<MulLive>)
 
     }
 

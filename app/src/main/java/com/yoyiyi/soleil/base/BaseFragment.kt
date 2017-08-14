@@ -15,7 +15,6 @@ import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.di.component.DaggerFragmentComponent
 import com.yoyiyi.soleil.di.component.FragmentComponent
 import com.yoyiyi.soleil.di.module.FragmentModule
-import org.jetbrains.anko.find
 import javax.inject.Inject
 
 /**
@@ -69,7 +68,7 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
         initInject()
         initPresenter()
         initVariables()
-        mError = mRootView?.find<ConstraintLayout>(R.id.cl_error)
+        mError = mRootView?.findViewById(R.id.cl_error) as ConstraintLayout?
         initWidget()
         finishCreateView(savedInstanceState)
         initDatas()

@@ -14,7 +14,6 @@ import com.yoyiyi.soleil.di.component.DaggerActivityComponent
 import com.yoyiyi.soleil.di.module.ActivityModule
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil
-import org.jetbrains.anko.find
 import javax.inject.Inject
 
 
@@ -42,14 +41,14 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
         mContext = this
-        mToolbar = find<Toolbar>(R.id.toolbar)
-        mError = find<ConstraintLayout>(R.id.cl_error)
+        mToolbar = findViewById(R.id.toolbar) as Toolbar?
+        mError = findViewById(R.id.cl_error) as ConstraintLayout?
         initStatusBar()
         initInject()
         initPresenter()
         initVariables()
         BiliSoleilApplication.instance.addActivity(this)
-        mToolbar.let {
+        mToolbar?.let {
             //初始化Toolbar
             initToolbar()
             //让组件支持Toolbar
@@ -175,5 +174,3 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
         }
     }
 }
-
-

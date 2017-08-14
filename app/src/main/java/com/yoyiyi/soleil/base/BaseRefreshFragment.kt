@@ -5,7 +5,6 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.RecyclerView
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.utils.AppUtils
-import org.jetbrains.anko.find
 import org.jetbrains.anko.toast
 
 /**
@@ -19,7 +18,7 @@ abstract class BaseRefreshFragment<T : BaseContract.BasePresenter<*>, K> : BaseF
     protected var mRecycler: RecyclerView? = null
     protected var mRefresh: SwipeRefreshLayout? = null
     protected var mIsRefreshing = false
-    protected var mList = arrayListOf<K>()
+    protected var mList = mutableListOf<K>()
 
     override fun initRefreshLayout() {
         mRefresh.let {
@@ -44,8 +43,8 @@ abstract class BaseRefreshFragment<T : BaseContract.BasePresenter<*>, K> : BaseF
     }
 
     override fun finishCreateView(state: Bundle?) {
-        mRefresh = mRootView?.find<SwipeRefreshLayout>(R.id.refresh)
-        mRecycler = mRootView?.find<RecyclerView>(R.id.recycler)
+        mRefresh = mRootView?.findViewById(R.id.refresh) as SwipeRefreshLayout?
+        mRecycler = mRootView?.findViewById(R.id.recycler) as RecyclerView?
         mIsPrepared = true
         lazyLoad()
     }
@@ -64,7 +63,7 @@ abstract class BaseRefreshFragment<T : BaseContract.BasePresenter<*>, K> : BaseF
         if (mIsRefreshing) {
             mList.clear()
             clear()
-            activity.toast("刷新成功")
+            getApplicationContext()?.toast("刷新成功")
         }
         mIsRefreshing = false
     }
