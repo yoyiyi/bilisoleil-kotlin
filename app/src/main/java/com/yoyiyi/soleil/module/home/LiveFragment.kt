@@ -18,7 +18,7 @@ import com.yoyiyi.soleil.mvp.presenter.home.LivePresenter
 class LiveFragment : BaseRefreshFragment<LivePresenter, MulLive>(), LiveContract.View {
 
 
-    private var mLiveAdapter: LiveAdapter? = null
+    private var mAdapter: LiveAdapter? = null
 
     companion object {
         fun newInstance(): LiveFragment {
@@ -42,17 +42,17 @@ class LiveFragment : BaseRefreshFragment<LivePresenter, MulLive>(), LiveContract
     }
 
     override fun initRecyclerView() {
-        mLiveAdapter = LiveAdapter(mList)
+        mAdapter = LiveAdapter(mList)
         mRecycler?.setHasFixedSize(true)
         val mLayoutManager = LinearLayoutManager(activity)
         mRecycler?.layoutManager = mLayoutManager
-        mRecycler?.adapter = mLiveAdapter
+        mRecycler?.adapter = mAdapter
 
     }
 
 
     override fun finishTask() {
-        mLiveAdapter?.notifyDataSetChanged()
+        mAdapter?.notifyDataSetChanged()
     }
 
     override fun showMulLive(mulLives: List<MulLive>) {
