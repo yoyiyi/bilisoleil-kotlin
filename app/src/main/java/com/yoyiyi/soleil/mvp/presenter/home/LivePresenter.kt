@@ -6,7 +6,6 @@ import com.yoyiyi.soleil.base.RxPresenter
 import com.yoyiyi.soleil.bean.live.LiveRecommend
 import com.yoyiyi.soleil.mvp.contract.home.LiveContract
 import com.yoyiyi.soleil.network.helper.RetrofitHelper
-import com.yoyiyi.soleil.rx.RxUtils
 import javax.inject.Inject
 
 /**

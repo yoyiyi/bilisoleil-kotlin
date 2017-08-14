@@ -26,6 +26,6 @@ object RxBus {
 
 
     //封装默认订阅
-    fun <T> toDefaultFlowable(eventType: Class<T>, act: Consumer<T>): Disposable = bus.ofType(eventType).compose(RxUtils.rxSchedulerHelper<T>()).subscribe(act)
+    fun <T> toDefaultFlowable(eventType: Class<T>, act: Consumer<T>): Disposable = bus.ofType(eventType).compose(rxSchedulerHelper<T>()).subscribe(act)
 
 }

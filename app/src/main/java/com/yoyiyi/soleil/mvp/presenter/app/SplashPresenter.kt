@@ -5,7 +5,6 @@ import com.yoyiyi.soleil.base.RxPresenter
 import com.yoyiyi.soleil.bean.app.Splash
 import com.yoyiyi.soleil.mvp.contract.app.SplashContract
 import com.yoyiyi.soleil.network.helper.RetrofitHelper
-import com.yoyiyi.soleil.rx.RxUtils
 import io.reactivex.Flowable
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
