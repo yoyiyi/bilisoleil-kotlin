@@ -19,5 +19,6 @@ interface LiveContract {
     interface Presenter<in T> : BaseContract.BasePresenter<T> {
         fun getLiveData()
 
+
     }
 }
