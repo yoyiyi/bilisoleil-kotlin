@@ -3,7 +3,7 @@ package com.yoyiyi.soleil.bean.live
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/8/14 17:04
- * 描述:
+ * 描述:直播推荐
  */
 data class LiveRecommend(var recommend_data: RecommendData) {
     data class RecommendData(var partition: Partition,

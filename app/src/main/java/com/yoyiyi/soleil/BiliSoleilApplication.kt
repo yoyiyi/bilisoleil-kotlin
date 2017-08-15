@@ -44,6 +44,11 @@ import java.util.*
 class BiliSoleilApplication : Application() {
 
     private var allActivities: HashSet<Activity>? = null
+    val appComponent: AppComponent get() = DaggerAppComponent.builder()
+            .apiModule(ApiModule())
+            .appModule(AppModule(this))
+            .build()
+
 
     companion object {
         lateinit var instance: BiliSoleilApplication
@@ -60,7 +65,6 @@ class BiliSoleilApplication : Application() {
         initCrashHandler()
         initLog()
         initPrefs()
-        initComponent()
     }
 
 
@@ -87,28 +91,14 @@ class BiliSoleilApplication : Application() {
     /**
      * 退出应用
      */
-    fun exitApp() {
-        allActivities?.let {
-            synchronized(lock = allActivities!!) {
-                for (act in allActivities!!) {
-                    act.finish()
-                }
-            }
+    @Synchronized fun exitApp() {
+        for (act in allActivities!!) {
+            act.finish()
         }
         android.os.Process.killProcess(android.os.Process.myPid())
         System.exit(0)
     }
 
-    /**
-     * 初始化网络模块组件
-     */
-    private fun initComponent() {
-        appComponent = DaggerAppComponent.builder()
-                .apiModule(ApiModule())
-                .appModule(AppModule(this))
-                .build()
-
-    }
 
     /**
      * 初始化sp

@@ -3,7 +3,7 @@ package com.yoyiyi.soleil.bean.live
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * @date 创建时间：2017/8/14 17:02
- * 描述:
+ * 描述:直播分区
  */
 data class LivePartition(var banner: List<Banner>,
                          var entranceIcons: List<EntranceIcons>,
