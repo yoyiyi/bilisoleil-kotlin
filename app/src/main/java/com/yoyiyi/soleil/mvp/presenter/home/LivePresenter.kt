@@ -94,7 +94,7 @@ class LivePresenter @Inject constructor(val retrofitHelper: RetrofitHelper) : Rx
                             }
                         }
 
-                        livePartition?.partitions?.let { it ->
+                        livePartition?.partitions?.let {
                             for ((index, element) in it.withIndex()) {
                                 mulLives.add(MulLive(itemTypez = MulLive.TYPR_HEADER,
                                         title = element.partition.name,
