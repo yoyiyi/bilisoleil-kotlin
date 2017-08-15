@@ -103,10 +103,10 @@ class SplashActivity : RxAppCompatActivity(), SplashContract.View {
     override fun showSplash(splash: Splash) {
         val urls = splash.data
         urls.let {
-            if (urls.isNotEmpty()) {
+            if (it.isNotEmpty()) {
                 val pos = Random().nextInt(urls.size)
                 Glide.with(this)
-                        .load(urls[pos].thumb)
+                        .load(it[pos].thumb)
                         //.load("http://i0.hdslb.com/bfs/archive/ba17d4df28fb0c28c8f596082d7328b4415ee28b.png")
                         .centerCrop()
                         .diskCacheStrategy(DiskCacheStrategy.ALL)

@@ -21,13 +21,13 @@ abstract class BaseRefreshFragment<T : BaseContract.BasePresenter<*>, K> : BaseF
     protected var mList = mutableListOf<K>()
 
     override fun initRefreshLayout() {
-        mRefresh.let {
-            mRefresh?.setColorSchemeResources(R.color.colorPrimary)
+        mRefresh?.let {
+            it.setColorSchemeResources(R.color.colorPrimary)
             mRecycler?.post {
-                mRefresh?.isRefreshing = true
+                it.isRefreshing = true
                 lazyLoadData()
             }
-            mRefresh?.setOnRefreshListener(this)
+            it.setOnRefreshListener(this)
         }
     }
 
@@ -59,7 +59,7 @@ abstract class BaseRefreshFragment<T : BaseContract.BasePresenter<*>, K> : BaseF
 
     override fun complete() {
         super.complete()
-        AppUtils.runOnUIDelayed({ mRefresh?.let { mRefresh?.isRefreshing = false } }, 650)
+        AppUtils.runOnUIDelayed({ mRefresh?.let { it.isRefreshing = false } }, 650)
         if (mIsRefreshing) {
             mList.clear()
             clear()

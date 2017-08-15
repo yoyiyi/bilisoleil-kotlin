@@ -52,9 +52,9 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
             //初始化Toolbar
             initToolbar()
             //让组件支持Toolbar
-            setSupportActionBar(mToolbar)
+            setSupportActionBar(it)
             // supportActionBar
-            if (mBack) mToolbar?.setNavigationOnClickListener { finish() }
+            if (mBack) it.setNavigationOnClickListener { finish() }
         }
         initWidget()
         initDatas()

@@ -69,7 +69,6 @@ class LivePresenter @Inject constructor(val retrofitHelper: RetrofitHelper) : Rx
 
                                 } else {
 
-
                                     mulLives.add(MulLive(itemTypez = TYPR_HEADER,
                                             title = partition.name,
                                             url = partition.sub_icon.src,
@@ -95,8 +94,8 @@ class LivePresenter @Inject constructor(val retrofitHelper: RetrofitHelper) : Rx
                             }
                         }
 
-                        livePartition?.partitions?.let {
-                            for ((index, element) in livePartition?.partitions?.withIndex()!!) {
+                        livePartition?.partitions?.let { it ->
+                            for ((index, element) in it.withIndex()) {
                                 mulLives.add(MulLive(itemTypez = MulLive.TYPR_HEADER,
                                         title = element.partition.name,
                                         url = element.partition.sub_icon.src,
@@ -105,7 +104,7 @@ class LivePresenter @Inject constructor(val retrofitHelper: RetrofitHelper) : Rx
                                 mulLives.add(MulLive(itemTypez = MulLive.TYPE_PARTY_ITEM,
                                         partityLives = part))
 
-                                if (index == livePartition?.partitions?.size?.minus(1)) {
+                                if (index == it.size.minus(1)) {
                                     mulLives.add(MulLive(hasMore = true, itemTypez = MulLive.TYPE_FOOTER))
                                 } else {
                                     mulLives.add(MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER))

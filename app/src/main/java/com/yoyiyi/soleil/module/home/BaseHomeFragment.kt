@@ -29,11 +29,11 @@ abstract class BaseHomeFragment : BaseFragment<Nothing>() {
     @SuppressLint("CheckResult")
     private fun initToolbar() {
         mToolbar = mRootView?.findViewById(R.id.toolbar) as Toolbar
-        mToolbar.let {
-            mToolbar?.title = ""
+        mToolbar?.let {
+            it.title = ""
             (activity as AppCompatActivity).setSupportActionBar(mToolbar)
             //换成下面这句就OK了
-            mToolbar?.inflateMenu(R.menu.menu_main)
+            it.inflateMenu(R.menu.menu_main)
         }
 
     }

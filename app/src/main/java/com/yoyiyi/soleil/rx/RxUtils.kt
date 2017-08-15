@@ -74,8 +74,8 @@ fun <T> handleResult(): FlowableTransformer<HttpResponse<T>, T> =
             httpResponseFlowable
                     .flatMap<T> { httpResponse ->
                         if (httpResponse.code == 0) {
-                            httpResponse.data?.let { return@flatMap createData(httpResponse.data) }
-                            httpResponse.result?.let { return@flatMap createData(httpResponse.result) }
+                            httpResponse.data?.let { return@flatMap createData(it) }
+                            httpResponse.result?.let { return@flatMap createData(it) }
                             return@flatMap Flowable.error <T>(ApiException("服务器返回error"))
                         } else {
                             return@flatMap Flowable.error <T>(ApiException("服务器返回error"))
@@ -94,8 +94,8 @@ fun <T> handleListResult(): FlowableTransformer<HttpResponse<List<T>>, List<T>> 
             httpResponseFlowable
                     .flatMap<List<T>> { httpResponse ->
                         if (httpResponse.code == 0) {
-                            httpResponse.data?.let { return@flatMap createData(httpResponse.data!!) }
-                            httpResponse.result?.let { return@flatMap createData(httpResponse.result!!) }
+                            httpResponse.data?.let { return@flatMap createData(it) }
+                            httpResponse.result?.let { return@flatMap createData(it) }
                             return@flatMap Flowable.error <List<T>>(ApiException("服务器返回error"))
                         } else {
                             return@flatMap Flowable.error <List<T>>(ApiException("服务器返回error"))

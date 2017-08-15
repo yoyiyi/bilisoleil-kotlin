@@ -49,8 +49,8 @@ abstract class BaseObjectSubscriber<T>(private val view: BaseContract.BaseView?)
         view ?: return
         view.complete()
         if (response.code == 0) {
-            response.data?.let { onSuccess(response.data!!) }
-            response.result?.let { onSuccess(response.result!!) }
+            response.data?.let { onSuccess(it) }
+            response.result?.let { onSuccess(it) }
         } else {
             //可以不处理任何东西
             onFailure(response.code, if (response.message == null) "未知错误" else response.message!!)
@@ -60,14 +60,14 @@ abstract class BaseObjectSubscriber<T>(private val view: BaseContract.BaseView?)
 
     override fun onError(e: Throwable) {
         view?.let {
-            if (!msg.isNullOrEmpty()) view.showError(msg!!)
+            if (!msg.isNullOrEmpty()) it.showError(msg!!)
             else {
                 when (e) {
-                    is ApiException -> view.showError(e.toString())
-                    is SocketTimeoutException -> view.showError("服务器响应超时ヽ(≧Д≦)ノ")
+                    is ApiException -> it.showError(e.toString())
+                    is SocketTimeoutException -> it.showError("服务器响应超时ヽ(≧Д≦)ノ")
                     is HttpException -> view.showError("数据加载失败ヽ(≧Д≦)ノ")
                     else -> {
-                        view.showError("未知错误ヽ(≧Д≦)ノ")
+                        it.showError("未知错误ヽ(≧Д≦)ノ")
                         LogUtils.e("MYERROR:" + e.toString())
                     }
                 }

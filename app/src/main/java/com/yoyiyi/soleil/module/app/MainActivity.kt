@@ -65,7 +65,7 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
      */
     private fun disableNavigationViewScrollbars(navigationView: NavigationView?) {
         navigationView?.let {
-            val navigationMenuView = navigationView.getChildAt(0) as NavigationMenuView
+            val navigationMenuView = it.getChildAt(0) as NavigationMenuView
             navigationMenuView.isVerticalFadingEdgeEnabled = false
         }
     }

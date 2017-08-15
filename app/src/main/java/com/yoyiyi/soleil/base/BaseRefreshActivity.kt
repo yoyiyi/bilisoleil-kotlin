@@ -25,12 +25,12 @@ abstract class BaseRefreshActivity<T : BaseContract.BasePresenter<*>, K> : BaseA
 
     protected fun initRefreshLayout() {
         mRefresh?.let {
-            mRefresh?.setColorSchemeResources(R.color.colorPrimary)
+            it.setColorSchemeResources(R.color.colorPrimary)
             mRecycler?.post {
-                mRefresh?.isRefreshing = true
+               it.isRefreshing = true
                 loadData()
             }
-            mRefresh?.setOnRefreshListener(this)
+            it.setOnRefreshListener(this)
         }
     }
 
@@ -71,7 +71,7 @@ abstract class BaseRefreshActivity<T : BaseContract.BasePresenter<*>, K> : BaseA
     override fun initDatas() {
         mRefresh?.let {
             mLoading?.let {
-                mLoading?.visibility = View.VISIBLE
+                it.visibility = View.VISIBLE
                 AppUtils.runOnUIDelayed({ loadData() }, 650)
             } ?: super.initDatas()
 
