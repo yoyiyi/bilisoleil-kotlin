@@ -69,7 +69,7 @@ class LiveAdapter(data: List<MulLive>) : BaseMultiItemQuickAdapter<MulLive, Base
                         .dontAnimate()
                         .into(holder.getView<ImageView>(R.id.iv_video_preview))
 
-                holder.setText(R.id.tv_video_live_up, if (bannerDataBean?.owner?.name.isNullOrEmpty()) "未知" else bannerDataBean?.owner?.name)//up
+                holder.setText(R.id.tv_video_live_up, bannerDataBean?.owner?.name ?: "未知")//up
                         .setText(R.id.tv_video_online, "${bannerDataBean?.online}")//在线人数;
 
                 holder.setText(R.id.tv_video_title, SpanUtils()
