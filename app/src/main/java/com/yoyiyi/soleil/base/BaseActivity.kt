@@ -33,7 +33,7 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
     protected val activityModule: ActivityModule get() = ActivityModule(this)
 
     protected val activityComponent: ActivityComponent get() = DaggerActivityComponent.builder()
-            .appComponent(BiliSoleilApplication.appComponent)
+            .appComponent(BiliSoleilApplication.instance.appComponent)
             .activityModule(activityModule)
             .build()
 

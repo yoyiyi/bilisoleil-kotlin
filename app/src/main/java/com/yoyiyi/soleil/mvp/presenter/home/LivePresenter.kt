@@ -110,7 +110,10 @@ class LivePresenter @Inject constructor(val retrofitHelper: RetrofitHelper) : Rx
                     mulLives
                 }
                 .compose(rxSchedulerHelper())
-                .subscribe { mView?.showMulLive(it) }
+                .subscribe {
+                    mView?.complete()
+                    mView?.showMulLive(it)
+                }
         )
     }
 }

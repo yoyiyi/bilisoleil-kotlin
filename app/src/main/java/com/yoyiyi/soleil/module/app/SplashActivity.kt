@@ -46,7 +46,7 @@ class SplashActivity : RxAppCompatActivity(), SplashContract.View {
 
     fun initInject() {
         DaggerActivityComponent.builder()
-                .appComponent(BiliSoleilApplication.appComponent)
+                .appComponent(BiliSoleilApplication.instance.appComponent)
                 .activityModule(ActivityModule(this))
                 .build()
                 .inject(this)

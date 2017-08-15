@@ -53,7 +53,6 @@ class BiliSoleilApplication : Application() {
 
     companion object {
         lateinit var instance: BiliSoleilApplication
-        lateinit var appComponent: AppComponent
     }
 
 

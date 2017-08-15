@@ -39,7 +39,7 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
     val fragmentModule :FragmentModule get() = FragmentModule(this)
 
     val fragmentComponent: FragmentComponent get() = DaggerFragmentComponent.builder()
-            .appComponent(BiliSoleilApplication.appComponent)
+            .appComponent(BiliSoleilApplication.instance.appComponent)
             .fragmentModule(fragmentModule)
             .build()
 
