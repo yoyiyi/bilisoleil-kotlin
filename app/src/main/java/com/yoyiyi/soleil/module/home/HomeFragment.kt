@@ -59,5 +59,6 @@ class HomeFragment : BaseHomeFragment() {
         viewPager.adapter = adapter
         stlTabs.setViewPager(viewPager)
         viewPager.currentItem = 0
+
     }
 }
