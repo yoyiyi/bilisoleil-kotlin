@@ -16,21 +16,9 @@ import java.net.SocketTimeoutException
  * * 描述:统一处理订阅者
  */
 
-abstract class BaseObjectSubscriber<T>(private val view: BaseContract.BaseView?) : ResourceSubscriber<HttpResponse<T>>() {
+abstract class BaseListSubscriber<T>(private val view: BaseContract.BaseView?) : ResourceSubscriber<HttpResponse<List<T>>>() {
+    private val msg: String? = null
 
-
-    private var msg: String? = null
-
-
-    constructor(view: BaseContract.BaseView?, msg: String?) : this(view) {
-        this.msg = msg
-    }
-
-    abstract fun onSuccess(t: T)
-
-    fun onFailure(code: Int, message: String) {
-
-    }
 
     override fun onStart() {
         super.onStart()
@@ -45,7 +33,7 @@ abstract class BaseObjectSubscriber<T>(private val view: BaseContract.BaseView?)
 
     }
 
-    override fun onNext(response: HttpResponse<T>) {
+    override fun onNext(response: HttpResponse<List<T>>) {
         view ?: return
         view.complete()
         if (response.code == 0) {
@@ -55,6 +43,12 @@ abstract class BaseObjectSubscriber<T>(private val view: BaseContract.BaseView?)
             //可以不处理任何东西
             onFailure(response.code, response.message ?: "未知错误")
         }
+    }
+
+    abstract fun onSuccess(t: List<T>)
+
+    fun onFailure(code: Int, message: String) {
+
     }
 
 
