@@ -32,60 +32,60 @@ class LivePresenter @Inject constructor(val retrofitHelper: RetrofitHelper) : Rx
                 .map {
                     with(it.recommend_data) {
                         val allot = lives.size.div(2)
-                        mulLives.add(MulLive(itemTypez =MulLive.TYPE_BANNER, bannerBeanList = livePartition?.banner))//轮播条
-                        mulLives.add(MulLive(itemTypez = MulLive.TYPE_ENTRANCE))//入口
+                        mulLives += MulLive(itemTypez = MulLive.TYPE_BANNER, bannerBeanList = livePartition?.banner)//轮播条
+                        mulLives += MulLive(itemTypez = MulLive.TYPE_ENTRANCE)//入口
                         if (banner_data == null) {
-                            mulLives.add(MulLive(itemTypez = MulLive.TYPR_HEADER,
+                            mulLives += MulLive(itemTypez = MulLive.TYPR_HEADER,
                                     title = partition.name,
                                     url = partition.sub_icon.src,
-                                    count = partition.count))
-                            mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
-                                    recommendLives = lives))
-                            mulLives.add(MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER))
+                                    count = partition.count)
+                            mulLives += MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
+                                    recommendLives = lives)
+                            mulLives += MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER)
                         } else {
                             if (banner_data.size == 1) {
-                                mulLives.add(MulLive(itemTypez = MulLive.TYPR_HEADER,
+                                mulLives += MulLive(itemTypez = MulLive.TYPR_HEADER,
                                         title = partition.name,
                                         url = partition.sub_icon.src,
-                                        count = partition.count))
+                                        count = partition.count)
 
                                 val part1 = lives.subList(0, allot) //主体
-                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
-                                        recommendLives = part1))
+                                mulLives += MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
+                                        recommendLives = part1)
 
-                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_BANNER,
-                                        bannerData = (banner_data)[0]))
+                                mulLives += MulLive(itemTypez = MulLive.TYPE_RECOMMEND_BANNER,
+                                        bannerData = (banner_data)[0])
 
 
                                 val part2 = lives.subList(allot, (lives.size))
-                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
-                                        recommendLives = part2))
+                                mulLives += MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
+                                        recommendLives = part2)
 
 
-                                mulLives.add(MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER))
+                                mulLives += MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER)
 
                             } else {
 
-                                mulLives.add(MulLive(itemTypez = MulLive.Companion.TYPR_HEADER,
+                                mulLives += MulLive(itemTypez = MulLive.Companion.TYPR_HEADER,
                                         title = partition.name,
                                         url = partition.sub_icon.src,
-                                        count = partition.count))
+                                        count = partition.count)
 
-                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_BANNER,
-                                        bannerData = (banner_data)[0]))
+                                mulLives += MulLive(itemTypez = MulLive.TYPE_RECOMMEND_BANNER,
+                                        bannerData = (banner_data)[0])
 
                                 val part1 = lives.subList(0, allot) //主体
-                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
-                                        recommendLives = part1))
+                                mulLives += MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
+                                        recommendLives = part1)
 
-                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_BANNER,
-                                        bannerData = (banner_data)[1]))
+                                mulLives += MulLive(itemTypez = MulLive.TYPE_RECOMMEND_BANNER,
+                                        bannerData = (banner_data)[1])
 
                                 val part2 = lives.subList(allot, (lives.size))
-                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
-                                        recommendLives = part2))
+                                mulLives += MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
+                                        recommendLives = part2)
 
-                                mulLives.add(MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER))
+                                mulLives += MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER)
 
                             }
                         }
@@ -93,18 +93,17 @@ class LivePresenter @Inject constructor(val retrofitHelper: RetrofitHelper) : Rx
 
                     livePartition?.partitions?.let {
                         for ((index, element) in it.withIndex()) {
-                            mulLives.add(MulLive(itemTypez = MulLive.TYPR_HEADER,
+                            mulLives += MulLive(itemTypez = MulLive.TYPR_HEADER,
                                     title = element.partition.name,
                                     url = element.partition.sub_icon.src,
-                                    count = element.partition.count))
+                                    count = element.partition.count)
                             val part = element.lives.subList(0, 4)
-                            mulLives.add(MulLive(itemTypez = MulLive.TYPE_PARTY_ITEM,
-                                    partityLives = part))
-
+                            mulLives += MulLive(itemTypez = MulLive.TYPE_PARTY_ITEM,
+                                    partityLives = part)
                             if (index == it.size.minus(1)) {
-                                mulLives.add(MulLive(hasMore = true, itemTypez = MulLive.TYPE_FOOTER))
+                                mulLives += MulLive(hasMore = true, itemTypez = MulLive.TYPE_FOOTER)
                             } else {
-                                mulLives.add(MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER))
+                                mulLives += MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER)
                             }
                         }
                     }
