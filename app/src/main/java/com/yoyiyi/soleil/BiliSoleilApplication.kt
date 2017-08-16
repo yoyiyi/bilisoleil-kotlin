@@ -44,11 +44,12 @@ import java.util.*
 class BiliSoleilApplication : Application() {
 
     private var allActivities: HashSet<Activity>? = null
-
-    val appComponent: AppComponent get() = DaggerAppComponent.builder()
-            .apiModule(ApiModule())
-            .appModule(AppModule(this))
-            .build()
+    val appComponent: AppComponent by lazy {
+        DaggerAppComponent.builder()
+                .apiModule(ApiModule())
+                .appModule(AppModule(this))
+                .build()
+    }
 
 
     companion object {

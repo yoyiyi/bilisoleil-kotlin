@@ -16,6 +16,7 @@ import io.reactivex.processors.PublishProcessor
 object RxBus {
     val bus: FlowableProcessor<Any> = PublishProcessor.create<Any>().toSerialized()
 
+
     // 提供了一个新的事件 发射数据
     fun post(o: Any) {
         bus.onNext(o)
