@@ -114,7 +114,7 @@ class LiveAdapter(data: List<MulLive>) : BaseMultiItemQuickAdapter<MulLive, Base
             MulLive.TYPE_FOOTER -> {
                 val random = Random()
                 mulLive.hasMore?.let {
-                    if (mulLive.hasMore) {
+                    if (it) {
                         holder.setVisible(R.id.bt_more_live, true)
                     } else {
                         holder.setVisible(R.id.bt_more_live, false)
@@ -127,7 +127,8 @@ class LiveAdapter(data: List<MulLive>) : BaseMultiItemQuickAdapter<MulLive, Base
                     view.animate()
                             .rotation(360f)
                             .setInterpolator(LinearInterpolator())
-                            .setDuration(1000).start()
+                            .setDuration(1000)
+                            .start()
                 })
             }
         }

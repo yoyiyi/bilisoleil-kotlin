@@ -17,7 +17,8 @@ class MulLive(val title: String? = null,
               val bannerData: LiveRecommend.RecommendData.BannerData? = null,
               val bannerBeanList: List<LivePartition.Banner>? = null,
               val recommendLives: List<LiveRecommend.RecommendData.Lives>? = null,
-              val partityLives: List<LivePartition.Partitions.Lives>? = null) : MultiItemEntity {
+              val partityLives: List<LivePartition.Partitions.Lives>? = null)
+    : MultiItemEntity {
 
 
     companion object {
