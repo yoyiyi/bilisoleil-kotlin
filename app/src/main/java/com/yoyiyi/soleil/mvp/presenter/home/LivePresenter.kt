@@ -4,6 +4,7 @@ package com.yoyiyi.soleil.mvp.presenter.home
 import com.yoyiyi.soleil.base.RxPresenter
 import com.yoyiyi.soleil.bean.live.LivePartition
 import com.yoyiyi.soleil.bean.live.MulLive
+
 import com.yoyiyi.soleil.mvp.contract.home.LiveContract
 import com.yoyiyi.soleil.network.helper.RetrofitHelper
 import com.yoyiyi.soleil.rx.handleResult
@@ -31,60 +32,60 @@ class LivePresenter @Inject constructor(val retrofitHelper: RetrofitHelper) : Rx
                 .map {
                     with(it.recommend_data) {
                         val allot = lives.size.div(2)
-                        mulLives.add(com.yoyiyi.soleil.bean.live.MulLive(itemTypez = com.yoyiyi.soleil.bean.live.MulLive.TYPE_BANNER, bannerBeanList = livePartition?.banner))//轮播条
-                        mulLives.add(com.yoyiyi.soleil.bean.live.MulLive(itemTypez = com.yoyiyi.soleil.bean.live.MulLive.TYPE_ENTRANCE))//入口
+                        mulLives.add(MulLive(itemTypez =MulLive.TYPE_BANNER, bannerBeanList = livePartition?.banner))//轮播条
+                        mulLives.add(MulLive(itemTypez = MulLive.TYPE_ENTRANCE))//入口
                         if (banner_data == null) {
-                            mulLives.add(com.yoyiyi.soleil.bean.live.MulLive(itemTypez = com.yoyiyi.soleil.bean.live.MulLive.TYPR_HEADER,
+                            mulLives.add(MulLive(itemTypez = MulLive.TYPR_HEADER,
                                     title = partition.name,
                                     url = partition.sub_icon.src,
                                     count = partition.count))
-                            mulLives.add(com.yoyiyi.soleil.bean.live.MulLive(itemTypez = com.yoyiyi.soleil.bean.live.MulLive.TYPE_RECOMMEND_ITEM,
+                            mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
                                     recommendLives = lives))
-                            mulLives.add(com.yoyiyi.soleil.bean.live.MulLive(hasMore = false, itemTypez = com.yoyiyi.soleil.bean.live.MulLive.TYPE_FOOTER))
+                            mulLives.add(MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER))
                         } else {
                             if (banner_data.size == 1) {
-                                mulLives.add(com.yoyiyi.soleil.bean.live.MulLive(itemTypez = com.yoyiyi.soleil.bean.live.MulLive.TYPR_HEADER,
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPR_HEADER,
                                         title = partition.name,
                                         url = partition.sub_icon.src,
                                         count = partition.count))
 
                                 val part1 = lives.subList(0, allot) //主体
-                                mulLives.add(com.yoyiyi.soleil.bean.live.MulLive(itemTypez = com.yoyiyi.soleil.bean.live.MulLive.TYPE_RECOMMEND_ITEM,
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
                                         recommendLives = part1))
 
-                                mulLives.add(com.yoyiyi.soleil.bean.live.MulLive(itemTypez = com.yoyiyi.soleil.bean.live.MulLive.TYPE_RECOMMEND_BANNER,
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_BANNER,
                                         bannerData = (banner_data)[0]))
 
 
                                 val part2 = lives.subList(allot, (lives.size))
-                                mulLives.add(com.yoyiyi.soleil.bean.live.MulLive(itemTypez = com.yoyiyi.soleil.bean.live.MulLive.TYPE_RECOMMEND_ITEM,
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
                                         recommendLives = part2))
 
 
-                                mulLives.add(com.yoyiyi.soleil.bean.live.MulLive(hasMore = false, itemTypez = com.yoyiyi.soleil.bean.live.MulLive.TYPE_FOOTER))
+                                mulLives.add(MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER))
 
                             } else {
 
-                                mulLives.add(com.yoyiyi.soleil.bean.live.MulLive(itemTypez = com.yoyiyi.soleil.bean.live.MulLive.Companion.TYPR_HEADER,
+                                mulLives.add(MulLive(itemTypez = MulLive.Companion.TYPR_HEADER,
                                         title = partition.name,
                                         url = partition.sub_icon.src,
                                         count = partition.count))
 
-                                mulLives.add(com.yoyiyi.soleil.bean.live.MulLive(itemTypez = com.yoyiyi.soleil.bean.live.MulLive.TYPE_RECOMMEND_BANNER,
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_BANNER,
                                         bannerData = (banner_data)[0]))
 
                                 val part1 = lives.subList(0, allot) //主体
-                                mulLives.add(com.yoyiyi.soleil.bean.live.MulLive(itemTypez = com.yoyiyi.soleil.bean.live.MulLive.TYPE_RECOMMEND_ITEM,
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
                                         recommendLives = part1))
 
-                                mulLives.add(com.yoyiyi.soleil.bean.live.MulLive(itemTypez = com.yoyiyi.soleil.bean.live.MulLive.TYPE_RECOMMEND_BANNER,
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_BANNER,
                                         bannerData = (banner_data)[1]))
 
                                 val part2 = lives.subList(allot, (lives.size))
-                                mulLives.add(com.yoyiyi.soleil.bean.live.MulLive(itemTypez = com.yoyiyi.soleil.bean.live.MulLive.TYPE_RECOMMEND_ITEM,
+                                mulLives.add(MulLive(itemTypez = MulLive.TYPE_RECOMMEND_ITEM,
                                         recommendLives = part2))
 
-                                mulLives.add(com.yoyiyi.soleil.bean.live.MulLive(hasMore = false, itemTypez = com.yoyiyi.soleil.bean.live.MulLive.TYPE_FOOTER))
+                                mulLives.add(MulLive(hasMore = false, itemTypez = MulLive.TYPE_FOOTER))
 
                             }
                         }
