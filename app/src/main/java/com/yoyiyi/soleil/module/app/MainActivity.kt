@@ -14,9 +14,9 @@ import com.yoyiyi.soleil.event.Event
 import com.yoyiyi.soleil.module.home.HomeFragment
 import com.yoyiyi.soleil.rx.RxBus
 import com.yoyiyi.soleil.utils.AppUtils
-import com.yoyiyi.soleil.utils.ToastUtils
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.toast
 
 class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSelectedListener {
     private var exitTime = 0L
@@ -117,7 +117,7 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
      */
     private fun exitApp() {
         if (System.currentTimeMillis() - exitTime > 2000) {
-            ToastUtils.showToast("再按一次退出")
+            toast("再按一次退出")
             exitTime = System.currentTimeMillis()
         } else {
             BiliSoleilApplication.instance.exitApp()

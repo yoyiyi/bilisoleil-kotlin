@@ -21,10 +21,10 @@ class SplashPresenter @Inject constructor(val retrofitHelper: RetrofitHelper) : 
     override fun setCountDown() {
         val count = 5L
         addSubscribe(Flowable.interval(0, 1, TimeUnit.SECONDS)
-                .map { it -> count - it }
+                .map { count - it }
                 .take(count + 1)
                 .compose(rxSchedulerHelper())
-                .subscribe { it -> mView?.showCountDown(it.toInt()) })
+                .subscribe { mView?.showCountDown(it.toInt()) })
     }
 
     override fun getSplashData() {
