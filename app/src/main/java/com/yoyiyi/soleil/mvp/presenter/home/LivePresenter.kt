@@ -24,7 +24,7 @@ class LivePresenter @Inject constructor(val retrofitHelper: RetrofitHelper) : Rx
         val mulLives: MutableList<MulLive> = mutableListOf()
         addSubscribe(retrofitHelper.getLivePartition()
                 .compose(handleResult())
-                .flatMap({ it ->
+                .flatMap({
                     livePartition = it
                     retrofitHelper.getLiveRecommend()
                 })
