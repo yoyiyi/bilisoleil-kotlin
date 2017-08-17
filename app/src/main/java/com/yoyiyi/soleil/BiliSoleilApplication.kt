@@ -93,8 +93,10 @@ class BiliSoleilApplication : Application() {
      * 退出应用
      */
     @Synchronized fun exitApp() {
-        for (act in allActivities!!) {
-            act.finish()
+        allActivities?.let {
+            for (act in it) {
+                act.finish()
+            }
         }
         android.os.Process.killProcess(android.os.Process.myPid())
         System.exit(0)
