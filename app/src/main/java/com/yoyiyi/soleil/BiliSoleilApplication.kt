@@ -124,6 +124,7 @@ class BiliSoleilApplication : Application() {
      */
     private fun initNetwork() {
         NetworkUtils.startNetService(this)
+
     }
 
 
