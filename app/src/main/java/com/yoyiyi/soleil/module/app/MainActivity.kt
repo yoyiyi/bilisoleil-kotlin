@@ -79,7 +79,7 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
         //监听事件
         RxBus.toFlowable(Event.StartNavigationEvent::class.java)
                 .compose(bindToLifecycle())
-                .subscribe({ it ->
+                .subscribe({
                     if (it.start) {
                         toggleDrawer()//打开
                     }
