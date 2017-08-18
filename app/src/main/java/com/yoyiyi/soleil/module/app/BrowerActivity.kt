@@ -4,7 +4,6 @@ package com.yoyiyi.soleil.module.app
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -56,10 +55,8 @@ class BrowerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_brower)
         initVariables()
-
         initWedgit()
-        //调用shareSDK
-        // ShareSDK.initSDK(this, "");
+
 
     }
 
@@ -113,9 +110,6 @@ class BrowerActivity : AppCompatActivity() {
     }
 
     internal inner class WebClientBase : WebViewClient() {
-        override fun onPageStarted(webView: WebView, s: String, bitmap: Bitmap) {
-            super.onPageStarted(webView, s, bitmap)
-        }
 
         override fun onPageFinished(webView: WebView, s: String) {
             super.onPageFinished(webView, s)
