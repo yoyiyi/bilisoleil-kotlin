@@ -1,5 +1,10 @@
 package com.yoyiyi.soleil.network.api
 
+import com.yoyiyi.soleil.bean.region.AllRegionRank
+import io.reactivex.Flowable
+import retrofit2.http.GET
+import retrofit2.http.Path
+
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * *
@@ -27,4 +32,14 @@ interface RankService {
      *//*
     @GET("index/rank/{type}")
     fun getAllRegionRank(@Path("type") type: String): Flowable<AllRegionRank>*/
+
+    /**
+     * 全区排行
+
+     * @param type
+     * *
+     * @return
+     */
+    @GET("index/rank/{type}")
+    fun getAllRegionRank(@Path("type") type: String): Flowable<AllRegionRank>
 }
