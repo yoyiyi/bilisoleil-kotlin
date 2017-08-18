@@ -14,6 +14,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -42,6 +43,8 @@ dependencies {
     //anko
     compile "org.jetbrains.anko:anko-common:0.9.1a"
     compile "org.jetbrains.anko:anko-sdk15:0.9.1a"
+
+    compile "com.android.support:multidex:1.0.1"
     //ui
     compile 'com.android.support:design:25.4.0'
     compile 'com.android.support:recyclerview-v7:25.4.0'
@@ -90,4 +93,20 @@ dependencies {
     compile 'com.facebook.stetho:stetho:1.4.2'
     compile 'com.facebook.stetho:stetho-okhttp3:1.4.2'
     compile 'com.orhanobut:logger:1.15'
+    compile files('libs/ShareSDK-Wechat-Moments-2.8.3.jar')
+    compile files('libs/ShareSDK-Wechat-Favorite-2.8.3.jar')
+    compile files('libs/ShareSDK-Wechat-Core-2.8.3.jar')
+    compile files('libs/ShareSDK-Wechat-2.8.3.jar')
+    compile files('libs/ShareSDK-Twitter-2.8.3.jar')
+    compile files('libs/ShareSDK-TencentWeibo-2.8.3.jar')
+    compile files('libs/ShareSDK-SinaWeibo-2.8.3.jar')
+    compile files('libs/ShareSDK-ShortMessage-2.8.3.jar')
+    compile files('libs/ShareSDK-QZone-2.8.3.jar')
+    compile files('libs/ShareSDK-QQ-2.8.3.jar')
+    compile files('libs/ShareSDK-Facebook-2.8.3.jar')
+    compile files('libs/ShareSDK-Email-2.8.3.jar')
+    compile files('libs/ShareSDK-Core-2.8.3.jar')
+    compile files('libs/MobTools-2017.0412.1554.jar')
+    compile files('libs/MobCommons-2017.0412.1554.jar')
+    compile 'org.jsoup:jsoup:1.10.3'
 }
