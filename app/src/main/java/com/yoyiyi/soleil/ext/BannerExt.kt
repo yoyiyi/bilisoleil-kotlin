@@ -15,13 +15,12 @@ import com.youth.banner.loader.ImageLoader
  */
 
 fun Banner.startAnim(urls: List<String>?) {
-    this.setIndicatorGravity(BannerConfig.RIGHT)
+    setIndicatorGravity(BannerConfig.RIGHT)
             .setImages(urls)
             .setImageLoader(GlideImageLoader())
             .start()
+
 }
-
-
 
 
 private class GlideImageLoader : ImageLoader() {
@@ -34,8 +33,3 @@ private class GlideImageLoader : ImageLoader() {
     }
 }
 
-
-/*banner.setIndicatorGravity(BannerConfig.RIGHT)
-.setImages(urls)
-.setImageLoader(GlideImageLoader())
-.start()*/
