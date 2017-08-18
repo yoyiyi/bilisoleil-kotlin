@@ -16,6 +16,7 @@ import com.youth.banner.loader.ImageLoader
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.bean.live.MulLive
 import com.yoyiyi.soleil.bean.live.support.LiveEnter
+import com.yoyiyi.soleil.module.app.BrowerActivity
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.SpanUtils
 import java.util.*
@@ -49,6 +50,12 @@ class LiveAdapter(data: List<MulLive>) : BaseMultiItemQuickAdapter<MulLive, Base
                         .setImages(urls)
                         .setImageLoader(GlideImageLoader())
                         .start()
+
+                banner?.setOnBannerListener { i ->
+                    val bannerBean = bannerBeanList?.get(i)
+                    BrowerActivity.startActivity(mContext, bannerBean?.link ?: "", bannerBean?.title ?: "", bannerBean?.img ?: "")
+                }
+
             }
             MulLive.TYPE_ENTRANCE -> {
                 val liveEnterList = initEntrance()

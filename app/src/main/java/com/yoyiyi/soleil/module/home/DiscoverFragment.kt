@@ -6,6 +6,8 @@ import android.widget.TextView
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.base.BaseFragment
 import com.yoyiyi.soleil.bean.discover.HotSearchTag
+import com.yoyiyi.soleil.constant.Constants
+import com.yoyiyi.soleil.module.app.BrowerActivity
 import com.yoyiyi.soleil.mvp.contract.home.DiscoverContract
 import com.yoyiyi.soleil.mvp.presenter.home.DiscoverPresenter
 import com.yoyiyi.soleil.widget.flowlayout.FlowLayout
@@ -106,6 +108,10 @@ class DiscoverFragment : BaseFragment<DiscoverPresenter>(), DiscoverContract.Vie
                 }
 
             }
+            R.id.rl_mall//周边商城
+            -> BrowerActivity.startActivity(activity, Constants.SHOP_URL, "bilibili - 周边商城", "")
+            R.id.rl_black_list//小黑屋
+            -> BrowerActivity.startActivity(activity, Constants.BLACK_URL, "小黑屋", "")
 
 
         /*  R.id.rl_rank_original//原创排行

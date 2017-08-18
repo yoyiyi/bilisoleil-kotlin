@@ -12,6 +12,7 @@ import com.youth.banner.loader.ImageLoader
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.bean.recommend.MulRecommend
 import com.yoyiyi.soleil.bean.recommend.Recommend
+import com.yoyiyi.soleil.module.app.BrowerActivity
 import com.yoyiyi.soleil.utils.NumberUtils
 import com.yoyiyi.soleil.utils.time.FormatUtils
 
@@ -42,7 +43,7 @@ class RecommendAdapter(data: List<MulRecommend>) : BaseMultiItemQuickAdapter<Mul
                     val i = it
                     banner_item?.let {
                         val bannerBean = it[i]
-                        //  BrowerActivity.startActivity(mContext, bannerBean.uri, bannerBean.title, bannerBean.image)
+                        BrowerActivity.startActivity(mContext, bannerBean.uri, bannerBean.title, bannerBean.image)
 
                     }
                 }
