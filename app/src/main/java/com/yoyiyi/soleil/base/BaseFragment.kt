@@ -70,8 +70,13 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
         initVariables()
         mError = mRootView?.findViewById(R.id.cl_error) as ConstraintLayout?
         initWidget()
+        initSetListener()
         finishCreateView(savedInstanceState)
         initDatas()
+    }
+
+    protected open fun initSetListener() {
+
     }
 
     protected open fun lazyLoadData() {

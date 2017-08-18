@@ -39,7 +39,7 @@ class DynamicPresenter @Inject constructor(private val retrofitHelper: RetrofitH
                         val dynamic = MulDynamic(group = itemBean,
                                 itemTypez = MulDynamic.TYPE_LV0,
                                 lv = MulDynamic.TYPE_LV0,
-                                flag = !getRecent(itemBean).isEmpty())
+                                flag = getRecent(itemBean).isNotEmpty())
                         dynamic.child = getRecent(itemBean)
                         mulDynamics += dynamic
                     }

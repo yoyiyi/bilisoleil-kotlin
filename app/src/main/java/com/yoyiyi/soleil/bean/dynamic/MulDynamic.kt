@@ -19,29 +19,13 @@ class MulDynamic(var itemTypez: Int = 0,
 
     var child: List<MulDynamic>? = null
         set(value) {
+            field = value
             field?.let {
                 if (it.isNotEmpty()) {
                     it.forEach { item -> addSubItem(item) }
                 }
             }
         }
-
-
-    /* fun setChild(child: List<MulDynamic>): MulDynamic {
-         this.child = child
-         addSubItem()
-         return this
-     }
-
-
-     fun addSubItem(child: List<MulDynamic>): MulDynamic {
-         this.child = child
-         if (EmptyUtils.isNotEmpty(child)) {
-             for (mulDynamic in child)
-                 addSubItem(mulDynamic)
-         }
-         return this
-     }*/
 
     override fun getItemType(): Int = itemTypez
 

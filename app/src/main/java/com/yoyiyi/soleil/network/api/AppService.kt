@@ -1,6 +1,7 @@
 package com.yoyiyi.soleil.network.api
 
 import com.yoyiyi.soleil.bean.app.Splash
+import com.yoyiyi.soleil.bean.discover.HotSearchTag
 import com.yoyiyi.soleil.bean.region.Region
 import com.yoyiyi.soleil.network.response.HttpResponse
 import io.reactivex.Flowable
@@ -26,5 +27,13 @@ interface AppService {
      */
     @GET("/x/v2/show/index?access_key=fcbe0b2d947971fd3cc2b9e759d63097&appkey=1d8b6e7d45233436&build=505000&mobi_app=android&platform=android&ts=1495780436&sign=93ebfdf6018d866239977af373d45dba")
     fun getRegion(): Flowable<HttpResponse<List<Region>>>
+
+    /**
+     * 首页发现 热门搜索标签
+
+     * @return
+     */
+    @GET("/x/v2/search/hot?appkey=1d8b6e7d45233436&build=506000&limit=50&mobi_app=android&platform=android&ts=1495949781&sign=9bc4cea15aa9de8a0b142db86634f11f\n")
+    fun getHotSearchTag(): Flowable<HttpResponse<HotSearchTag>>
 
 }

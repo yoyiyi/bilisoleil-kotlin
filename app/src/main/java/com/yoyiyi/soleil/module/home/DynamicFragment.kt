@@ -39,6 +39,11 @@ class DynamicFragment : BaseRefreshFragment<DynamicPresenter, MulDynamic>(), Dyn
         fragmentComponent.inject(this)
     }
 
+
+    override fun initPresenter() {
+        mPresenter.attachView(this)
+    }
+
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.cl_all -> {

@@ -27,6 +27,7 @@ interface FragmentComponent {
     fun inject(regionFragment: RegionFragment)
 
     fun inject(dynamicFragment: DynamicFragment)
+    fun inject(discoverFragment: DiscoverFragment)
 
 
     /*  val activity: Activity

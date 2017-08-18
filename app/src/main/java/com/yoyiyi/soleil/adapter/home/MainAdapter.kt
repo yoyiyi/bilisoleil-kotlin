@@ -38,7 +38,7 @@ class MainAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
                     mFragment[position] = DynamicFragment.newInstance()
                 5 ->
                     //发现
-                    mFragment[position] = LiveFragment.newInstance()
+                    mFragment[position] = DiscoverFragment.newInstance()
             }
         }
         return mFragment[position]

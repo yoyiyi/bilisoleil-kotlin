@@ -2,6 +2,7 @@ package com.yoyiyi.soleil.network.helper
 
 
 import com.yoyiyi.soleil.bean.app.Splash
+import com.yoyiyi.soleil.bean.discover.HotSearchTag
 import com.yoyiyi.soleil.bean.live.LivePartition
 import com.yoyiyi.soleil.bean.live.LiveRecommend
 import com.yoyiyi.soleil.bean.region.Region
@@ -33,6 +34,8 @@ class RetrofitHelper(private val appService: AppService,
     fun getLiveRecommend(): Flowable<HttpResponse<LiveRecommend>> = liveService.getLiveRecommend()
 
     fun getRegion(): Flowable<HttpResponse<List<Region>>> = appService.getRegion()
+
+    fun getHotSearchTag(): Flowable<HttpResponse<HotSearchTag>> = appService.getHotSearchTag()
 
     /*
         val splash: Flowable<Splash>
