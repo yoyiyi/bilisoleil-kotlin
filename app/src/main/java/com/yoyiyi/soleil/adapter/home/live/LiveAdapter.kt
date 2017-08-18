@@ -1,6 +1,5 @@
 package com.yoyiyi.soleil.adapter.home.live
 
-import android.content.Context
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.animation.LinearInterpolator
@@ -11,11 +10,10 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.youth.banner.Banner
-import com.youth.banner.BannerConfig
-import com.youth.banner.loader.ImageLoader
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.bean.live.MulLive
 import com.yoyiyi.soleil.bean.live.support.LiveEnter
+import com.yoyiyi.soleil.ext.startAnim
 import com.yoyiyi.soleil.module.app.BrowerActivity
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.SpanUtils
@@ -46,11 +44,7 @@ class LiveAdapter(data: List<MulLive>) : BaseMultiItemQuickAdapter<MulLive, Base
                 val banner = holder.getView<Banner>(R.id.banner)
                 val bannerBeanList = mulLive.bannerBeanList
                 val urls = bannerBeanList?.map({ (img) -> img })
-                banner.setIndicatorGravity(BannerConfig.RIGHT)
-                        .setImages(urls)
-                        .setImageLoader(GlideImageLoader())
-                        .start()
-
+                banner.startAnim(urls)
                 banner?.setOnBannerListener { i ->
                     val bannerBean = bannerBeanList?.get(i)
                     BrowerActivity.startActivity(mContext, bannerBean?.link ?: "", bannerBean?.title ?: "", bannerBean?.img ?: "")
@@ -141,16 +135,6 @@ class LiveAdapter(data: List<MulLive>) : BaseMultiItemQuickAdapter<MulLive, Base
         }
     }
 
-
-    internal class GlideImageLoader : ImageLoader() {
-        override fun displayImage(context: Context, path: Any, imageView: ImageView) {
-            Glide.with(context)
-                    .load(path as String)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .dontAnimate()
-                    .into(imageView)
-        }
-    }
 
     /**
      * 初始化入口

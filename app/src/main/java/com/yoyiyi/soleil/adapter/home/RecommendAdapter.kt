@@ -1,17 +1,15 @@
 package com.yoyiyi.soleil.adapter.home
 
-import android.content.Context
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.youth.banner.Banner
-import com.youth.banner.BannerConfig
-import com.youth.banner.loader.ImageLoader
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.bean.recommend.MulRecommend
 import com.yoyiyi.soleil.bean.recommend.Recommend
+import com.yoyiyi.soleil.ext.startAnim
 import com.yoyiyi.soleil.module.app.BrowerActivity
 import com.yoyiyi.soleil.utils.NumberUtils
 import com.yoyiyi.soleil.utils.time.FormatUtils
@@ -35,10 +33,7 @@ class RecommendAdapter(data: List<MulRecommend>) : BaseMultiItemQuickAdapter<Mul
                 val banner = holder.getView<Banner>(R.id.banner)
                 val banner_item = mulRecommend.data
                 val urls = banner_item?.map(Recommend.BannerItem::image)
-                banner.setIndicatorGravity(BannerConfig.RIGHT)
-                        .setImages(urls)
-                        .setImageLoader(GlideImageLoader())
-                        .start()
+                banner.startAnim(urls)
                 banner.setOnBannerListener {
                     val i = it
                     banner_item?.let {
@@ -51,7 +46,7 @@ class RecommendAdapter(data: List<MulRecommend>) : BaseMultiItemQuickAdapter<Mul
 
             MulRecommend.TYPE_ITEM -> {
                 Glide.with(mContext)
-                        .load<Any>(mulRecommend.recommend?.cover)
+                        .load(mulRecommend.recommend?.cover)
                         .centerCrop()
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .placeholder(R.drawable.bili_default_image_tv)
@@ -70,16 +65,6 @@ class RecommendAdapter(data: List<MulRecommend>) : BaseMultiItemQuickAdapter<Mul
                 }
                 // holder.itemView.setOnClickListener { view -> mContext.startActivity(Intent(mContext, VideoDetailActivity::class.java)) }
             }
-        }
-    }
-
-    private class GlideImageLoader : ImageLoader() {
-        override fun displayImage(context: Context, path: Any, imageView: ImageView) {
-            Glide.with(context)
-                    .load(path as String)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .dontAnimate()
-                    .into(imageView)
         }
     }
 }
