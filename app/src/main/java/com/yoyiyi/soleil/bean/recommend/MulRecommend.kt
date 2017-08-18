@@ -11,8 +11,8 @@ import com.chad.library.adapter.base.entity.MultiItemEntity
 
 class MulRecommend(val itemTypez: Int = 0,
                    var spanSize: Int = 0,
-                   var recommend: Recommend.Data? = null,
-                   var data: List<Recommend.Data.BannerItem>? = null) : MultiItemEntity {
+                   var recommend: Recommend? = null,
+                   var data: List<Recommend.BannerItem>? = null) : MultiItemEntity {
 
     companion object {
         val TYPE_HEADER = 1

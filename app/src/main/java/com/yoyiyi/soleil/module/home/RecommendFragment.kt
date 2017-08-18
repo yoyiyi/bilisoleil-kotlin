@@ -61,10 +61,10 @@ class RecommendFragment : BaseRefreshFragment<RecommendPresenter, MulRecommend>(
 
     override fun showRecommend(recommend: List<Recommend>) {
         recommend.forEach {
-            if (it.banner_item.isNotEmpty()) {
-                mList.add(MulRecommend(MulRecommend.TYPE_HEADER, MulRecommend.HEADER_SPAN_SIZE, it.banner_item))
+            if (it.banner_item != null && it.banner_item.isNotEmpty()) {
+                mList.add(MulRecommend(itemTypez = MulRecommend.TYPE_HEADER, spanSize = MulRecommend.HEADER_SPAN_SIZE, data = it.banner_item))
             } else {
-                mList.add(MulRecommend(MulRecommend.TYPE_ITEM, MulRecommend.ITEM_SPAN_SIZE, it))
+                mList.add(MulRecommend(itemTypez = MulRecommend.TYPE_ITEM, spanSize = MulRecommend.ITEM_SPAN_SIZE, recommend = it))
             }
 
         }

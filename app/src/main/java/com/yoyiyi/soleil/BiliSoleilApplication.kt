@@ -51,9 +51,9 @@ class BiliSoleilApplication : Application() {
                 .build()
     }
 
-
     companion object {
         lateinit var instance: BiliSoleilApplication
+
     }
 
 
@@ -101,7 +101,6 @@ class BiliSoleilApplication : Application() {
         android.os.Process.killProcess(android.os.Process.myPid())
         System.exit(0)
     }
-
 
     /**
      * 初始化sp

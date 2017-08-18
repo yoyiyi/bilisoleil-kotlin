@@ -33,7 +33,7 @@ class RecommendAdapter(data: List<MulRecommend>) : BaseMultiItemQuickAdapter<Mul
             MulRecommend.TYPE_HEADER -> {
                 val banner = holder.getView<Banner>(R.id.banner)
                 val banner_item = mulRecommend.data
-                val urls = banner_item?.map(Recommend.Data.BannerItem::image)
+                val urls = banner_item?.map(Recommend.BannerItem::image)
                 banner.setIndicatorGravity(BannerConfig.RIGHT)
                         .setImages(urls)
                         .setImageLoader(GlideImageLoader())
