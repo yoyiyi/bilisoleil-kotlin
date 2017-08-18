@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.yoyiyi.soleil.R
+import com.yoyiyi.soleil.module.home.ChaseBangumiFragment
 import com.yoyiyi.soleil.module.home.LiveFragment
 import com.yoyiyi.soleil.module.home.RecommendFragment
 import com.yoyiyi.soleil.utils.AppUtils
@@ -30,7 +31,7 @@ class MainAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
                     mFragment[position] = RecommendFragment.newInstance()
                 2 ->
                     //追番
-                    mFragment[position] = LiveFragment.newInstance()
+                    mFragment[position] = ChaseBangumiFragment.newInstance()
                 3 ->
                     //分区
                     mFragment[position] = LiveFragment.newInstance()
