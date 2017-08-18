@@ -18,7 +18,7 @@ import com.yoyiyi.soleil.widget.section.ViewHolder
  * @date 创建时间：2017/5/26 21:59
  * * 描述:
  */
-class ChaseRecommendJPSection(private val mList: List<RecommendBangumi.RecommendJp.Recommend>, private val mFootBean: RecommendBangumi.RecommendJp.Foot) : StatelessSection<Nothing>(R.layout.layout_item_home_chase_head, R.layout.layout_item_home_chase_footer, R.layout.layout_item_home_chase_body) {
+class ChaseRecommendJPSection(private val list: List<RecommendBangumi.RecommendJp.Recommend>, private val foot: RecommendBangumi.RecommendJp.Foot) : StatelessSection<Nothing>(R.layout.layout_item_home_chase_head, R.layout.layout_item_home_chase_footer, R.layout.layout_item_home_chase_body) {
 
 
     override fun onBindHeaderViewHolder(holder: ViewHolder) {
@@ -32,21 +32,21 @@ class ChaseRecommendJPSection(private val mList: List<RecommendBangumi.Recommend
         recyclerView.isNestedScrollingEnabled = false
         val layoutManager = GridLayoutManager(mContext, 3)
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = ChaseRecommendJPAdapter(mList)
+        recyclerView.adapter = ChaseRecommendJPAdapter(list)
 
     }
 
     override fun onBindFooterViewHolder(holder: ViewHolder) {
         Glide.with(mContext)
-                .load<Any>(mFootBean.cover)
+                .load<Any>(foot.cover)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.drawable.bili_default_image_tv)
                 .dontAnimate()
                 .into(holder.getView<ImageView>(R.id.iv_video_preview))
-        holder.setText(R.id.tv_title, mFootBean.title)
-                .setText(R.id.tv_des, mFootBean.desc)
-        if (mFootBean.is_new == 1) {
+        holder.setText(R.id.tv_title, foot.title)
+                .setText(R.id.tv_des, foot.desc)
+        if (foot.is_new == 1) {
             holder.setVisible(R.id.tv_new_tag, true)
         } else {
             holder.setVisible(R.id.tv_new_tag, false)

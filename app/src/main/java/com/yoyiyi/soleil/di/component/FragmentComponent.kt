@@ -3,9 +3,7 @@ package com.yoyiyi.soleil.di.component
 import android.app.Activity
 import com.yoyiyi.soleil.di.module.FragmentModule
 import com.yoyiyi.soleil.di.scope.FragmentScope
-import com.yoyiyi.soleil.module.home.ChaseBangumiFragment
-import com.yoyiyi.soleil.module.home.LiveFragment
-import com.yoyiyi.soleil.module.home.RecommendFragment
+import com.yoyiyi.soleil.module.home.*
 import dagger.Component
 
 /**
@@ -25,6 +23,10 @@ interface FragmentComponent {
     fun inject(liveFragment: LiveFragment)
 
     fun inject(chaseBangumiFragment: ChaseBangumiFragment)
+
+    fun inject(regionFragment: RegionFragment)
+
+    fun inject(dynamicFragment: DynamicFragment)
 
 
     /*  val activity: Activity

@@ -4,6 +4,7 @@ package com.yoyiyi.soleil.network.helper
 import com.yoyiyi.soleil.bean.app.Splash
 import com.yoyiyi.soleil.bean.live.LivePartition
 import com.yoyiyi.soleil.bean.live.LiveRecommend
+import com.yoyiyi.soleil.bean.region.Region
 import com.yoyiyi.soleil.network.api.*
 import com.yoyiyi.soleil.network.response.HttpResponse
 import io.reactivex.Flowable
@@ -30,6 +31,9 @@ class RetrofitHelper(private val appService: AppService,
     fun getLivePartition(): Flowable<HttpResponse<LivePartition>> = liveService.getLivePartition()
 
     fun getLiveRecommend(): Flowable<HttpResponse<LiveRecommend>> = liveService.getLiveRecommend()
+
+    fun getRegion(): Flowable<HttpResponse<List<Region>>> = appService.getRegion()
+
     /*
         val splash: Flowable<Splash>
             get() = mAppService.getSplash()
