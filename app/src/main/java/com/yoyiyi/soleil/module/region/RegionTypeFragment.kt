@@ -65,7 +65,7 @@ class RegionTypeFragment : BaseRefreshFragment<RegionTypePresenter, RegionType.R
 
     override fun showRegionType(regionType: RegionType) {
         mList.addAll(regionType.recommend)
-        mNewBeanList.addAll(regionType.newX)
+        mNewBeanList.addAll(regionType.new)
         finishTask()
     }
 

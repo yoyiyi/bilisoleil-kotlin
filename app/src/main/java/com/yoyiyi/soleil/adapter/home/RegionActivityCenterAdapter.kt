@@ -20,7 +20,7 @@ class RegionActivityCenterAdapter(data: List<Region.Body>?) : BaseQuickAdapter<R
 
     override fun convert(holder: BaseViewHolder, bodyBean: Region.Body) {
         Glide.with(mContext)
-                .load<Any>(bodyBean.cover)
+                .load(bodyBean.cover)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.drawable.bili_default_image_tv)

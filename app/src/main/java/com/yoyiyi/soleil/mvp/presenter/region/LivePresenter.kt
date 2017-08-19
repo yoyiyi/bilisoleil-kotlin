@@ -23,7 +23,7 @@ class LivePresenter @Inject constructor(private val retrofitHelper: RetrofitHelp
                 .compose(rxSchedulerHelper())
                 .subscribeWith(object : BaseListSubscriber<LiveEntrance>(mView) {
                    override fun onSuccess(t: List<LiveEntrance>) {
-                        mView!!.showLiveEntrance(t)
+                        mView?.showLiveEntrance(t)
                     }
                 }))
 

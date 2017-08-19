@@ -70,7 +70,7 @@ class AdActivity : BaseRefreshActivity<RegionTypeRecommendPresenter, RegionRecom
     }
 
     override fun showRegionRecommend(regionRecommend: RegionRecommend) {
-        mList?.addAll(regionRecommend.newX)
+        mList?.addAll(regionRecommend.new)
         mRecommendBeanList.addAll(regionRecommend.recommend)
         mTopBeanList.addAll(regionRecommend.banner.top)
         mDynamicBeanList.addAll(regionRecommend.dynamic)
