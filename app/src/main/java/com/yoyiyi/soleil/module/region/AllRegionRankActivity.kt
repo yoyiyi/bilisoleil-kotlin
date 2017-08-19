@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.constant.Constants
+import com.yoyiyi.soleil.mvp.presenter.app.NothingPresenter
 import javax.annotation.Nullable
 
 /**
@@ -13,12 +14,14 @@ import javax.annotation.Nullable
  * @date 创建时间：2017/5/30 18:11
  * * 描述:全区排行界面
  */
-class AllRegionRankActivity : BaseRegionActivity<Nothing, Nothing>() {
+class AllRegionRankActivity : BaseRegionActivity<NothingPresenter, Nullable>() {
 
     private var mTitle: String? = null
     private val mTitlesArr = mutableListOf("番剧", "动画", "音乐", "舞蹈", "游戏", "科技", "生活", "鬼畜", "时尚", "娱乐", "电影", "电视剧")
 
     private val mTypesArr = mutableListOf("all-03-13.json", "all-03-1.json", "all-03-3.json", "all-03-129.json", "all-03-4.json", "all-03-36.json", "all-03-160.json", "all-03-155.json", "all-03-5.json", "all-03-119.json", "all-03-23.json", "all-03-11.json")
+
+
 
 
     override fun getLayoutId(): Int = R.layout.activity_region_type
@@ -65,6 +68,10 @@ class AllRegionRankActivity : BaseRegionActivity<Nothing, Nothing>() {
     override fun initToolbar() {
         super.initToolbar()
         setTitle("全区排行榜")
+    }
+
+    override fun initInject() {
+        activityComponent.inject(this)
     }
 
     companion object {

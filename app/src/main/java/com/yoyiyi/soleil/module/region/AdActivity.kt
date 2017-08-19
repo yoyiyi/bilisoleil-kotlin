@@ -37,7 +37,7 @@ class AdActivity : BaseRefreshActivity<RegionTypeRecommendPresenter, RegionRecom
     }
 
     override fun initPresenter() {
-        mPresenter.attachView(this)
+        mPresenter?.attachView(this)
     }
     override fun initRecyclerView() {
         mSectionedAdapter = SectionedRVAdapter()
@@ -63,7 +63,7 @@ class AdActivity : BaseRefreshActivity<RegionTypeRecommendPresenter, RegionRecom
     }
 
     override fun loadData() {
-        mPresenter.getRegionRecommendData(165)
+        mPresenter?.getRegionRecommendData(165)
 
     }
 

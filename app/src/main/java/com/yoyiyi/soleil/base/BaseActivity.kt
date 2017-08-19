@@ -24,7 +24,7 @@ import javax.inject.Inject
 abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActivity(), BaseContract.BaseView {
 
     @Inject
-     lateinit var mPresenter: T
+    lateinit var mPresenter: T
     protected var mToolbar: Toolbar? = null//Toolbar
     protected var mContext: Context? = null//上下文环境
     protected open val mBack = true //是否返回
@@ -107,7 +107,7 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
      * 销毁
      */
     override fun onDestroy() {
-        mPresenter.detachView()
+        mPresenter?.detachView()
         BiliSoleilApplication.instance.removeActivity(this)
         super.onDestroy()
     }
