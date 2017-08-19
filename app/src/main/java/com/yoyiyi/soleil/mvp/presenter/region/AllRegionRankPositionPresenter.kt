@@ -5,7 +5,6 @@ import com.yoyiyi.soleil.base.RxPresenter
 import com.yoyiyi.soleil.event.Event
 import com.yoyiyi.soleil.mvp.contract.region.AllRegionRankPositionContract
 import io.reactivex.functions.Consumer
-
 import javax.inject.Inject
 
 /**

@@ -9,15 +9,16 @@ import com.yoyiyi.soleil.bean.region.RegionTagType
 import com.yoyiyi.soleil.constant.Constants
 import com.yoyiyi.soleil.mvp.contract.region.AllRegionRankPositionContract
 import com.yoyiyi.soleil.mvp.presenter.region.AllRegionRankPositionPresenter
+import javax.annotation.Nullable
 
-@Suppress("CAST_NEVER_SUCCEEDS")
+
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
  * *
  * @date 创建时间：2017/5/30 18:11
  * * 描述:分区type界面
  */
-class RegionTypeActivity : BaseRegionActivity<AllRegionRankPositionPresenter, Nothing>(), AllRegionRankPositionContract.View {
+class RegionTypeActivity : BaseRegionActivity<AllRegionRankPositionPresenter, Nullable>(), AllRegionRankPositionContract.View {
     lateinit var mRegionType: RegionTagType
     lateinit var mTitle: String
 
@@ -56,7 +57,7 @@ class RegionTypeActivity : BaseRegionActivity<AllRegionRankPositionPresenter, No
     override fun initWidget() {
         super.initWidget()
         mViewPager?.offscreenPageLimit = mRegionType.children.size + 1
-        mViewPager?.adapter = BaseRegionTypeAdapte(supportFragmentManager)
+        mViewPager?.adapter = BaseRegionTypeAdapter(supportFragmentManager)
         mSlidingTabLayout?.setViewPager(mViewPager)
         mViewPager?.currentItem = 0
     }
@@ -71,9 +72,9 @@ class RegionTypeActivity : BaseRegionActivity<AllRegionRankPositionPresenter, No
         mPresenter.getEventPosition()
     }
 
-    override fun showEventPosition(postion: Int) {
+    override fun showEventPosition(position: Int) {
         //设置位置 viewpager
-        mViewPager?.currentItem = postion + 1
+        mViewPager?.currentItem = position + 1
     }
 
     override fun initInject() {
@@ -83,6 +84,5 @@ class RegionTypeActivity : BaseRegionActivity<AllRegionRankPositionPresenter, No
     override fun initPresenter() {
         mPresenter.attachView(this)
     }
-
 
 }

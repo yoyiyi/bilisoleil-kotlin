@@ -21,7 +21,9 @@ interface ActivityComponent {
     fun getActivity(): Activity
 
     fun inject(splashActivity: SplashActivity)
+
     fun inject(adActivity: AdActivity)
+
     fun inject(regionTypeActivity: RegionTypeActivity)
 
 

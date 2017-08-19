@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.constant.Constants
+import javax.annotation.Nullable
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com

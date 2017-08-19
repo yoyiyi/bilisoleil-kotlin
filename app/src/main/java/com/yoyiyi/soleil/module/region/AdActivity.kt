@@ -36,6 +36,9 @@ class AdActivity : BaseRefreshActivity<RegionTypeRecommendPresenter, RegionRecom
         activityComponent.inject(this)
     }
 
+    override fun initPresenter() {
+        mPresenter.attachView(this)
+    }
     override fun initRecyclerView() {
         mSectionedAdapter = SectionedRVAdapter()
         val mLayoutManager = GridLayoutManager(mContext, 2)

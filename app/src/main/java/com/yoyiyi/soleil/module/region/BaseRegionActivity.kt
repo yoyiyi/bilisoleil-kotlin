@@ -71,14 +71,14 @@ abstract class BaseRegionActivity<T : BaseContract.BasePresenter<*>, K> : BaseAc
 
     protected open fun initViewPager() {
         mViewPager?.offscreenPageLimit = mTitles.size
-        mViewPager?.adapter = BaseRegionTypeAdapte(supportFragmentManager)
+        mViewPager?.adapter = BaseRegionTypeAdapter(supportFragmentManager)
         mSlidingTabLayout?.setViewPager(mViewPager)
     }
 
     /**
      * 初始化事件
      */
-    protected fun initEvent() {
+    protected open fun initEvent() {
 
     }
 
@@ -95,7 +95,7 @@ abstract class BaseRegionActivity<T : BaseContract.BasePresenter<*>, K> : BaseAc
         return super.onOptionsItemSelected(item)
     }
 
-    inner  class BaseRegionTypeAdapte(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
+    inner  class BaseRegionTypeAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment {
             return mFragments[position]
