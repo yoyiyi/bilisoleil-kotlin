@@ -4,6 +4,9 @@ import android.app.Activity
 import com.yoyiyi.soleil.di.module.FragmentModule
 import com.yoyiyi.soleil.di.scope.FragmentScope
 import com.yoyiyi.soleil.module.home.*
+import com.yoyiyi.soleil.module.region.AllRegionRankFragment
+import com.yoyiyi.soleil.module.region.RegionTypeFragment
+import com.yoyiyi.soleil.module.region.RegionTypeRecommendFragment
 import dagger.Component
 
 /**
@@ -28,6 +31,9 @@ interface FragmentComponent {
 
     fun inject(dynamicFragment: DynamicFragment)
     fun inject(discoverFragment: DiscoverFragment)
+    fun inject(allRegionRankFragment: AllRegionRankFragment)
+    fun inject(regionTypeFragment: RegionTypeFragment)
+    fun inject(regionTypeRecommendFragment: RegionTypeRecommendFragment)
 
 
     /*  val activity: Activity

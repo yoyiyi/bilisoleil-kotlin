@@ -4,6 +4,8 @@ import android.app.Activity
 import com.yoyiyi.soleil.di.module.ActivityModule
 import com.yoyiyi.soleil.di.scope.ActivityScope
 import com.yoyiyi.soleil.module.SplashActivity
+import com.yoyiyi.soleil.module.region.AdActivity
+import com.yoyiyi.soleil.module.region.RegionTypeActivity
 import dagger.Component
 
 /**
@@ -19,6 +21,8 @@ interface ActivityComponent {
     fun getActivity(): Activity
 
     fun inject(splashActivity: SplashActivity)
+    fun inject(adActivity: AdActivity)
+    fun inject(regionTypeActivity: RegionTypeActivity)
 
 
     /* fun inject(splashActivity: SplashActivity)

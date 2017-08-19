@@ -75,10 +75,8 @@ class ChaseBangumiFragment : BaseRefreshFragment<ChaseBangumiPresenter, ChaseBan
         mSectionedAdapter?.addSection(ChaseIndexSection())
         mSectionedAdapter?.addSection(ChaseFollowSection("${mChaseBangumi?.update_count}", mList))
         mRecommendBangumi?.ad?.let {
-            with(it) {
                 if (it.isNotEmpty()) {
                     mSectionedAdapter?.addSection(ChaseAdSection(it[0]))
-                }
             }
         }
         mSectionedAdapter?.addSection(mRecommendJpBean?.recommend?.let { mRecommendJpBean?.foot?.get(0)?.let { it1 -> ChaseRecommendJPSection(it, it1) } })

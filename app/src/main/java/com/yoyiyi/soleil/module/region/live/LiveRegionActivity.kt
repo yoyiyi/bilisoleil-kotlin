@@ -1,24 +1,24 @@
-package com.yoyiyi.soleil.module.region.live;
+package com.yoyiyi.soleil.module.region.live
 
-import com.yoyiyi.soleil.module.region.BaseRegionActivity;
+import com.yoyiyi.soleil.module.region.BaseRegionActivity
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
+ * *
  * @date 创建时间：2017/5/30 12:12
- * 描述:直播分区
+ * * 描述:直播分区
  */
-public class LiveRegionActivity extends BaseRegionActivity/*<LivePresenter, LiveEntrance>*/ /*implements LiveContract.View */{
-   /* @Override
+class LiveRegionActivity : BaseRegionActivity<Nothing, Nothing>/*<LivePresenter, LiveEntrance>*/ /*implements LiveContract.View */() {
+    /* @Override
     public void showLiveEntrance(List<LiveEntrance> liveEntrances) {
 
     }
 */
-    @Override
-    protected int getLayoutId() {
-        return 0;
+     override fun getLayoutId(): Int {
+        return 0
     }
 
-  /*  @Override
+    /*  @Override
     protected int getLayoutId() {
         return R.layout.activity_live_region;
     }

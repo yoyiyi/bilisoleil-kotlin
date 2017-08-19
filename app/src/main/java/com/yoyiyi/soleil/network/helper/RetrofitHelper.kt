@@ -3,10 +3,13 @@ package com.yoyiyi.soleil.network.helper
 
 import com.yoyiyi.soleil.bean.app.Splash
 import com.yoyiyi.soleil.bean.discover.HotSearchTag
+import com.yoyiyi.soleil.bean.live.LiveEntrance
 import com.yoyiyi.soleil.bean.live.LivePartition
 import com.yoyiyi.soleil.bean.live.LiveRecommend
 import com.yoyiyi.soleil.bean.region.AllRegionRank
 import com.yoyiyi.soleil.bean.region.Region
+import com.yoyiyi.soleil.bean.region.RegionRecommend
+import com.yoyiyi.soleil.bean.region.RegionType
 import com.yoyiyi.soleil.network.api.*
 import com.yoyiyi.soleil.network.response.HttpResponse
 import io.reactivex.Flowable
@@ -40,6 +43,15 @@ class RetrofitHelper(private val appService: AppService,
     /*******************************RankApi */
 
     fun getAllRegionRank(type: String): Flowable<AllRegionRank> = rankService.getAllRegionRank(type)
+
+
+    fun getLiveEntrance(): Flowable<HttpResponse<List<LiveEntrance>>> = liveService.getLiveEntrance()
+
+
+    fun getRegionType(rid: Int): Flowable<HttpResponse<RegionType>> = appService.getRegionType(rid)
+
+    fun getRegionRecommend(rid: Int): Flowable<HttpResponse<RegionRecommend>> = appService.getRegionRecommend(rid)
+
     /*
         val splash: Flowable<Splash>
             get() = mAppService.getSplash()

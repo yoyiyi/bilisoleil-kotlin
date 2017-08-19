@@ -5,7 +5,8 @@ import com.yoyiyi.soleil.base.RxPresenter
 import com.yoyiyi.soleil.bean.region.RegionType
 import com.yoyiyi.soleil.mvp.contract.region.RegionTypeContract
 import com.yoyiyi.soleil.network.helper.RetrofitHelper
-import com.yoyiyi.soleil.rx.RxUtils
+
+import com.yoyiyi.soleil.rx.rxSchedulerHelper
 
 import javax.inject.Inject
 
@@ -15,16 +16,15 @@ import javax.inject.Inject
  * @date 创建时间：2017/5/23 22:04
  * * 描述:分区Type Presenter
  */
-class RegionTypePresenter @Inject constructor(private val mRetrofitHelper: RetrofitHelper) : RxPresenter<RegionTypeContract.View>(), RegionTypeContract.Presenter<RegionTypeContract.View> {
+class RegionTypePresenter @Inject constructor(private val retrofitHelper: RetrofitHelper) : RxPresenter<RegionTypeContract.View>(), RegionTypeContract.Presenter<RegionTypeContract.View> {
 
     override fun getRegionTypeData(rid: Int) {
-        val subscriber = mRetrofitHelper.getRegionType(rid)
-                .compose(RxUtils.rxSchedulerHelper())
+        addSubscribe(retrofitHelper.getRegionType(rid)
+                .compose(rxSchedulerHelper())
                 .subscribeWith(object : BaseObjectSubscriber<RegionType>(mView) {
-                    override fun onSuccess(regionType: RegionType) {
-                        mView!!.showRegionType(regionType)
+                    override fun onSuccess(t: RegionType) {
+                        mView?.showRegionType(t)
                     }
-                })
-        addSubscribe(subscriber)
+                }))
     }
 }

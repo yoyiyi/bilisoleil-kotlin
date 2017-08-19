@@ -1,20 +1,36 @@
-package com.yoyiyi.soleil.bean.region;
-
-import java.util.List;
+package com.yoyiyi.soleil.bean.region
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
+ * *
  * @date 创建时间：2017/6/4 22:04
- * 描述:全区排行
+ * * 描述:全区排行
  */
-public class AllRegionRank {
+data class AllRegionRank(var rank: RankBean) {
 
-    public RankBean rank;
 
-    public static class RankBean {
-        public List<ListBean> list;
+    data class RankBean(var list: List<ListBean>) {
 
-        public static class ListBean {
+
+        data class ListBean(
+                var aid: String,
+                var author: String,
+                var badgepay: Boolean,
+                var coins: Int,
+                var create: String,
+                var description: String,
+                var duration: String,
+                var favorites: Int,
+                var mid: Int,
+                var pic: String?,
+                var play: Int,
+                var pts: Int,
+                var review: Int,
+                var subtitle: String?,
+                var title: String?,
+                var typename: String?,
+                var video_review: Int
+        ) {
             /**
              * aid : 11028727
              * author : LexBurner
@@ -35,23 +51,6 @@ public class AllRegionRank {
              * video_review : 19655
              */
 
-            public String aid;
-            public String author;
-            public boolean badgepay;
-            public int coins;
-            public String create;
-            public String description;
-            public String duration;
-            public int favorites;
-            public int mid;
-            public String pic;
-            public int play;
-            public int pts;
-            public int review;
-            public String subtitle;
-            public String title;
-            public String typename;
-            public int video_review;
         }
     }
 

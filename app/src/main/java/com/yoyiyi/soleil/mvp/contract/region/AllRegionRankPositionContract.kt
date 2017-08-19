@@ -13,12 +13,12 @@ interface AllRegionRankPositionContract {
 
     interface View : BaseContract.BaseView {
 
-        fun showEventPostion(postion: Int)
+        fun showEventPosition(postion: Int)
 
     }
 
-    interface Presenter<T> : BaseContract.BasePresenter<T> {
+    interface Presenter<in T> : BaseContract.BasePresenter<T> {
 
-        fun getEventPostion()
+        fun getEventPosition()
     }
 }

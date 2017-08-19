@@ -1,16 +1,12 @@
 package com.yoyiyi.soleil.adapter.region.sectiton
 
-import android.content.Intent
 import android.widget.ImageView
-
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.bean.region.RegionType
-import com.yoyiyi.soleil.module.app.video.VideoDetailActivity
 import com.yoyiyi.soleil.widget.section.StatelessSection
 import com.yoyiyi.soleil.widget.section.ViewHolder
-
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 
 /**
@@ -29,12 +25,12 @@ class RegionTypeNewSection(newBeanList: List<RegionType.NewBean>) : StatelessSec
                 .bitmapTransform(RoundedCornersTransformation(mContext, 5, 0))
                 .placeholder(R.drawable.bili_default_image_tv)
                 .dontAnimate()
-                .into(holder.getView<View>(R.id.iv_video_preview) as ImageView)
+                .into(holder.getView<ImageView>(R.id.iv_video_preview))
         holder.setText(R.id.tv_video_title, newBean.title)
                 .setText(R.id.tv_video_up, newBean.name)
-                .setText(R.id.tv_video_play, newBean.play.toString() + "")
-                .setText(R.id.tv_video_danmaku, newBean.danmaku.toString() + "")
-        holder.itemView.setOnClickListener { view -> mContext.startActivity(Intent(mContext, VideoDetailActivity::class.java)) }
+                .setText(R.id.tv_video_play,"${newBean.play}")
+                .setText(R.id.tv_video_danmaku,"${newBean.danmaku}")
+       // holder.itemView.setOnClickListener { mContext.startActivity(Intent(mContext, VideoDetailActivity::class.java)) }
 
     }
 

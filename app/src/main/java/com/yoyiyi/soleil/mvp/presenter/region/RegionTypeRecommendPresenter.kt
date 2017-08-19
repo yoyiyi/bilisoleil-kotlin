@@ -6,7 +6,8 @@ import com.yoyiyi.soleil.base.RxPresenter
 import com.yoyiyi.soleil.bean.region.RegionRecommend
 import com.yoyiyi.soleil.mvp.contract.region.RegionTypeRecommendContract
 import com.yoyiyi.soleil.network.helper.RetrofitHelper
-import com.yoyiyi.soleil.rx.RxUtils
+
+import com.yoyiyi.soleil.rx.rxSchedulerHelper
 
 import javax.inject.Inject
 
@@ -17,15 +18,14 @@ import javax.inject.Inject
  * * 描述:分区推荐presenter
  */
 
-class RegionTypeRecommendPresenter @Inject
-constructor(private val mRetrofitHelper: RetrofitHelper) : RxPresenter<RegionTypeRecommendContract.View>(), RegionTypeRecommendContract.Presenter<RegionTypeRecommendContract.View> {
+class RegionTypeRecommendPresenter @Inject constructor(private val retrofitHelper: RetrofitHelper) : RxPresenter<RegionTypeRecommendContract.View>(), RegionTypeRecommendContract.Presenter<RegionTypeRecommendContract.View> {
 
     override fun getRegionRecommendData(tid: Int) {
-        val subscriber = mRetrofitHelper.getRegionRecommend(tid)
-                .compose(RxUtils.rxSchedulerHelper())
+        val subscriber = retrofitHelper.getRegionRecommend(tid)
+                .compose(rxSchedulerHelper())
                 .subscribeWith(object : BaseObjectSubscriber<RegionRecommend>(mView) {
-                    override fun onSuccess(regionRecommend: RegionRecommend) {
-                        mView!!.showRegionRecommend(regionRecommend)
+                    override fun onSuccess(t: RegionRecommend) {
+                        mView?.showRegionRecommend(t)
                     }
                 })
         addSubscribe(subscriber)

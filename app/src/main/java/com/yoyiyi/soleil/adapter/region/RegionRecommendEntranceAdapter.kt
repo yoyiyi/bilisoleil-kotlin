@@ -25,9 +25,9 @@ class RegionRecommendEntranceAdapter(data: List<RegionEnter>?) : BaseQuickAdapte
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .dontAnimate()
-                .into(holder.getView<View>(R.id.iv_icon) as ImageView)
+                .into(holder.getView<ImageView>(R.id.iv_icon))
         holder.setText(R.id.tv_title, item.title)
-        holder.itemView.setOnClickListener { view ->
+        holder.itemView.setOnClickListener {
             //发送点击事件
             val positionEvent = Event.RegionEntrancePositionEvent()
             positionEvent.position = holder.adapterPosition

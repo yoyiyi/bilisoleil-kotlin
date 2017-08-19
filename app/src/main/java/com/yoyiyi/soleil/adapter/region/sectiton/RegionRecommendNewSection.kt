@@ -1,13 +1,10 @@
 package com.yoyiyi.soleil.adapter.region.sectiton
 
-import android.content.Intent
 import android.widget.ImageView
-
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.bean.region.RegionRecommend
-import com.yoyiyi.soleil.module.app.video.VideoDetailActivity
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.NumberUtils
 import com.yoyiyi.soleil.widget.section.StatelessSection
@@ -28,10 +25,10 @@ class RegionRecommendNewSection(newBeanList: List<RegionRecommend.NewBean>) : St
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.drawable.bili_default_image_tv)
                 .dontAnimate()
-                .into(holder.getView<View>(R.id.iv_video_preview) as ImageView)
+                .into(holder.getView<ImageView>(R.id.iv_video_preview))
         holder.setText(R.id.tv_video_title, newBean.title)
-                .setText(R.id.tv_video_play_num, NumberUtils.format(newBean.play.toString() + ""))
-                .setText(R.id.tv_video_favourite, NumberUtils.format(newBean.danmaku.toString() + ""))
+                .setText(R.id.tv_video_play_num, NumberUtils.format("${newBean.play}"))
+                .setText(R.id.tv_video_favourite, NumberUtils.format("${newBean.danmaku}"))
         if (position % 2 == 0) {
             setMargins(holder.itemView, AppUtils.getDimension(R.dimen.dp10).toInt(),
                     AppUtils.getDimension(R.dimen.dp5).toInt(),
@@ -43,7 +40,7 @@ class RegionRecommendNewSection(newBeanList: List<RegionRecommend.NewBean>) : St
                     AppUtils.getDimension(R.dimen.dp10).toInt(),
                     AppUtils.getDimension(R.dimen.dp5).toInt())
         }
-        holder.itemView.setOnClickListener { view -> mContext.startActivity(Intent(mContext, VideoDetailActivity::class.java)) }
+        //   holder.itemView.setOnClickListener { view -> mContext.startActivity(Intent(mContext, VideoDetailActivity::class.java)) }
 
 
     }

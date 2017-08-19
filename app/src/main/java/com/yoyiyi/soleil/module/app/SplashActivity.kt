@@ -54,8 +54,8 @@ class SplashActivity : RxAppCompatActivity(), SplashContract.View {
     }
 
     override fun onDestroy() {
-        super.onDestroy()
         mPresenter.detachView()
+        super.onDestroy()
     }
 
     /**

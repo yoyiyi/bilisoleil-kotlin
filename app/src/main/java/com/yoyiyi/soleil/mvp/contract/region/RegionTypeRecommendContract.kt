@@ -18,7 +18,7 @@ interface RegionTypeRecommendContract {
 
     }
 
-    interface Presenter<T> : BaseContract.BasePresenter<T> {
+    interface Presenter<in T> : BaseContract.BasePresenter<T> {
 
         fun getRegionRecommendData(tid: Int)
 

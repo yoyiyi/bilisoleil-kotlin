@@ -63,7 +63,7 @@ abstract class BaseRefreshActivity<T : BaseContract.BasePresenter<*>, K> : BaseA
         mLoading?.visibility = View.GONE
     }
 
-    protected fun clear() {
+    protected open fun clear() {
 
     }
 

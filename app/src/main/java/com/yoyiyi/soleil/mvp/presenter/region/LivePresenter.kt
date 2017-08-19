@@ -6,8 +6,7 @@ import com.yoyiyi.soleil.base.RxPresenter
 import com.yoyiyi.soleil.bean.live.LiveEntrance
 import com.yoyiyi.soleil.mvp.contract.region.live.LiveContract
 import com.yoyiyi.soleil.network.helper.RetrofitHelper
-import com.yoyiyi.soleil.rx.RxUtils
-
+import com.yoyiyi.soleil.rx.rxSchedulerHelper
 import javax.inject.Inject
 
 /**
@@ -17,18 +16,16 @@ import javax.inject.Inject
  * * 描述:综合界面搜索presenter
  */
 
-class LivePresenter @Inject
-constructor(private val mRetrofitHelper: RetrofitHelper) : RxPresenter<LiveContract.View>(), LiveContract.Presenter<LiveContract.View> {
+class LivePresenter @Inject constructor(private val retrofitHelper: RetrofitHelper) : RxPresenter<LiveContract.View>(), LiveContract.Presenter<LiveContract.View> {
 
     override fun getLiveEntranceData() {
-        val subscriber = mRetrofitHelper.getLiveEntrance()
-                .compose(RxUtils.rxSchedulerHelper())
+        addSubscribe(retrofitHelper.getLiveEntrance()
+                .compose(rxSchedulerHelper())
                 .subscribeWith(object : BaseListSubscriber<LiveEntrance>(mView) {
-                    fun onSuccess(liveEntrances: List<LiveEntrance>) {
-                        mView!!.showLiveEntrance(liveEntrances)
+                   override fun onSuccess(t: List<LiveEntrance>) {
+                        mView!!.showLiveEntrance(t)
                     }
-                })
-        addSubscribe(subscriber)
+                }))
 
     }
 

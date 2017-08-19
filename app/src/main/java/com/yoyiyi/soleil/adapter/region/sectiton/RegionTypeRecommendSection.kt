@@ -1,16 +1,12 @@
 package com.yoyiyi.soleil.adapter.region.sectiton
 
-import android.content.Intent
 import android.widget.ImageView
-
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.bean.region.RegionType
-import com.yoyiyi.soleil.module.app.video.VideoDetailActivity
 import com.yoyiyi.soleil.widget.section.StatelessSection
 import com.yoyiyi.soleil.widget.section.ViewHolder
-
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 
 /**
@@ -29,12 +25,12 @@ class RegionTypeRecommendSection(recommendBeanList: List<RegionType.RecommendBea
                 .placeholder(R.drawable.bili_default_image_tv)
                 .bitmapTransform(RoundedCornersTransformation(mContext, 5, 0))
                 .dontAnimate()
-                .into(holder.getView<View>(R.id.iv_video_preview) as ImageView)
+                .into(holder.getView<ImageView>(R.id.iv_video_preview))
         holder.setText(R.id.tv_video_title, recommendBean.title)
                 .setText(R.id.tv_video_up, recommendBean.name)
-                .setText(R.id.tv_video_play, recommendBean.play.toString() + "")
-                .setText(R.id.tv_video_danmaku, recommendBean.danmaku.toString() + "")
-        holder.itemView.setOnClickListener { view -> mContext.startActivity(Intent(mContext, VideoDetailActivity::class.java)) }
+                .setText(R.id.tv_video_play, "${recommendBean.play}")
+                .setText(R.id.tv_video_danmaku, "${recommendBean.danmaku}")
+        // holder.itemView.setOnClickListener { view -> mContext.startActivity(Intent(mContext, VideoDetailActivity::class.java)) }
 
 
     }

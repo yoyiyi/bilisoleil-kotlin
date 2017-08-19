@@ -3,9 +3,12 @@ package com.yoyiyi.soleil.network.api
 import com.yoyiyi.soleil.bean.app.Splash
 import com.yoyiyi.soleil.bean.discover.HotSearchTag
 import com.yoyiyi.soleil.bean.region.Region
+import com.yoyiyi.soleil.bean.region.RegionRecommend
+import com.yoyiyi.soleil.bean.region.RegionType
 import com.yoyiyi.soleil.network.response.HttpResponse
 import io.reactivex.Flowable
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -35,5 +38,17 @@ interface AppService {
      */
     @GET("/x/v2/search/hot?appkey=1d8b6e7d45233436&build=506000&limit=50&mobi_app=android&platform=android&ts=1495949781&sign=9bc4cea15aa9de8a0b142db86634f11f\n")
     fun getHotSearchTag(): Flowable<HttpResponse<HotSearchTag>>
+
+    /**
+     * 分区类型详情
+     */
+    @GET("x/v2/region/show/child?build=3600")
+    fun getRegionType(@Query("rid") rid: Int): Flowable<HttpResponse<RegionType>>
+
+    /**
+     * 分区推荐
+     */
+    @GET("x/v2/region/show?access_key=67cbf6a1e9ad7d7f11bfbd918e50c837&actionKey=appkey&appkey=27eb53fc9058f8c3&build=3600&device=phone&mobi_app=iphone&plat=1&platform=ios&sign=959d7b8c09c65e7a66f7e58b1a2bdab9&ts=1472310694")
+    fun getRegionRecommend(@Query("rid") rid: Int): Flowable<HttpResponse<RegionRecommend>>
 
 }
