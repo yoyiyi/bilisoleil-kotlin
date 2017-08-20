@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.adapter.region
 
+import android.content.Intent
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -7,6 +8,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.bean.region.AllRegionRank
+import com.yoyiyi.soleil.module.app.video.VideoDetailActivity
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.SpanUtils
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
@@ -44,7 +46,7 @@ class AllRegionRankAdapter(data: List<AllRegionRank.RankBean.ListBean>?) : BaseQ
                 .setText(R.id.tv_video_up, allRegionRank.author)
                 .setText(R.id.tv_video_play, "${allRegionRank.play}")
                 .setText(R.id.tv_video_danmaku, "${allRegionRank.favorites}")
-        // holder.itemView.setOnClickListener { mContext.startActivity(Intent(mContext, VideoDetailActivity::class.java)) }
+         holder.itemView.setOnClickListener { mContext.startActivity(Intent(mContext, VideoDetailActivity::class.java)) }
 
     }
 }

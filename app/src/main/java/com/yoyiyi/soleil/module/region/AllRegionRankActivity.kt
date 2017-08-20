@@ -38,8 +38,8 @@ class AllRegionRankActivity : BaseRegionActivity<NothingPresenter, Nullable>() {
 
     override fun initTitle() {
         for (index in mTitlesArr.indices) {
-            mTitles += mTitlesArr[index]
-            mFragments += AllRegionRankFragment.newInstance(mTypesArr[index])
+            mTitles.add(mTitlesArr[index])
+            mFragment.add(AllRegionRankFragment.newInstance(mTypesArr[index]))
         }
     }
 

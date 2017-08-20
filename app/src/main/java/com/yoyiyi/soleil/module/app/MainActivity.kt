@@ -18,10 +18,10 @@ import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
 
-class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
     private var exitTime = 0L
     private var mCurrentPos = -1
-    private var mFragments: List<Fragment> = arrayListOf()
+    private var mFragments = mutableListOf<Fragment>()
 
     override fun getLayoutId(): Int = R.layout.activity_main
 
@@ -32,7 +32,7 @@ class MainActivity : BaseActivity<Nothing>(), NavigationView.OnNavigationItemSel
     }
 
     private fun initFragment() {
-        mFragments = arrayListOf(HomeFragment.newInstance())
+        mFragments.add(HomeFragment.newInstance())
 
     }
 

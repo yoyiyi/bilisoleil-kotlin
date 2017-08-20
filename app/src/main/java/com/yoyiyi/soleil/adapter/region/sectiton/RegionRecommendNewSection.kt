@@ -1,10 +1,12 @@
 package com.yoyiyi.soleil.adapter.region.sectiton
 
+import android.content.Intent
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.bean.region.RegionRecommend
+import com.yoyiyi.soleil.module.app.video.VideoDetailActivity
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.NumberUtils
 import com.yoyiyi.soleil.widget.section.StatelessSection
@@ -40,7 +42,7 @@ class RegionRecommendNewSection(newBeanList: List<RegionRecommend.NewBean>) : St
                     AppUtils.getDimension(R.dimen.dp10).toInt(),
                     AppUtils.getDimension(R.dimen.dp5).toInt())
         }
-        //   holder.itemView.setOnClickListener { view -> mContext.startActivity(Intent(mContext, VideoDetailActivity::class.java)) }
+          holder.itemView.setOnClickListener { mContext.startActivity(Intent(mContext, VideoDetailActivity::class.java)) }
 
 
     }

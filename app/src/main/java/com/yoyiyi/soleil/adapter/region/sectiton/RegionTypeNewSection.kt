@@ -1,10 +1,12 @@
 package com.yoyiyi.soleil.adapter.region.sectiton
 
+import android.content.Intent
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.bean.region.RegionType
+import com.yoyiyi.soleil.module.app.video.VideoDetailActivity
 import com.yoyiyi.soleil.widget.section.StatelessSection
 import com.yoyiyi.soleil.widget.section.ViewHolder
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
@@ -30,7 +32,7 @@ class RegionTypeNewSection(newBeanList: List<RegionType.NewBean>) : StatelessSec
                 .setText(R.id.tv_video_up, newBean.name)
                 .setText(R.id.tv_video_play,"${newBean.play}")
                 .setText(R.id.tv_video_danmaku,"${newBean.danmaku}")
-       // holder.itemView.setOnClickListener { mContext.startActivity(Intent(mContext, VideoDetailActivity::class.java)) }
+        holder.itemView.setOnClickListener { mContext.startActivity(Intent(mContext, VideoDetailActivity::class.java)) }
 
     }
 

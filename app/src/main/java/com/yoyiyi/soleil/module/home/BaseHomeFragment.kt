@@ -14,7 +14,7 @@ import com.yoyiyi.soleil.base.BaseFragment
  * 描述:首页基础base
  */
 
-abstract class BaseHomeFragment : BaseFragment<Nothing>() {
+abstract class BaseHomeFragment : BaseFragment() {
     var mToolbar: Toolbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

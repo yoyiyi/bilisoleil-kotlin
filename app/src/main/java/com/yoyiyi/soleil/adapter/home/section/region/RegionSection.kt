@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.adapter.home.section.region
 
+import android.content.Intent
 import android.text.TextUtils
 import android.view.animation.LinearInterpolator
 import android.widget.Button
@@ -8,6 +9,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.bean.region.Region
+import com.yoyiyi.soleil.module.bangumi.BangumiDetailActivity
+import com.yoyiyi.soleil.module.discover.GameCenterActivity
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.NumberUtils
 import com.yoyiyi.soleil.widget.section.StatelessSection
@@ -61,7 +64,7 @@ class RegionSection(private val title: String, data: List<Region.Body>) : Statel
                     AppUtils.getDimension(R.dimen.dp10).toInt(),
                     AppUtils.getDimension(R.dimen.dp5).toInt())
         }
-        holder.itemView.setOnClickListener { /*mContext.startActivity(Intent(mContext, BangumiDetailActivity::class.java))*/ }
+        holder.itemView.setOnClickListener { mContext.startActivity(Intent(mContext, BangumiDetailActivity::class.java)) }
     }
 
     override fun onBindFooterViewHolder(holder: ViewHolder) {
@@ -72,7 +75,7 @@ class RegionSection(private val title: String, data: List<Region.Body>) : Statel
                     .setVisible(R.id.bt_game_center, true)
             //跳转到游戏中心
             holder.getView<Button>(R.id.bt_game_center)
-                    .setOnClickListener({ /*view -> mContext.startActivity(Intent(mContext, GameCenterActivity::class.java)) */ })
+                    .setOnClickListener({ mContext.startActivity(Intent(mContext, GameCenterActivity::class.java)) })
         } else {
             holder.setVisible(R.id.bt_more, true)
                     .setVisible(R.id.bt_more_game, false)

@@ -6,14 +6,8 @@ package com.yoyiyi.soleil.bean.recommend
  * @date 创建时间：2017/6/5 20:54
  * * 描述:全站排行
  */
-class AllStationRank {
-
-    var rank: RankBean? = null
-
-    class RankBean {
-        var list: List<ListBean>? = null
-
-
+data class AllStationRank(var rank: RankBean) {
+    data class RankBean(var list: List<ListBean>) {
         /**
          * aid : 6482189
          * typename : 鬼畜调教
@@ -40,42 +34,23 @@ class AllStationRank {
          * badgepay : false
          * pts : 880957
          */
-        class ListBean {
-
-            var aid: Int = 0
-
-            var typename: String? = null
-
-            var title: String? = null
-
-            var subtitle: String? = null
-
-            var play: String? = null
-
-            var review: Int = 0
-
-            var video_review: Int = 0
-
-            var favorites: Int = 0
-
-            var mid: Int = 0
-
-            var author: String? = null
-
-            var description: String? = null
-
-            var create: String? = null
-
-            var pic: String? = null
-
-            var coins: Int = 0
-
-            var duration: String? = null
-
-            var badgepay: Boolean = false
-
-            var pts: Int = 0
-
-        }
+        data class ListBean(var aid: Int,
+                            var typename: String,
+                            var title: String,
+                            var subtitle: String,
+                            var play: String,
+                            var review: Int,
+                            var video_review: Int,
+                            var favorites: Int,
+                            var mid: Int,
+                            var author: String,
+                            var description: String,
+                            var create: String,
+                            var pic: String,
+                            var coins: Int,
+                            var duration: String,
+                            var badgepay: Boolean,
+                            var pts: Int)
     }
+
 }

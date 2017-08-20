@@ -11,8 +11,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.flyco.tablayout.SlidingTabLayout
 import com.yoyiyi.soleil.R
-import com.yoyiyi.soleil.base.BaseActivity
 import com.yoyiyi.soleil.base.BaseContract
+import com.yoyiyi.soleil.base.BaseInjectActivity
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -20,12 +20,12 @@ import com.yoyiyi.soleil.base.BaseContract
  * @date 创建时间：2017/5/30 12:30
  * * 描述:基础分区
  */
-abstract class BaseRegionActivity<T : BaseContract.BasePresenter<*>, K> : BaseActivity<T>() {
+abstract class BaseRegionActivity<T : BaseContract.BasePresenter<*>, K> : BaseInjectActivity<T>() {
     protected var mTvTitle: TextView? = null
     protected var mIvBack: ImageView? = null
-    protected var mList: List<K> = mutableListOf()
-    protected var mTitles: List<String> = mutableListOf()
-    protected var mFragments: List<Fragment> = mutableListOf()
+    protected var mList = mutableListOf<K>()
+    protected var mTitles = mutableListOf<String>()
+    protected var mFragment = mutableListOf<Fragment>()
 
     protected var mSlidingTabLayout: SlidingTabLayout? = null
 
@@ -58,7 +58,7 @@ abstract class BaseRegionActivity<T : BaseContract.BasePresenter<*>, K> : BaseAc
         return true
     }
 
-    protected  open fun initFragment() {}
+    protected open fun initFragment() {}
 
     protected open fun initTitle() {}
 
@@ -95,10 +95,12 @@ abstract class BaseRegionActivity<T : BaseContract.BasePresenter<*>, K> : BaseAc
         return super.onOptionsItemSelected(item)
     }
 
-    inner  class BaseRegionTypeAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
+    inner class BaseRegionTypeAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment {
-            return mFragments[position]
+            mFragment.let {
+                return it[position]
+            }
         }
 
         override fun getCount(): Int = mTitles.size

@@ -14,7 +14,7 @@ import org.jetbrains.anko.toast
  * * 描述:基础刷新的Fragment
  */
 
-abstract class BaseRefreshFragment<T : BaseContract.BasePresenter<*>, K> : BaseFragment<T>(), SwipeRefreshLayout.OnRefreshListener {
+abstract class BaseRefreshFragment<T : BaseContract.BasePresenter<*>, K> : BaseInjectFragment<T>(), SwipeRefreshLayout.OnRefreshListener {
     protected var mRecycler: RecyclerView? = null
     protected var mRefresh: SwipeRefreshLayout? = null
     protected var mIsRefreshing = false

@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.adapter.home
 
+import android.content.Intent
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -7,6 +8,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.bean.chase.RecommendBangumi
+import com.yoyiyi.soleil.module.bangumi.BangumiDetailActivity
 import com.yoyiyi.soleil.utils.NumberUtils
 
 /**
@@ -29,7 +31,7 @@ class ChaseRecommendCNAdapter(data: List<RecommendBangumi.RecommendCn.Recommend>
                 .setText(R.id.tv_video_title, recommendBean.title)
                 .setText(R.id.tv_video_update, "更新至第 ${recommendBean.newest_ep_index} 话")
                 .setVisible(R.id.tv_video_state, false)
-        holder.itemView.setOnClickListener { /*view -> mContext.startActivity(Intent(mContext, BangumiDetailActivity::class.java))*/ }
+        holder.itemView.setOnClickListener { mContext.startActivity(Intent(mContext, BangumiDetailActivity::class.java)) }
 
     }
 }

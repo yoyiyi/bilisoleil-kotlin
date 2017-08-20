@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.network.api
 
+import com.yoyiyi.soleil.bean.recommend.AllStationRank
 import com.yoyiyi.soleil.bean.region.AllRegionRank
 import io.reactivex.Flowable
 import retrofit2.http.GET
@@ -14,24 +15,28 @@ import retrofit2.http.Path
 
 interface RankService {
 /*
-    *//**
+    */
+    /**
      * 全站排行
      * @param type
      * *
      * @return
-     *//*
-    @GET("index/rank/{type}")
-    fun getAllStationRank(@Path("type") type: String): Flowable<AllStationRank>
+     */
+    /*
+        @GET("index/rank/{type}")
+        fun getAllStationRank(@Path("type") type: String): Flowable<AllStationRank>
 
-    *//**
+        */
+    /**
      * 全区排行
 
      * @param type
      * *
      * @return
-     *//*
-    @GET("index/rank/{type}")
-    fun getAllRegionRank(@Path("type") type: String): Flowable<AllRegionRank>*/
+     */
+    /*
+        @GET("index/rank/{type}")
+        fun getAllRegionRank(@Path("type") type: String): Flowable<AllRegionRank>*/
 
     /**
      * 全区排行
@@ -42,4 +47,13 @@ interface RankService {
      */
     @GET("index/rank/{type}")
     fun getAllRegionRank(@Path("type") type: String): Flowable<AllRegionRank>
+
+    /**
+     * 全站排行
+     * @param type
+     * *
+     * @return
+     */
+    @GET("index/rank/{type}")
+    fun getAllStationRank(@Path("type") type: String): Flowable<AllStationRank>
 }

@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.adapter.home
 
+import android.content.Intent
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import com.bumptech.glide.Glide
@@ -8,6 +9,7 @@ import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.bean.dynamic.MulDynamic
+import com.yoyiyi.soleil.module.app.video.VideoDetailActivity
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.NumberUtils
 import com.yoyiyi.soleil.utils.time.FormatUtils
@@ -28,7 +30,7 @@ class DynamicAdapter(data: List<MulDynamic>?) : BaseMultiItemQuickAdapter<MulDyn
     }
 
     override fun convert(holder: BaseViewHolder, mulDynamic: MulDynamic) {
-        holder.itemView.setOnClickListener { /* view -> mContext.startActivity(Intent(mContext, VideoDetailActivity::class.java))*/ }
+        holder.itemView.setOnClickListener { mContext.startActivity(Intent(mContext, VideoDetailActivity::class.java)) }
         when (holder.itemViewType) {
             MulDynamic.TYPE_LV0 -> {
                 val itemBean = mulDynamic.group
@@ -71,7 +73,7 @@ class DynamicAdapter(data: List<MulDynamic>?) : BaseMultiItemQuickAdapter<MulDyn
                                 .setVisible(R.id.tv_tag_video_favourite, false)
                                 .setVisible(R.id.iv_tag_video_online_region, false)
                                 .setText(R.id.tv_tag_video_play_num,
-                                        "${itemBean.name}${itemBean.tag?.let { "·${it.tag_name}" }}")
+                                        "${itemBean.name}${itemBean.tag.let { "·${it.tag_name}" }}")
 
                         Glide.with(mContext)
                                 .load(itemBean.face)
@@ -172,7 +174,7 @@ class DynamicAdapter(data: List<MulDynamic>?) : BaseMultiItemQuickAdapter<MulDyn
                         .setVisible(R.id.tv_tag_video_favourite, false)
                         .setVisible(R.id.iv_tag_video_online_region, false)
                         .setText(R.id.tv_tag_video_play_num,
-                                "${it.name}${it.tag?.let { "·${it.tag_name}" }}")
+                                "${it.name}${it.tag.let { "·${it.tag_name}" }}")
                 Glide.with(mContext)
                         .load(it.face)
                         .centerCrop()

@@ -1,13 +1,18 @@
 package com.yoyiyi.soleil.module.home
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import com.yoyiyi.soleil.R
-import com.yoyiyi.soleil.base.BaseFragment
+import com.yoyiyi.soleil.base.BaseInjectFragment
 import com.yoyiyi.soleil.bean.discover.HotSearchTag
 import com.yoyiyi.soleil.constant.Constants
 import com.yoyiyi.soleil.module.app.BrowerActivity
+import com.yoyiyi.soleil.module.discover.ActivityCenterActivity
+import com.yoyiyi.soleil.module.discover.GameCenterActivity
+import com.yoyiyi.soleil.module.discover.InterestActivity
+import com.yoyiyi.soleil.module.discover.TopicCenterActivity
 import com.yoyiyi.soleil.module.region.AllRegionRankActivity
 import com.yoyiyi.soleil.mvp.contract.home.DiscoverContract
 import com.yoyiyi.soleil.mvp.presenter.home.DiscoverPresenter
@@ -23,7 +28,7 @@ import kotlinx.android.synthetic.main.fragment_home_discover.*
  */
 
 @Suppress("DEPRECATION")
-class DiscoverFragment : BaseFragment<DiscoverPresenter>(), DiscoverContract.View, View.OnClickListener {
+class DiscoverFragment : BaseInjectFragment<DiscoverPresenter>(), DiscoverContract.View, View.OnClickListener {
 
 
     internal var isShowMore = false
@@ -115,6 +120,14 @@ class DiscoverFragment : BaseFragment<DiscoverPresenter>(), DiscoverContract.Vie
             -> BrowerActivity.startActivity(activity, Constants.BLACK_URL, "小黑屋", "")
             R.id.rl_rank_all//全站排行
             -> AllRegionRankActivity.startActivity(activity, "番剧")
+            R.id.rl_game//游戏中心
+            -> startActivity(Intent(getApplicationContext(), GameCenterActivity::class.java))
+            R.id.rl_topic_center//话题中心
+            -> startActivity(Intent(getApplicationContext(), TopicCenterActivity::class.java))
+            R.id.rl_activity_center//活动中心
+            -> startActivity(Intent(getApplicationContext(), ActivityCenterActivity::class.java))
+            R.id.rl_group
+            -> startActivity(Intent(getApplicationContext(), InterestActivity::class.java))
 
         /*  R.id.rl_rank_original//原创排行
           -> startActivity(Intent(getApplicationContext(), AllStationRankActivity::class.java))

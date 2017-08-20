@@ -91,6 +91,78 @@
             android:name=".module.region.AdActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
+
+        <!-- 话题中心 -->
+        <activity
+            android:name=".module.discover.TopicCenterActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <!-- 活动中心 -->
+        <activity
+            android:name=".module.discover.ActivityCenterActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <!-- 游戏中心 -->
+        <activity
+            android:name=".module.discover.GameCenterActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <!-- 全部游戏 -->
+        <activity
+            android:name=".module.discover.AllGameActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <!-- vip -->
+        <activity
+            android:name=".module.discover.InterestActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+
+        <!-- 番剧详情 -->
+        <activity
+            android:name=".module.bangumi.BangumiDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <!-- 番剧时间表 -->
+        <activity
+            android:name=".module.bangumi.BangumiScheduleActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <!-- 番剧索引 -->
+        <activity
+            android:name=".module.bangumi.BangumiIndexActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+
+        <!-- up主详情 -->
+        <activity
+            android:name=".module.app.up.UpDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+
+        <!-- 全站排行 -->
+        <activity
+            android:name=".module.recommend.AllStationRankActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <!-- 视频播放 -->
+        <activity
+            android:name=".module.app.video.VideoPlayerActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+
+        <!-- 视频详情 -->
+        <activity
+            android:name=".module.app.video.VideoDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+
+
     </application>
 
 </manifest>

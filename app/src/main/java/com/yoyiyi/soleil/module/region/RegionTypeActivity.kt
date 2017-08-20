@@ -43,13 +43,13 @@ class RegionTypeActivity : BaseRegionActivity<AllRegionRankPositionPresenter, Nu
         }
 
         mTitle = mRegionType.name
-        mTitles += "推荐"
+        mTitles.add("推荐")
         //推荐
-        mFragments += RegionTypeRecommendFragment.newInstance(mRegionType.tid)
+        mFragment.add(RegionTypeRecommendFragment.newInstance(mRegionType.tid))
         mRegionType.children.forEach { (tid, _, name) ->
-            mTitles += name
+            mTitles.add(name)
             //其他标签页面
-            mFragments += RegionTypeFragment.newInstance(tid)
+            mFragment.add(RegionTypeFragment.newInstance(tid))
         }
 
     }

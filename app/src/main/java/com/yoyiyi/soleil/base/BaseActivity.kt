@@ -14,28 +14,19 @@ import com.yoyiyi.soleil.di.component.DaggerActivityComponent
 import com.yoyiyi.soleil.di.module.ActivityModule
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil
-import javax.inject.Inject
 
 
 /**
  * 基础Activity
  * Created by zzq on 2016/12/5.
  */
-abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActivity(), BaseContract.BaseView {
+abstract class BaseActivity : RxAppCompatActivity() {
 
-    @Inject
-    lateinit var mPresenter: T
     protected var mToolbar: Toolbar? = null//Toolbar
     protected var mContext: Context? = null//上下文环境
     protected open val mBack = true //是否返回
     protected var mError: ConstraintLayout? = null
-    //优先使用属性
-    protected val activityModule: ActivityModule get() = ActivityModule(this)
 
-    protected val activityComponent: ActivityComponent get() = DaggerActivityComponent.builder()
-            .appComponent(BiliSoleilApplication.instance.appComponent)
-            .activityModule(activityModule)
-            .build()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -95,22 +86,8 @@ abstract class BaseActivity<T : BaseContract.BasePresenter<*>> : RxAppCompatActi
         //  mPresenter?.attachView(this)
     }
 
-    override fun showError(msg: String) {
-        mError?.visibility = View.VISIBLE
-    }
 
-    override fun complete() {
-        mError?.visibility = View.GONE
-    }
 
-    /**
-     * 销毁
-     */
-    override fun onDestroy() {
-        mPresenter?.detachView()
-        BiliSoleilApplication.instance.removeActivity(this)
-        super.onDestroy()
-    }
 
     /**
      * 初始化Toolbar

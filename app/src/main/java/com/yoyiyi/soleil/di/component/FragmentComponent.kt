@@ -3,7 +3,14 @@ package com.yoyiyi.soleil.di.component
 import android.app.Activity
 import com.yoyiyi.soleil.di.module.FragmentModule
 import com.yoyiyi.soleil.di.scope.FragmentScope
+import com.yoyiyi.soleil.module.app.up.ArchiveFragment
+import com.yoyiyi.soleil.module.app.up.FavouriteFragment
+import com.yoyiyi.soleil.module.app.up.SubmitedVideoFragment
+import com.yoyiyi.soleil.module.app.video.CommentFragment
+import com.yoyiyi.soleil.module.app.video.SummaryFragment
+import com.yoyiyi.soleil.module.discover.InterestFragment
 import com.yoyiyi.soleil.module.home.*
+import com.yoyiyi.soleil.module.recommend.AllStationRankFragment
 import com.yoyiyi.soleil.module.region.AllRegionRankFragment
 import com.yoyiyi.soleil.module.region.RegionTypeFragment
 import com.yoyiyi.soleil.module.region.RegionTypeRecommendFragment
@@ -30,10 +37,26 @@ interface FragmentComponent {
     fun inject(regionFragment: RegionFragment)
 
     fun inject(dynamicFragment: DynamicFragment)
+
     fun inject(discoverFragment: DiscoverFragment)
+
     fun inject(allRegionRankFragment: AllRegionRankFragment)
+
     fun inject(regionTypeFragment: RegionTypeFragment)
+
     fun inject(regionTypeRecommendFragment: RegionTypeRecommendFragment)
+
+    fun inject(interestFragment: InterestFragment)
+
+    fun  inject(allStationRankFragment: AllStationRankFragment)
+
+    fun inject(archiveFragment: ArchiveFragment)
+
+    fun inject(favouriteFragment: FavouriteFragment)
+
+    fun inject(submitedVideoFragment: SubmitedVideoFragment)
+    fun inject(commentFragment: CommentFragment)
+    fun inject(summaryFragment: SummaryFragment)
 
 
     /*  val activity: Activity

@@ -2,14 +2,22 @@ package com.yoyiyi.soleil.network.helper
 
 
 import com.yoyiyi.soleil.bean.app.Splash
-import com.yoyiyi.soleil.bean.discover.HotSearchTag
+import com.yoyiyi.soleil.bean.app.video.VideoDetail
+import com.yoyiyi.soleil.bean.app.video.VideoDetailComment
+import com.yoyiyi.soleil.bean.app.video.VideoPlayer
+import com.yoyiyi.soleil.bean.bangumi.*
+import com.yoyiyi.soleil.bean.chase.ChaseBangumi
+import com.yoyiyi.soleil.bean.chase.RecommendBangumi
+import com.yoyiyi.soleil.bean.discover.*
 import com.yoyiyi.soleil.bean.live.LiveEntrance
 import com.yoyiyi.soleil.bean.live.LivePartition
 import com.yoyiyi.soleil.bean.live.LiveRecommend
+import com.yoyiyi.soleil.bean.recommend.AllStationRank
 import com.yoyiyi.soleil.bean.region.AllRegionRank
 import com.yoyiyi.soleil.bean.region.Region
 import com.yoyiyi.soleil.bean.region.RegionRecommend
 import com.yoyiyi.soleil.bean.region.RegionType
+import com.yoyiyi.soleil.bean.user.UpDetail
 import com.yoyiyi.soleil.network.api.*
 import com.yoyiyi.soleil.network.response.HttpResponse
 import io.reactivex.Flowable
@@ -40,6 +48,16 @@ class RetrofitHelper(private val appService: AppService,
     fun getRegion(): Flowable<HttpResponse<List<Region>>> = appService.getRegion()
 
     fun getHotSearchTag(): Flowable<HttpResponse<HotSearchTag>> = appService.getHotSearchTag()
+
+    fun getActivityCenter(page: Int, pageSize: Int): Flowable<ActivityCenter> = apiService.getActivityCenter(page, pageSize)
+
+    fun getVideoPlayer(): Flowable<VideoPlayer> = appService.getVideoPlayer()
+
+    fun getUpDetail(): Flowable<UpDetail> = appService.getUpDetail()
+
+    fun getVideoDetail(): Flowable<VideoDetail> = appService.getVideoDetail()
+
+    fun getVideoDetailComment(): Flowable<VideoDetailComment> = apiService.getVideoDetailComment()
     /*******************************RankApi */
 
     fun getAllRegionRank(type: String): Flowable<AllRegionRank> = rankService.getAllRegionRank(type)
@@ -47,59 +65,90 @@ class RetrofitHelper(private val appService: AppService,
 
     fun getLiveEntrance(): Flowable<HttpResponse<List<LiveEntrance>>> = liveService.getLiveEntrance()
 
-
     fun getRegionType(rid: Int): Flowable<HttpResponse<RegionType>> = appService.getRegionType(rid)
 
     fun getRegionRecommend(rid: Int): Flowable<HttpResponse<RegionRecommend>> = appService.getRegionRecommend(rid)
 
-    /*
-        val splash: Flowable<Splash>
-            get() = mAppService.getSplash()
+    fun getTopicCenter(): Flowable<TopicCenter> = apiService.getTopicCenter()
 
-        val recommend: Flowable<HttpResponse<List<Recommend>>>
-            get() = mAppService.getRecommend()
+    /*******************************RankApi */
 
-        val region: Flowable<HttpResponse<List<Region>>>
-            get() = mAppService.getRegion()
 
-        val hotSearchTag: Flowable<HttpResponse<HotSearchTag>>
-            get() = mAppService.getHotSearchTag()
+    fun getAllStationRank(type: String): Flowable<AllStationRank> = rankService.getAllStationRank(type)
 
-        fun getSearchArchive(keyword: String, page: Int, pagesize: Int): Flowable<HttpResponse<SearchArchive>> {
-            return mAppService.getSearchArchive(keyword, page, pagesize)
-        }
+    /*******************************BangumiApi */
 
-        fun getRegionRecommend(rid: Int): Flowable<HttpResponse<RegionRecommend>> {
-            return mAppService.getRegionRecommend(rid)
-        }
+    fun getChaseBangumi(): Flowable<HttpResponse<ChaseBangumi>> = bangumiService.getChaseBangumi()
 
-        fun getRegionType(rid: Int): Flowable<HttpResponse<RegionType>> {
-            return mAppService.getRegionType(rid)
-        }
 
-        val videoDetail: Flowable<VideoDetail>
-            get() = mAppService.getVideoDetail()
+    fun getRecommendBangumi(): Flowable<HttpResponse<RecommendBangumi>> = bangumiService.getRecommendBangumi()
 
-        val videoDetailComment: Flowable<VideoDetailComment>
-            get() = mApiService.getVideoDetailComment()
 
-        val upDetail: Flowable<UpDetail>
-            get() = mAppService.getUpDetail()
+    fun getBangumiSchedule(): Flowable<HttpResponse<List<BangumiSchedule>>> = bangumiService.getBangumiSchedule()
 
-        val search: Flowable<Search>
-            get() = mAppService.getSearch()
 
-        val up: Flowable<Up>
-            get() = mAppService.getUp()
+    fun getBangumiIndex(): Flowable<HttpResponse<BangumiIndex>> = bangumiService.getBangumiIndex()
 
-        val movie: Flowable<Movie>
-            get() = mAppService.getMovie()
 
-        val season: Flowable<Season>
-            get() = mAppService.getSeason()
-        val videoPlayer: Flowable<VideoPlayer>
-            get() = mAppService.getVideoPlayer()
-        */
+    fun getBangumiDetail(): Flowable<HttpResponse<BangumiDetail>> = bangumiService.getBangumiDetail()
+
+
+    fun getBangumiDetailRecommend(): Flowable<HttpResponse<BangumiDetailRecommend>> = bangumiService.getBangumiDetailRecommend()
+
+    fun getBangumiDetailComment(): Flowable<BangumiDetailComment> = apiService.getBangumiDetailComment()
+
+/*
+  public Flowable<TopicCenter> getTopicCenter() {
+        return mApiService.getTopicCenter();
+    }
+
+    val splash: Flowable<Splash>
+        get() = mAppService.getSplash()
+
+    val recommend: Flowable<HttpResponse<List<Recommend>>>
+        get() = mAppService.getRecommend()
+
+    val region: Flowable<HttpResponse<List<Region>>>
+        get() = mAppService.getRegion()
+
+    val hotSearchTag: Flowable<HttpResponse<HotSearchTag>>
+        get() = mAppService.getHotSearchTag()
+
+    fun getSearchArchive(keyword: String, page: Int, pagesize: Int): Flowable<HttpResponse<SearchArchive>> {
+        return mAppService.getSearchArchive(keyword, page, pagesize)
+    }
+
+    fun getRegionRecommend(rid: Int): Flowable<HttpResponse<RegionRecommend>> {
+        return mAppService.getRegionRecommend(rid)
+    }
+
+    fun getRegionType(rid: Int): Flowable<HttpResponse<RegionType>> {
+        return mAppService.getRegionType(rid)
+    }
+
+    val videoDetail: Flowable<VideoDetail>
+        get() = mAppService.getVideoDetail()
+
+    val videoDetailComment: Flowable<VideoDetailComment>
+        get() = mApiService.getVideoDetailComment()
+
+    val upDetail: Flowable<UpDetail>
+        get() = mAppService.getUpDetail()
+
+    val search: Flowable<Search>
+        get() = mAppService.getSearch()
+
+    val up: Flowable<Up>
+        get() = mAppService.getUp()
+
+    val movie: Flowable<Movie>
+        get() = mAppService.getMovie()
+
+    val season: Flowable<Season>
+        get() = mAppService.getSeason()
+    val videoPlayer: Flowable<VideoPlayer>
+        get() = mAppService.getVideoPlayer()
+    */
     /*******************************LiveApi */
     /*
 
@@ -159,17 +208,17 @@ class RetrofitHelper(private val appService: AppService,
             get() = mApiService.getBangumiDetailComment()
 
         */
+
+
     /*******************************Im9Api */
-    /*
 
-        val interestCategrory: Flowable<HttpResponse<InterestCategrory>>
-            get() = mIm9Service.getInterestCategrory()
+    fun getInterestCategrory(): Flowable<HttpResponse<InterestCategrory>> = im9Service.getInterestCategrory()
 
-        val community: Flowable<HttpResponse<Community>>
-            get() = mIm9Service.getCommunity()
 
-        val interestAd: Flowable<HttpResponse<InterestAd>>
-            get() = mIm9Service.getInterestAd()
-    */
+    fun getCommunity(): Flowable<HttpResponse<Community>> = im9Service.getCommunity()
+
+
+    fun getInterestAd(): Flowable<HttpResponse<InterestAd>> = im9Service.getInterestAd()
+
 
 }

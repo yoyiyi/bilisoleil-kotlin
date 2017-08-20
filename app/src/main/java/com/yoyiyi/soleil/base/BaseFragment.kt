@@ -10,22 +10,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.trello.rxlifecycle2.components.support.RxFragment
-import com.yoyiyi.soleil.BiliSoleilApplication
 import com.yoyiyi.soleil.R
-import com.yoyiyi.soleil.di.component.DaggerFragmentComponent
-import com.yoyiyi.soleil.di.component.FragmentComponent
-import com.yoyiyi.soleil.di.module.FragmentModule
-import javax.inject.Inject
 
 /**
  * 基础Fragment
  * Created by zzq on 2016/12/27.
  */
 
-abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), BaseContract.BaseView {
+abstract class BaseFragment : RxFragment() {
 
-    @Inject
-    lateinit var mPresenter: T
+
     protected var mRootView: View? = null
     protected var mActivity: Activity? = null
     protected var mInflater: LayoutInflater? = null
@@ -36,12 +30,7 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
     protected var mIsVisible: Boolean = false
     protected var mError: ConstraintLayout? = null
 
-    val fragmentModule :FragmentModule get() = FragmentModule(this)
 
-    val fragmentComponent: FragmentComponent get() = DaggerFragmentComponent.builder()
-            .appComponent(BiliSoleilApplication.instance.appComponent)
-            .fragmentModule(fragmentModule)
-            .build()
 
     override fun onAttach(context: Context?) {
         mActivity = context as Activity?
@@ -92,10 +81,7 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
         lazyLoad()
     }
 
-    override fun onDestroy() {
-        mPresenter.detachView()
-        super.onDestroy()
-    }
+
 
     /**
      * 分离
@@ -166,13 +152,8 @@ abstract class BaseFragment<T : BaseContract.BasePresenter<*>> : RxFragment(), B
 
     }
 
-    override fun showError(msg: String) {
-        mError?.visibility = View.VISIBLE
-    }
 
-    override fun complete() {
-        mError?.visibility = View.GONE
-    }
+
 
 
     protected open fun finishTask() {

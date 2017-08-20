@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.adapter.home
 
+import android.content.Intent
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -11,6 +12,7 @@ import com.yoyiyi.soleil.bean.recommend.MulRecommend
 import com.yoyiyi.soleil.bean.recommend.Recommend
 import com.yoyiyi.soleil.ext.startAnim
 import com.yoyiyi.soleil.module.app.BrowerActivity
+import com.yoyiyi.soleil.module.app.video.VideoDetailActivity
 import com.yoyiyi.soleil.utils.NumberUtils
 import com.yoyiyi.soleil.utils.time.FormatUtils
 
@@ -63,7 +65,7 @@ class RecommendAdapter(data: List<MulRecommend>) : BaseMultiItemQuickAdapter<Mul
                     //推荐
                     holder.setText(R.id.tv_video_tag, "${mulRecommend.recommend?.tname}·${mulRecommend.recommend?.tag?.tag_name}")
                 }
-                // holder.itemView.setOnClickListener { view -> mContext.startActivity(Intent(mContext, VideoDetailActivity::class.java)) }
+                 holder.itemView.setOnClickListener { mContext.startActivity(Intent(mContext, VideoDetailActivity::class.java)) }
             }
         }
     }

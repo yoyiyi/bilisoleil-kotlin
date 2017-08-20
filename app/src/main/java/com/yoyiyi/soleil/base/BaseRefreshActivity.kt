@@ -15,7 +15,7 @@ import java.util.*
  * @date 创建时间：2017/6/5 22:43
  * 描述:基础刷新Activity
  */
-abstract class BaseRefreshActivity<T : BaseContract.BasePresenter<*>, K> : BaseActivity<T>(), SwipeRefreshLayout.OnRefreshListener {
+abstract class BaseRefreshActivity<T : BaseContract.BasePresenter<*>, K> : BaseInjectActivity<T>(), SwipeRefreshLayout.OnRefreshListener {
     protected var mRecycler: RecyclerView? = null
     protected var mRefresh: SwipeRefreshLayout? = null
     protected var mIsRefreshing = false
@@ -47,7 +47,7 @@ abstract class BaseRefreshActivity<T : BaseContract.BasePresenter<*>, K> : BaseA
         loadData()
     }
 
-    protected fun clearData() {
+    protected open fun clearData() {
         mIsRefreshing = true
     }
 
@@ -72,8 +72,7 @@ abstract class BaseRefreshActivity<T : BaseContract.BasePresenter<*>, K> : BaseA
             mLoading?.let {
                 it.visibility = View.VISIBLE
                 AppUtils.runOnUIDelayed({ loadData() }, 650)
-            } ?: super.initDatas()
-
-        }
+            }
+        }?: super.initDatas()
     }
 }
