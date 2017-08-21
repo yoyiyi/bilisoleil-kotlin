@@ -18,7 +18,7 @@ import com.yoyiyi.soleil.widget.section.ViewHolder
  * @date 创建时间：2017/6/4 17:07
  * * 描述:
  */
-class RegionRecommendDynamicSection(dynamicBeanList: List<RegionRecommend.DynamicBean>) : StatelessSection<RegionRecommend.DynamicBean>(R.layout.layout_item_region_head, R.layout.layout_item_region_footer, R.layout.layout_item_region_body, dynamicBeanList) {
+class  RegionRecommendDynamicSection(dynamicBeanList: List<RegionRecommend.DynamicBean>) : StatelessSection<RegionRecommend.DynamicBean>(R.layout.layout_item_region_head, R.layout.layout_item_region_footer, R.layout.layout_item_region_body, dynamicBeanList) {
 
     override fun convert(holder: ViewHolder, dynamicBean: RegionRecommend.DynamicBean, position: Int) {
         Glide.with(mContext)
