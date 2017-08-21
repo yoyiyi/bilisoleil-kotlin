@@ -7,8 +7,7 @@ import android.widget.ImageView
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.base.BaseContract
 import com.yoyiyi.soleil.base.BaseInjectFragment
-import com.yoyiyi.soleil.ext.gone
-import com.yoyiyi.soleil.ext.visible
+
 import com.yoyiyi.soleil.mvp.contract.search.BaseSearchContract
 
 /**

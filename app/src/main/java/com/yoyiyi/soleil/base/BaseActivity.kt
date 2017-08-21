@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.Toolbar
+import android.view.View
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.yoyiyi.soleil.BiliSoleilApplication
 import com.yoyiyi.soleil.R
@@ -122,5 +123,27 @@ abstract class BaseActivity : RxAppCompatActivity() {
      */
     open fun initVariables() {}
 
+    /**
+     * 隐藏View
+     * @param views 视图
+     */
+    fun gone(vararg views: View) {
+        if (views.isNotEmpty()) {
+            for (view in views) {
+                view.visibility = View.GONE
+            }
+        }
+    }
 
+    /**
+     * 显示View
+     * @param views 视图
+     */
+    fun visible(vararg views: View) {
+        if (views.isNotEmpty()) {
+            for (view in views) {
+                view.visibility = View.VISIBLE
+            }
+        }
+    }
 }

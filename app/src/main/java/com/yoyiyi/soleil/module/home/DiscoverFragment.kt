@@ -8,8 +8,7 @@ import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.base.BaseInjectFragment
 import com.yoyiyi.soleil.bean.discover.HotSearchTag
 import com.yoyiyi.soleil.constant.Constants
-import com.yoyiyi.soleil.ext.gone
-import com.yoyiyi.soleil.ext.visible
+
 import com.yoyiyi.soleil.module.app.BrowerActivity
 import com.yoyiyi.soleil.module.discover.ActivityCenterActivity
 import com.yoyiyi.soleil.module.discover.GameCenterActivity

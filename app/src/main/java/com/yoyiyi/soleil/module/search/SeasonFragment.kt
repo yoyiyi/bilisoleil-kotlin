@@ -17,9 +17,8 @@ import com.yoyiyi.soleil.mvp.presenter.search.SeasonPresenter
 class SeasonFragment : BaseSearchFragment<SeasonPresenter, Season.DataBean.ItemsBean>(), SeasonContract.View {
     private var mAdapter: SeasonAdapter? = null
 
-    override fun getLayoutId(): Int {
-        return R.layout.fragment_search_season
-    }
+    override fun getLayoutId(): Int = R.layout.fragment_search_season
+
 
     override fun lazyLoadData() {
         mPresenter.getSearchSeasonData()
@@ -38,8 +37,7 @@ class SeasonFragment : BaseSearchFragment<SeasonPresenter, Season.DataBean.Items
 
     override fun initRecyclerView() {
         mAdapter = SeasonAdapter(mList)
-        val mLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,
-                false)
+        val mLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         mRecycler?.layoutManager = mLayoutManager
         mRecycler?.adapter = mAdapter
     }

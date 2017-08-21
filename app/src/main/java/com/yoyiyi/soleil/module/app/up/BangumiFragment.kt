@@ -16,9 +16,8 @@ class BangumiFragment : BaseFragment() {
 
     private var mSetting: Int = 0
 
-    override fun getLayoutId(): Int {
-        return R.layout.fragment_up_bangumi
-    }
+    override fun getLayoutId(): Int  = R.layout.fragment_up_bangumi
+
 
 
 

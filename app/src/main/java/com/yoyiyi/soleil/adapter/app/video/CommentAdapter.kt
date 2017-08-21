@@ -28,7 +28,7 @@ class CommentAdapter(data: List<MulComment>) : BaseMultiItemQuickAdapter<MulComm
 
     override fun convert(holder: BaseViewHolder, mulComment: MulComment) {
         when (mulComment.itemType) {
-            
+
             MulComment.TYPE_COMMENT_HOT_ITEM -> {
                 mulComment.hotsBean?.let {
 
@@ -39,7 +39,7 @@ class CommentAdapter(data: List<MulComment>) : BaseMultiItemQuickAdapter<MulComm
                             .appendImage(getIdRes(it.member.level_info.current_level), SpanUtils.ALIGN_CENTER)
                             .create())
                             .setText(R.id.tv_like, "${it.like}")
-                            .setText(R.id.tv_floor, "#${it.floor}" )
+                            .setText(R.id.tv_floor, "#${it.floor}")
                             .setText(R.id.tv_time, TimeUtils.millis2String((it.ctime * Math.pow(10.0, 3.0)).toLong()))
                             .setText(R.id.tv_message, it.content.message)
                             .setText(R.id.tv_rcount, "共有${it.rcount}条回复 >")
@@ -51,7 +51,7 @@ class CommentAdapter(data: List<MulComment>) : BaseMultiItemQuickAdapter<MulComm
                             .dontAnimate()
                             .into(holder.getView<CircleImageView>(R.id.iv_avatar))
                 }
-                
+
             }
             MulComment.TYPE_COMMENT_MORE -> {
             }
@@ -59,7 +59,7 @@ class CommentAdapter(data: List<MulComment>) : BaseMultiItemQuickAdapter<MulComm
             MulComment.TYPE_COMMENT_NOMAL_ITEM -> {
                 mulComment.repliesBean?.let {
                     holder.setVisible(R.id.tv_rcount, false)
-                            .setText(R.id.tv_like,"${ it.like }")
+                            .setText(R.id.tv_like, "${it.like}")
                             .setText(R.id.tv_uname, SpanUtils()
                                     .append(it.member.uname)
                                     .setForegroundColor(AppUtils.getColor(R.color.gray_20))
@@ -82,20 +82,17 @@ class CommentAdapter(data: List<MulComment>) : BaseMultiItemQuickAdapter<MulComm
         }
     }
 
-    private fun getIdRes(lv: Int): Int {
-        val idRes: Int
-        when (lv) {
-            1 -> idRes = R.drawable.ic_lv1
-            2 -> idRes = R.drawable.ic_lv2
-            3 -> idRes = R.drawable.ic_lv3
-            4 -> idRes = R.drawable.ic_lv4
-            5 -> idRes = R.drawable.ic_lv5
-            6 -> idRes = R.drawable.ic_lv6
-            7 -> idRes = R.drawable.ic_lv7
-            8 -> idRes = R.drawable.ic_lv8
-            9 -> idRes = R.drawable.ic_lv9
-            else -> idRes = R.drawable.ic_lv0
-        }
-        return idRes
+    private fun getIdRes(lv: Int): Int = when (lv) {
+        1 -> R.drawable.ic_lv1
+        2 -> R.drawable.ic_lv2
+        3 -> R.drawable.ic_lv3
+        4 -> R.drawable.ic_lv4
+        5 -> R.drawable.ic_lv5
+        6 -> R.drawable.ic_lv6
+        7 -> R.drawable.ic_lv7
+        8 -> R.drawable.ic_lv8
+        9 -> R.drawable.ic_lv9
+        else -> R.drawable.ic_lv0
+
     }
 }

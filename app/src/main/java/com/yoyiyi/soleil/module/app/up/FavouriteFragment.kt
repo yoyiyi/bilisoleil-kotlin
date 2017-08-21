@@ -7,8 +7,7 @@ import com.yoyiyi.soleil.adapter.app.up.FavouriteAdapter
 import com.yoyiyi.soleil.base.BaseInjectFragment
 import com.yoyiyi.soleil.bean.user.MulUpDetail
 import com.yoyiyi.soleil.constant.Constants
-import com.yoyiyi.soleil.ext.gone
-import com.yoyiyi.soleil.ext.visible
+
 import com.yoyiyi.soleil.mvp.contract.app.up.FavouriteContract
 import com.yoyiyi.soleil.mvp.presenter.app.up.FavouritePresenter
 import kotlinx.android.synthetic.main.common_recycler.*

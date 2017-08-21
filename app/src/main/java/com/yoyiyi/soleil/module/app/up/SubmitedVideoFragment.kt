@@ -2,14 +2,11 @@ package com.yoyiyi.soleil.module.app.up
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.widget.ImageView
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.adapter.app.up.SubmitedVideoAdapter
 import com.yoyiyi.soleil.base.BaseInjectFragment
 import com.yoyiyi.soleil.bean.user.MulUpDetail
 import com.yoyiyi.soleil.constant.Constants
-import com.yoyiyi.soleil.ext.gone
-import com.yoyiyi.soleil.ext.visible
 import com.yoyiyi.soleil.mvp.contract.app.up.SubmitedVideoContract
 import com.yoyiyi.soleil.mvp.presenter.app.up.SubmitedVideoPresenter
 import kotlinx.android.synthetic.main.common_recycler.*
@@ -25,7 +22,6 @@ import kotlinx.android.synthetic.main.fragment_up_submited_video.*
 class SubmitedVideoFragment : BaseInjectFragment<SubmitedVideoPresenter>(), SubmitedVideoContract.View {
 
 
-    internal var mIvEmpty: ImageView? = null
 
     private var mSetting: Int = 0
     private val mList = mutableListOf<MulUpDetail>()

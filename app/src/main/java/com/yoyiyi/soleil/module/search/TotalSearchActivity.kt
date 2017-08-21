@@ -11,14 +11,13 @@ import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.base.BaseInjectActivity
 import com.yoyiyi.soleil.bean.search.SearchArchive
 import com.yoyiyi.soleil.constant.Constants
-import com.yoyiyi.soleil.ext.gone
-import com.yoyiyi.soleil.ext.visible
+
 import com.yoyiyi.soleil.mvp.contract.search.TotalSearchContract
 import com.yoyiyi.soleil.mvp.presenter.search.TotalSearchPresenter
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.StatusBarFontUtil
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil
-import kotlinx.android.synthetic.main.activity_search.*
+import kotlinx.android.synthetic.main.activity_total_search.*
 import kotlinx.android.synthetic.main.layout_search_view.*
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -31,24 +30,6 @@ import java.util.concurrent.TimeUnit
  */
 class TotalSearchActivity : BaseInjectActivity<TotalSearchPresenter>(), TotalSearchContract.View {
 
-    /* @BindView(R.id.iv_search_back)
-     internal var mIvSearchBack: ImageView? = null
-     @BindView(R.id.et_search)
-     internal var mEtSearch: EditText? = null
-     @BindView(R.id.iv_search_clear)
-     internal var mIvSearchClear: ImageView? = null
-     @BindView(R.id.iv_search)
-     internal var mIvSearch: ImageView? = null
-     @BindView(R.id.search_card_view)
-     internal var mSearchCardView: CardView? = null
-     @BindView(R.id.sliding_tabs)
-     internal var mSlidingTabs: SlidingTabLayout? = null
-     @BindView(R.id.view_pager)
-     internal var mViewPager: NoScrollViewPager? = null
-     @BindView(R.id.iv_search_load)
-     internal var mIvSearchLoad: ImageView? = null
-     @BindView(R.id.rl_search_content)
-     internal var mRlSearchContent: RelativeLayout? = null*/
     private var mKeyword = ""
 
     private val mList = ArrayList<SearchArchive.NavBean>()
@@ -56,9 +37,8 @@ class TotalSearchActivity : BaseInjectActivity<TotalSearchPresenter>(), TotalSea
     private val mTitles = ArrayList<String>()
     private val mFragments = ArrayList<Fragment>()
 
-    override fun getLayoutId(): Int {
-        return R.layout.activity_total_search
-    }
+    override fun getLayoutId(): Int = R.layout.activity_total_search
+
 
     override fun initStatusBar() {
         //设置状态栏颜色

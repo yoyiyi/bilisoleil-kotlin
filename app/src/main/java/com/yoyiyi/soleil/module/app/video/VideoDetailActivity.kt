@@ -11,6 +11,8 @@ import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.bean.app.video.VideoDetail
 import com.yoyiyi.soleil.bean.app.video.VideoDetailComment
 import com.yoyiyi.soleil.event.Event
+
+
 import com.yoyiyi.soleil.module.region.BaseRegionActivity
 import com.yoyiyi.soleil.mvp.contract.app.video.VideoDetailContract
 import com.yoyiyi.soleil.mvp.presenter.app.video.VideoDetailPresenter

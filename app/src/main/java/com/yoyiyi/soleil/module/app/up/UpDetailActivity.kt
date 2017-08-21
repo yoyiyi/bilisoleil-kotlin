@@ -7,8 +7,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.bean.user.UpDetail
 import com.yoyiyi.soleil.event.Event
-import com.yoyiyi.soleil.ext.gone
-import com.yoyiyi.soleil.ext.visible
+
 import com.yoyiyi.soleil.module.region.BaseRegionActivity
 import com.yoyiyi.soleil.mvp.contract.app.up.UpDetailContract
 import com.yoyiyi.soleil.mvp.presenter.app.up.UpDetailPresenter

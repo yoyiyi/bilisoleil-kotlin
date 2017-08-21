@@ -2,15 +2,12 @@ package com.yoyiyi.soleil.module.app.up
 
 
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.GridLayoutManager
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.adapter.app.up.ArchiveAdapter
 import com.yoyiyi.soleil.base.BaseInjectFragment
 import com.yoyiyi.soleil.bean.user.MulUpDetail
 import com.yoyiyi.soleil.constant.Constants
-import com.yoyiyi.soleil.ext.gone
-import com.yoyiyi.soleil.ext.visible
 import com.yoyiyi.soleil.mvp.contract.app.up.ArchiveContract
 import com.yoyiyi.soleil.mvp.presenter.app.up.ArchivePresenter
 import kotlinx.android.synthetic.main.common_recycler.*
@@ -25,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_up_archive.*
 
 class ArchiveFragment : BaseInjectFragment<ArchivePresenter>(), ArchiveContract.View {
 
-    internal var mClError: ConstraintLayout? = null
+
 
     private var mSetting: Int = 0
     private val mList = mutableListOf<MulUpDetail>()
@@ -62,7 +59,7 @@ class ArchiveFragment : BaseInjectFragment<ArchivePresenter>(), ArchiveContract.
     override fun initRecyclerView() {
         mAdapter = ArchiveAdapter(mList)
         val mLayoutManager = GridLayoutManager(activity, 2)
-        mAdapter?.setSpanSizeLookup{ _, position -> mList.get(position).spanSize }
+        mAdapter?.setSpanSizeLookup{ _, position -> mList[position].spanSize }
         recycler?.layoutManager = mLayoutManager
         recycler?.adapter = mAdapter
     }

@@ -17,9 +17,8 @@ import com.yoyiyi.soleil.mvp.presenter.search.MoviePresenter
 class MovieFragment : BaseSearchFragment<MoviePresenter, Movie.DataBean.ItemsBean>(), MovieContract.View {
     private var mAdapter: MovieAdapter? = null
 
-    override fun getLayoutId(): Int {
-        return R.layout.fragment_search_movie
-    }
+    override fun getLayoutId(): Int = R.layout.fragment_search_movie
+
 
     override fun lazyLoadData() {
         mPresenter.getSearchMovieData()
