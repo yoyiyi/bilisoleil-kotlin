@@ -16,7 +16,6 @@ import com.yoyiyi.soleil.utils.NetworkUtils
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import java.io.File
-import java.io.IOException
 import java.util.concurrent.TimeUnit
 
 /**
@@ -87,7 +86,7 @@ object OkHttpHelper {
         val baseDir = File(path)
         val cacheDir = File(baseDir, "CopyCache")
         cache = Cache(cacheDir, HTTP_RESPONSE_DISK_CACHE_MAX_SIZE)
-         return cache
+        return cache
     }
 
 
@@ -95,36 +94,46 @@ object OkHttpHelper {
      * 添加UA拦截器，B站请求API需要加上UA才能正常使用
      */
     private class UserAgentInterceptor : Interceptor {
-        @Throws(IOException::class)
-        override fun intercept(chain: Interceptor.Chain): Response {
-            val originalRequest = chain.request()
-            val requestWithUserAgent = originalRequest.newBuilder()
-                    .removeHeader("User-Agent")
-                    .addHeader("User-Agent", ApiConstants.COMMON_UA_STR)
-                    .build()
-            return chain.proceed(requestWithUserAgent)
+        override fun intercept(chain: Interceptor.Chain): Response? {
+            try {
+                val originalRequest = chain.request()
+                val requestWithUserAgent = originalRequest.newBuilder()
+                        .removeHeader("User-Agent")
+                        .addHeader("User-Agent", ApiConstants.COMMON_UA_STR)
+                        .build()
+                return chain.proceed(requestWithUserAgent)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+            return  null
         }
     }
 
 
     private class RewriteCacheControlInterceptor : Interceptor {
-        @Throws(IOException::class)
-        override fun intercept(chain: Interceptor.Chain): Response {
-            var request = chain.request()
-            if (!NetworkUtils.isConnected(AppUtils.getAppContext())) {
-                request = request.newBuilder().cacheControl(CacheControl.FORCE_CACHE).build()
+        override fun intercept(chain: Interceptor.Chain): Response? {
+            try {
+                var request = chain.request()
+                if (!NetworkUtils.isConnected(AppUtils.getAppContext())) {
+                    request = request.newBuilder().cacheControl(CacheControl.FORCE_CACHE).build()
+                }
+                val originalResponse = chain.proceed(request)
+                if (NetworkUtils.isConnected(AppUtils.getAppContext())) {
+                    //有网的时候读接口上的@Headers里的配置，你可以在这里进行统一的设置
+                    val cacheControl = request.cacheControl().toString()
+                    return originalResponse.newBuilder().header("Cache-Control", cacheControl)
+                            .removeHeader("Pragma").build()
+                } else {
+                    return originalResponse.newBuilder()
+                            .header("Cache-Control", "public, only-if-cached, max-stale=" + CACHE_STALE_LONG)
+                            .removeHeader("Pragma").build()
+                }
+
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
-            val originalResponse = chain.proceed(request)
-            if (NetworkUtils.isConnected(AppUtils.getAppContext())) {
-                //有网的时候读接口上的@Headers里的配置，你可以在这里进行统一的设置
-                val cacheControl = request.cacheControl().toString()
-                return originalResponse.newBuilder().header("Cache-Control", cacheControl)
-                        .removeHeader("Pragma").build()
-            } else {
-                return originalResponse.newBuilder()
-                        .header("Cache-Control", "public, only-if-cached, max-stale=" + CACHE_STALE_LONG)
-                        .removeHeader("Pragma").build()
-            }
+            return  null
+
         }
     }
 }

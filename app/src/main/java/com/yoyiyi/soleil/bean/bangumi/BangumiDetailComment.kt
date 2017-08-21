@@ -143,7 +143,7 @@ data class BangumiDetailComment(var code: Int,
                 data class PendantBean(var pid: Int,
                                        var name: String,
                                        var image: String,
-                                       var expire: Int) {
+                                       var expire: Long) {
                     /**
                      * pid : 0
                      * name :
@@ -305,7 +305,7 @@ data class BangumiDetailComment(var code: Int,
                 data class PendantBeanX(var pid: Int,
                                         var name: String,
                                         var image: String,
-                                        var expire: Int) {
+                                        var expire: Long) {
                     /**
                      * pid : 0
                      * name :

@@ -33,6 +33,6 @@ object ApiConstants {
 
     val COMMENT_BASE_URL = "http://comment.bilibili.com/"
 
-    val COMMON_UA_STR = "BiliSoleil Android Client/1.0 (soleilyoyiyi@gmail.com)"
+    val COMMON_UA_STR = "BiliSoleilKotlin Android Client/1.0 (soleilyoyiyi@gmail.com)"
 
 }

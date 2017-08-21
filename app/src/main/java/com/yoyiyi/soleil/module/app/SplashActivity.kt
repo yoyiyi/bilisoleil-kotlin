@@ -64,7 +64,7 @@ class SplashActivity : RxAppCompatActivity(), SplashContract.View {
      */
     fun redirect() {
         var flag = PrefsUtils.getInstance().getBoolean(Constants.IS_LOGINED_FLAG, false)
-       // flag = false
+        flag = true
         if (flag) {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
