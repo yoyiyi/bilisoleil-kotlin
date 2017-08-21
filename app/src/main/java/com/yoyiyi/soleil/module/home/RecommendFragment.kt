@@ -1,15 +1,18 @@
 package com.yoyiyi.soleil.module.home
 
+import android.content.Intent
 import android.support.v7.widget.GridLayoutManager
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.adapter.home.RecommendAdapter
 import com.yoyiyi.soleil.base.BaseRefreshFragment
 import com.yoyiyi.soleil.bean.recommend.MulRecommend
 import com.yoyiyi.soleil.bean.recommend.Recommend
+import com.yoyiyi.soleil.module.recommend.AllStationRankActivity
 import com.yoyiyi.soleil.mvp.contract.home.RecommendContract
 import com.yoyiyi.soleil.mvp.presenter.home.RecommendPresenter
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.widget.divider.VerticalDividerItemDecoration
+import kotlinx.android.synthetic.main.fragment_home_recommend.*
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -22,9 +25,8 @@ class RecommendFragment : BaseRefreshFragment<RecommendPresenter, MulRecommend>(
 
     private var mAdapter: RecommendAdapter? = null
 
-    override fun getLayoutId(): Int {
-        return R.layout.fragment_home_recommend
-    }
+    override fun getLayoutId(): Int = R.layout.fragment_home_recommend
+
 
     override fun initInject() {
         fragmentComponent.inject(this)
@@ -40,7 +42,7 @@ class RecommendFragment : BaseRefreshFragment<RecommendPresenter, MulRecommend>(
 
     override fun initWidget() {
         super.initWidget()
-        //ivRank?.setOnClickListener { startActivity(Intent(activity, AllStationRankActivity::class.java)) }
+        ivRank?.setOnClickListener { startActivity(Intent(activity, AllStationRankActivity::class.java)) }
     }
 
     override fun initRecyclerView() {

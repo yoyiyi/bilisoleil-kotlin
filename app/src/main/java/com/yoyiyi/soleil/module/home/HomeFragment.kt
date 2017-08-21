@@ -4,7 +4,6 @@ import android.content.Intent
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import com.miguelcatalan.materialsearchview.MaterialSearchView
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.adapter.home.MainAdapter
 import com.yoyiyi.soleil.event.Event
@@ -20,7 +19,6 @@ import kotlinx.android.synthetic.main.layout_main_toolbar.*
 
 class HomeFragment : BaseHomeFragment() {
 
-    internal var mSearchView: MaterialSearchView? = null
 
     companion object {
         fun newInstance(): HomeFragment = HomeFragment()
