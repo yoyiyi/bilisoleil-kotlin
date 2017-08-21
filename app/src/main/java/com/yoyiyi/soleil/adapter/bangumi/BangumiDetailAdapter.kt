@@ -130,7 +130,7 @@ class BangumiDetailAdapter(data: List<MulBangumiDetail>) : BaseMultiItemQuickAda
                         val mTags = LayoutInflater.from(mContext)
                                 .inflate(R.layout.layout_hot_tags_item, flowLayout, false) as TextView
                         mTags.text = listBean.tag_name
-                        //mTags.setOnClickListener(view -> TotalSearchActivity.startActivity(mContext, listBean.keyword));
+                       // mTags.setOnClickListener{ TotalSearchActivity.startActivity(mContext, listBean.keyword)}
                         return mTags
                     }
                 }
@@ -158,9 +158,9 @@ class BangumiDetailAdapter(data: List<MulBangumiDetail>) : BaseMultiItemQuickAda
             -> holder.setText(R.id.tv_title, SpanUtils()
                     .append("评论  ")
                     .append("第")
-                    .append(mulBangumiDetail.num.toString() + "")
+                    .append("${mulBangumiDetail.num}")
                     .append("话")
-                    .append("(" + mulBangumiDetail.account + ")").setForegroundColor(AppUtils.getColor(R.color.black_alpha_30))
+                    .append("(${mulBangumiDetail.account})").setForegroundColor(AppUtils.getColor(R.color.black_alpha_30))
                     .create())
                     .setText(R.id.tv_online, "选集")
             MulBangumiDetail.TYPE_COMMENT_HOT_ITEM//热门评论

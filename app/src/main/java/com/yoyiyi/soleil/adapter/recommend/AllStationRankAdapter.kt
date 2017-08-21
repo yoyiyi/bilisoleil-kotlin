@@ -43,7 +43,7 @@ class AllStationRankAdapter(data: List<AllStationRank.RankBean.ListBean>) : Base
 
         holder.setText(R.id.tv_video_title, allRegionRank.title)
                 .setText(R.id.tv_video_up, allRegionRank.author)
-                .setText(R.id.tv_video_play, "${allRegionRank.play}")
+                .setText(R.id.tv_video_play, allRegionRank.play)
                 .setText(R.id.tv_video_danmaku, "${allRegionRank.favorites}")
         holder.itemView.setOnClickListener{mContext.startActivity(Intent(mContext, VideoDetailActivity::class.java))}
 

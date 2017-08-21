@@ -34,18 +34,5 @@ class RegionActivityCenterAdapter(data: List<Region.Body>?) : BaseQuickAdapter<R
             holder.setVisible(R.id.space, false)
         }
 
-        /*int position = holder.getAdapterPosition();
-        if (position == getItemCount() - 1) {
-            CardView view = holder.getView(R.id.card_view);
-            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-
-            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,
-                    FrameLayout.LayoutParams.WRAP_CONTENT);
-            params.setMargins((int) AppUtils.getDimension(R.dimen.dp10),
-                    (int) AppUtils.getDimension(R.dimen.dp5),
-                    (int) AppUtils.getDimension(R.dimen.dp10),
-                    (int) AppUtils.getDimension(R.dimen.dp5));
-            holder.itemView.setLayoutParams(params);
-        }*/
     }
 }
