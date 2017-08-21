@@ -6,8 +6,8 @@ An unofficial bilibili client for android
 该项目为仿b站项目的kotlin版，大部分界面采用kotlin编程，由于本人水平有限，有些kotlin写法不规范，后期有时间会逐步完善，和
 原项目一样采用rxjava2+okhttp+retrofit+mvp+dagger2。
 
-java版地址：[bilibili](https://github.com/yoyiyi/bilisoleil)
-kotlin版地址：[bilisoleil-kotlin](https://github.com/yoyiyi/bilisoleil-kotlin)
+###java版地址：[bilibili](https://github.com/yoyiyi/bilisoleil)
+###kotlin版地址：[bilisoleil-kotlin](https://github.com/yoyiyi/bilisoleil-kotlin)
 
 ## Screenshots
 
