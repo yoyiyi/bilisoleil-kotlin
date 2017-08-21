@@ -14,6 +14,9 @@ import com.yoyiyi.soleil.module.recommend.AllStationRankFragment
 import com.yoyiyi.soleil.module.region.AllRegionRankFragment
 import com.yoyiyi.soleil.module.region.RegionTypeFragment
 import com.yoyiyi.soleil.module.region.RegionTypeRecommendFragment
+import com.yoyiyi.soleil.module.search.MovieFragment
+import com.yoyiyi.soleil.module.search.SeasonFragment
+import com.yoyiyi.soleil.module.search.UpFragment
 import dagger.Component
 
 /**
@@ -57,6 +60,10 @@ interface FragmentComponent {
     fun inject(submitedVideoFragment: SubmitedVideoFragment)
     fun inject(commentFragment: CommentFragment)
     fun inject(summaryFragment: SummaryFragment)
+    fun inject(upFragment: UpFragment)
+    fun inject(seasonFragment: SeasonFragment)
+    fun inject(movieFragment: MovieFragment)
+    fun inject(archiveFragment: com.yoyiyi.soleil.module.search.ArchiveFragment)
 
 
     /*  val activity: Activity

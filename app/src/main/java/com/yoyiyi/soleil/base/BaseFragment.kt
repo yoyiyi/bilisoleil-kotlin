@@ -217,28 +217,4 @@ abstract class BaseFragment : RxFragment() {
                 this.mContext?.applicationContext
             }
 
-
-    /**
-     * 隐藏View
-     * @param views 视图
-     */
-    fun gone(vararg views: View) {
-        if (views.isNotEmpty()) {
-            for (view in views) {
-                view.visibility = View.GONE
-            }
-        }
-    }
-
-    /**
-     * 显示View
-     * @param views 视图
-     */
-    fun visible(vararg views: View) {
-        if (views.isNotEmpty()) {
-            for (view in views) {
-                view.visibility = View.VISIBLE
-            }
-        }
-    }
 }

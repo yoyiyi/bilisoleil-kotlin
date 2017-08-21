@@ -91,7 +91,16 @@
             android:name=".module.region.AdActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-
+        <!-- vip -->
+        <activity
+            android:name=".module.entrance.VipActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <!-- 离线缓存 -->
+        <activity
+            android:name=".module.entrance.OfflineDownloadActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <!-- 话题中心 -->
         <activity
             android:name=".module.discover.TopicCenterActivity"
@@ -107,6 +116,11 @@
             android:name=".module.discover.GameCenterActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".module.recommend.AllStationRankActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+
         <!-- 全部游戏 -->
         <activity
             android:name=".module.discover.AllGameActivity"
@@ -133,13 +147,21 @@
             android:name=".module.bangumi.BangumiIndexActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-
+        <!-- 全局搜索 -->
+        <activity
+            android:name=".module.search.TotalSearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <!-- up主详情 -->
         <activity
             android:name=".module.app.up.UpDetailActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-
+        <!-- 搜索 -->
+        <activity
+            android:name=".module.search.SearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <!-- 全站排行 -->
         <activity
             android:name=".module.recommend.AllStationRankActivity"

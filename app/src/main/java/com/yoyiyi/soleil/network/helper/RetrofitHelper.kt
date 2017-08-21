@@ -17,6 +17,7 @@ import com.yoyiyi.soleil.bean.region.AllRegionRank
 import com.yoyiyi.soleil.bean.region.Region
 import com.yoyiyi.soleil.bean.region.RegionRecommend
 import com.yoyiyi.soleil.bean.region.RegionType
+import com.yoyiyi.soleil.bean.search.*
 import com.yoyiyi.soleil.bean.user.UpDetail
 import com.yoyiyi.soleil.network.api.*
 import com.yoyiyi.soleil.network.response.HttpResponse
@@ -70,6 +71,17 @@ class RetrofitHelper(private val appService: AppService,
     fun getRegionRecommend(rid: Int): Flowable<HttpResponse<RegionRecommend>> = appService.getRegionRecommend(rid)
 
     fun getTopicCenter(): Flowable<TopicCenter> = apiService.getTopicCenter()
+
+    fun getSearch(): Flowable<Search> = appService.getSearch()
+
+    fun getUp(): Flowable<Up> = appService.getUp()
+
+    fun getMovie(): Flowable<Movie> = appService.getMovie()
+
+    fun getSeason(): Flowable<Season> = appService.getSeason()
+
+
+    fun getSearchArchive(keyword: String, page: Int, pagesize: Int): Flowable<HttpResponse<SearchArchive>> = appService.getSearchArchive(keyword, page, pagesize)
 
     /*******************************RankApi */
 

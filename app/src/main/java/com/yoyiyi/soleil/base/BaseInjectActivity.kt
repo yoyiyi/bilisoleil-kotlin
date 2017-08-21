@@ -5,6 +5,7 @@ import com.yoyiyi.soleil.BiliSoleilApplication
 import com.yoyiyi.soleil.di.component.ActivityComponent
 import com.yoyiyi.soleil.di.component.DaggerActivityComponent
 import com.yoyiyi.soleil.di.module.ActivityModule
+import com.yoyiyi.soleil.ext.getComponent
 import javax.inject.Inject
 
 
@@ -20,7 +21,7 @@ abstract class BaseInjectActivity<T : BaseContract.BasePresenter<*>> : BaseActiv
     protected val activityModule: ActivityModule get() = ActivityModule(this)
 
     protected val activityComponent: ActivityComponent get() = DaggerActivityComponent.builder()
-            .appComponent(BiliSoleilApplication.instance.appComponent)
+            .appComponent(getComponent())
             .activityModule(activityModule)
             .build()
 

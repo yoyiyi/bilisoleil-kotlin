@@ -9,6 +9,8 @@ import com.yoyiyi.soleil.adapter.app.up.ArchiveAdapter
 import com.yoyiyi.soleil.base.BaseInjectFragment
 import com.yoyiyi.soleil.bean.user.MulUpDetail
 import com.yoyiyi.soleil.constant.Constants
+import com.yoyiyi.soleil.ext.gone
+import com.yoyiyi.soleil.ext.visible
 import com.yoyiyi.soleil.mvp.contract.app.up.ArchiveContract
 import com.yoyiyi.soleil.mvp.presenter.app.up.ArchivePresenter
 import kotlinx.android.synthetic.main.common_recycler.*

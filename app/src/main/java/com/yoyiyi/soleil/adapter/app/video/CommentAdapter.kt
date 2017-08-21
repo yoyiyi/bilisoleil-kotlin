@@ -61,7 +61,7 @@ class CommentAdapter(data: List<MulComment>) : BaseMultiItemQuickAdapter<MulComm
                     holder.setVisible(R.id.tv_rcount, false)
                             .setText(R.id.tv_like,"${ it.like }")
                             .setText(R.id.tv_uname, SpanUtils()
-                                    .append("${it.member.uname}")
+                                    .append(it.member.uname)
                                     .setForegroundColor(AppUtils.getColor(R.color.gray_20))
                                     .appendSpace(10)
                                     .appendImage(getIdRes(it.member.level_info.current_level), SpanUtils.ALIGN_CENTER)

@@ -14,6 +14,8 @@ import com.yoyiyi.soleil.module.discover.*
 import com.yoyiyi.soleil.module.region.AdActivity
 import com.yoyiyi.soleil.module.region.AllRegionRankActivity
 import com.yoyiyi.soleil.module.region.RegionTypeActivity
+import com.yoyiyi.soleil.module.search.SearchActivity
+import com.yoyiyi.soleil.module.search.TotalSearchActivity
 import dagger.Component
 
 /**
@@ -47,6 +49,8 @@ interface ActivityComponent {
     fun inject(upDetailActivity: UpDetailActivity)
     fun inject(videoPlayerActivity: VideoPlayerActivity)
     fun inject(videoDetailActivity: VideoDetailActivity)
+    fun inject(totalSearchActivity: TotalSearchActivity)
+    fun inject(searchActivity: SearchActivity)
 
 
     /* fun inject(splashActivity: SplashActivity)

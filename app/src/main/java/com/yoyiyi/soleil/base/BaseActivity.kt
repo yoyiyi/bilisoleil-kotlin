@@ -5,13 +5,9 @@ import android.content.Context
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.Toolbar
-import android.view.View
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.yoyiyi.soleil.BiliSoleilApplication
 import com.yoyiyi.soleil.R
-import com.yoyiyi.soleil.di.component.ActivityComponent
-import com.yoyiyi.soleil.di.component.DaggerActivityComponent
-import com.yoyiyi.soleil.di.module.ActivityModule
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil
 
@@ -127,27 +123,4 @@ abstract class BaseActivity : RxAppCompatActivity() {
     open fun initVariables() {}
 
 
-    /**
-     * 隐藏View
-     * @param views 视图
-     */
-    fun gone(vararg views: View) {
-        if (views.isNotEmpty()) {
-            for (view in views) {
-                view.visibility = View.GONE
-            }
-        }
-    }
-
-    /**
-     * 显示View
-     * @param views 视图
-     */
-    fun visible(vararg views: View) {
-        if (views.isNotEmpty()) {
-            for (view in views) {
-                view.visibility = View.VISIBLE
-            }
-        }
-    }
 }

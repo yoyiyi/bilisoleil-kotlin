@@ -8,12 +8,17 @@ import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.base.BaseInjectFragment
 import com.yoyiyi.soleil.bean.discover.HotSearchTag
 import com.yoyiyi.soleil.constant.Constants
+import com.yoyiyi.soleil.ext.gone
+import com.yoyiyi.soleil.ext.visible
 import com.yoyiyi.soleil.module.app.BrowerActivity
 import com.yoyiyi.soleil.module.discover.ActivityCenterActivity
 import com.yoyiyi.soleil.module.discover.GameCenterActivity
 import com.yoyiyi.soleil.module.discover.InterestActivity
 import com.yoyiyi.soleil.module.discover.TopicCenterActivity
+import com.yoyiyi.soleil.module.recommend.AllStationRankActivity
 import com.yoyiyi.soleil.module.region.AllRegionRankActivity
+import com.yoyiyi.soleil.module.search.SearchActivity
+import com.yoyiyi.soleil.module.search.TotalSearchActivity
 import com.yoyiyi.soleil.mvp.contract.home.DiscoverContract
 import com.yoyiyi.soleil.mvp.presenter.home.DiscoverPresenter
 import com.yoyiyi.soleil.widget.flowlayout.FlowLayout
@@ -61,19 +66,18 @@ class DiscoverFragment : BaseInjectFragment<DiscoverPresenter>(), DiscoverContra
                 val mTags = LayoutInflater.from(activity)
                         .inflate(R.layout.layout_hot_tags_item, flowLayout, false) as TextView
                 mTags.text = listBean.keyword
-                // mTags.setOnClickListener { mContext?.startActivity(Intent(mContext, SearchActivity::class.java)) }
+                mTags.setOnClickListener { mContext?.startActivity(Intent(mContext, SearchActivity::class.java)) }
 
                 return mTags
             }
         }
         hide_tags_layout?.adapter = object : TagAdapter<HotSearchTag.ListBean>(mList) {
             override fun getView(parent: FlowLayout, position: Int, listBean: HotSearchTag.ListBean): View {
-
                 val mTags = LayoutInflater.from(activity)
                         .inflate(R.layout.layout_hot_tags_item, parent, false) as TextView
                 mTags.text = listBean.keyword
-                //  mTags.setOnClickListener(view -> TotalSearchActivity.startActivity(mContext, listBean.keyword));
-                // mTags.setOnClickListener { view -> mContext!!.startActivity(Intent(mContext, SearchActivity::class.java)) }
+                mTags.setOnClickListener { TotalSearchActivity.startActivity(mContext!!, listBean.keyword) };
+                mTags.setOnClickListener { mContext?.startActivity(Intent(mContext, SearchActivity::class.java)) }
                 return mTags
             }
         }
@@ -128,23 +132,9 @@ class DiscoverFragment : BaseInjectFragment<DiscoverPresenter>(), DiscoverContra
             -> startActivity(Intent(getApplicationContext(), ActivityCenterActivity::class.java))
             R.id.rl_group
             -> startActivity(Intent(getApplicationContext(), InterestActivity::class.java))
+            R.id.rl_rank_original//原创排行
+            -> startActivity(Intent(getApplicationContext(), AllStationRankActivity::class.java))
 
-        /*  R.id.rl_rank_original//原创排行
-          -> startActivity(Intent(getApplicationContext(), AllStationRankActivity::class.java))
-          R.id.rl_rank_all//全站排行
-          -> AllRegionRankActivity.startActivity(getApplicationContext(), "番剧")
-          R.id.rl_topic_center//话题中心
-          -> startActivity(Intent(getApplicationContext(), TopicCenterActivity::class.java))
-          R.id.rl_activity_center//活动中心
-          -> startActivity(Intent(getApplicationContext(), ActivityCenterActivity::class.java))
-          R.id.rl_game//游戏中心
-          -> startActivity(Intent(getApplicationContext(), GameCenterActivity::class.java))
-          R.id.rl_mall//周边商城
-          -> BrowerActivity.startActivity(activity, Constants.SHOP_URL, "bilibili - 周边商城", "")
-          R.id.rl_black_list//小黑屋
-          -> BrowerActivity.startActivity(activity, Constants.BLACK_URL, "小黑屋", "")
-          R.id.rl_group//小黑屋
-          -> startActivity(Intent(getApplicationContext(), InterestActivity::class.java))*/
         }
 
     }

@@ -1,6 +1,7 @@
 package com.yoyiyi.soleil.module
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.support.design.internal.NavigationMenuView
 import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
@@ -10,7 +11,11 @@ import android.view.MenuItem
 import com.yoyiyi.soleil.BiliSoleilApplication
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.base.BaseActivity
+import com.yoyiyi.soleil.constant.Constants
 import com.yoyiyi.soleil.event.Event
+import com.yoyiyi.soleil.module.app.BrowerActivity
+import com.yoyiyi.soleil.module.entrance.OfflineDownloadActivity
+import com.yoyiyi.soleil.module.entrance.VipActivity
 import com.yoyiyi.soleil.module.home.HomeFragment
 import com.yoyiyi.soleil.rx.RxBus
 import com.yoyiyi.soleil.utils.AppUtils
@@ -26,10 +31,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     override fun getLayoutId(): Int = R.layout.activity_main
 
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-
-        return false
-    }
 
     private fun initFragment() {
         mFragments.add(HomeFragment.newInstance())
@@ -38,7 +39,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
 
     override fun initWidget() {
-
         disableNavigationViewScrollbars(navView)
         navView.setNavigationItemSelectedListener(this)
         switchFragmentIndex(0)//初始化位置
@@ -55,6 +55,27 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
             show(mFragments[index]).commit()
         }
+    }
+
+    /**
+     * 侧滑面板监听事件
+
+     * @param item
+     * *
+     * @return
+     */
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        // Handle navigation view item clicks here.
+        AppUtils.runOnUIDelayed({
+            val id = item.itemId
+            when (id) {
+                R.id.item_vip -> startActivity(Intent(this@MainActivity, VipActivity::class.java))
+                R.id.item_unicom -> BrowerActivity.startActivity(this@MainActivity, Constants.BLACK_BOARD_URL, "联通免流量服务", "")
+                R.id.item_down -> startActivity(Intent(this@MainActivity, OfflineDownloadActivity::class.java))
+            }
+        }, 230)
+        mDrawerLayout.closeDrawer(GravityCompat.START)
+        return true
     }
 
 

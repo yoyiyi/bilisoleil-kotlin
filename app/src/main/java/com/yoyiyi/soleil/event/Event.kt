@@ -2,6 +2,7 @@ package com.yoyiyi.soleil.event
 
 import com.yoyiyi.soleil.bean.app.video.VideoDetail
 import com.yoyiyi.soleil.bean.app.video.VideoDetailComment
+import com.yoyiyi.soleil.bean.search.Search
 import com.yoyiyi.soleil.bean.user.UpDetail
 
 /**
@@ -43,53 +44,10 @@ object Event {
         var favouriteList: List<UpDetail.DataBean.FavouriteBean.ItemBeanX>? = null
     }
 
-    /*class SearchArchiveEvent {
+    class SearchArchiveEvent {
         var itemBean: Search.DataBean.ItemsBean? = null
         var seasonCount: Int = 0
         var movieCount: Int = 0
-    }*/
+    }
 
 }
-
-
-/* public static class RegionEntrancePositionEvent {
-        public int position;
-    }
-
-    public static class AllStationPositionEvent {
-        public int position;
-    }
-
-    public static class StartNavigationEvent {
-        public boolean start;
-    }
-
-    public static class VideoDetailEvent {
-        public VideoDetail.DataBean videoDetail;
-    }
-
-    public static class VideoDetailCommentEvent {
-        public VideoDetailComment.DataBean videoDetailComment;
-    }
-
-    public static class UpDetailArchiveEvent {
-        public UpDetail.DataBean.ArchiveBean archive;
-        public UpDetail.DataBean.SettingBean setting;
-        public UpDetail.DataBean.FavouriteBean favourite;
-        public UpDetail.DataBean.LiveBean live;
-
-    }
-
-    public static class UpDetailSubmitedVideoEvent {
-        public List<UpDetail.DataBean.ArchiveBean.ItemBean> archivList;
-    }
-
-    public static class UpDetailFavourteEvent {
-        public List<UpDetail.DataBean.FavouriteBean.ItemBeanX> favouriteList;
-    }
-
-    public static class SearchArchiveEvent {
-        public Search.DataBean.ItemsBean itemBean;
-        public int seasonCount;
-        public int movieCount;
-    }*/

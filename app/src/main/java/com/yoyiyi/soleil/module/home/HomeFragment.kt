@@ -1,5 +1,6 @@
 package com.yoyiyi.soleil.module.home
 
+import android.content.Intent
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -7,6 +8,7 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.adapter.home.MainAdapter
 import com.yoyiyi.soleil.event.Event
+import com.yoyiyi.soleil.module.discover.GameCenterActivity
 import com.yoyiyi.soleil.rx.RxBus
 import kotlinx.android.synthetic.main.layout_main_toolbar.*
 
@@ -47,7 +49,7 @@ class HomeFragment : BaseHomeFragment() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         val id = item?.itemId
         when (id) {
-        //  R.id.menu_game -> startActivity(Intent(mContext, GameCenterActivity::class.java))
+          R.id.menu_game -> startActivity(Intent(mContext, GameCenterActivity::class.java))
         }
 
         return super.onOptionsItemSelected(item)
