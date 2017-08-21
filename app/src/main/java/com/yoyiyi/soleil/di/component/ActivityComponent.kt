@@ -37,50 +37,32 @@ interface ActivityComponent {
     fun inject(regionTypeActivity: RegionTypeActivity)
 
     fun inject(allRegionRankActivity: AllRegionRankActivity)
+
     fun inject(activityCenterActivity: ActivityCenterActivity)
+
     fun inject(allGameActivity: AllGameActivity)
+
     fun inject(gameCenterActivity: GameCenterActivity)
+
     fun inject(interestActivity: InterestActivity)
+
     fun inject(topicCenterActivity: TopicCenterActivity)
 
     fun inject(bangumiDetailActivity: BangumiDetailActivity)
+
     fun inject(bangumiScheduleActivity: BangumiScheduleActivity)
+
     fun inject(bangumiIndexActivity: BangumiIndexActivity)
+
     fun inject(upDetailActivity: UpDetailActivity)
+
     fun inject(videoPlayerActivity: VideoPlayerActivity)
+
     fun inject(videoDetailActivity: VideoDetailActivity)
+
     fun inject(totalSearchActivity: TotalSearchActivity)
+
     fun inject(searchActivity: SearchActivity)
 
-
-    /* fun inject(splashActivity: SplashActivity)
-
-     fun inject(totalSearchActivity: TotalSearchActivity)
-
-     fun inject(regionTypeActivity: RegionTypeActivity)
-
-     fun inject(topicCenterActivity: TopicCenterActivity)
-
-     fun inject(activityCenterActivity: ActivityCenterActivity)
-
-     fun inject(gameCenterActivity: GameCenterActivity)
-
-     fun inject(allGameActivity: AllGameActivity)
-
-     fun inject(bangumiScheduleActivity: BangumiScheduleActivity)
-
-     fun inject(bangumiIndexActivity: BangumiIndexActivity)
-
-     fun inject(adActivity: AdActivity)
-
-     fun inject(bangumiDetailActivity: BangumiDetailActivity)
-
-     fun inject(videoDetailActivity: VideoDetailActivity)
-
-     fun inject(upDetailActivity: UpDetailActivity)
-
-     fun inject(searchActivity: SearchActivity)
-
-     fun inject(videoPlayerActivity: VideoPlayerActivity)*/
 
 }
