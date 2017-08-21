@@ -14,6 +14,7 @@ import com.yoyiyi.soleil.bean.app.Splash
 import com.yoyiyi.soleil.constant.Constants
 import com.yoyiyi.soleil.di.component.DaggerActivityComponent
 import com.yoyiyi.soleil.di.module.ActivityModule
+import com.yoyiyi.soleil.module.app.LoginActivity
 import com.yoyiyi.soleil.mvp.contract.app.SplashContract
 import com.yoyiyi.soleil.mvp.presenter.app.SplashPresenter
 import com.yoyiyi.soleil.utils.PrefsUtils
@@ -63,9 +64,9 @@ class SplashActivity : RxAppCompatActivity(), SplashContract.View {
      */
     fun redirect() {
         var flag = PrefsUtils.getInstance().getBoolean(Constants.IS_LOGINED_FLAG, false)
-        flag = false
+       // flag = false
         if (flag) {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         } else {
             startActivity(Intent(this, MainActivity::class.java))
