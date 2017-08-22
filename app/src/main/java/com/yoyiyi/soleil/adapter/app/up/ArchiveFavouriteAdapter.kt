@@ -25,7 +25,7 @@ class ArchiveFavouriteAdapter(data: List<UpDetail.DataBean.FavouriteBean.ItemBea
         if (EmptyUtils.isNotEmpty(cover)) {
             for (i in cover.indices) {
                 Glide.with(mContext)
-                        .load<Any>(cover[i].pic)
+                        .load(cover[i].pic)
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .dontAnimate()
                         .into(holder.getView<ImageView>(coverId[i]))
