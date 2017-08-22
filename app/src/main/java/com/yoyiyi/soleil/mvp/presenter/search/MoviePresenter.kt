@@ -27,7 +27,7 @@ class MoviePresenter @Inject constructor(private val retrofitHelper: RetrofitHel
                 //   .delay(5, TimeUnit.SECONDS
                 .subscribeWith(object : BaseSubscriber<Movie>(mView) {
                     override fun onSuccess(movie: Movie) {
-                        mView!!.showSearchMovie(movie)
+                        mView?.showSearchMovie(movie)
                     }
                 })
         addSubscribe(subscriber)
