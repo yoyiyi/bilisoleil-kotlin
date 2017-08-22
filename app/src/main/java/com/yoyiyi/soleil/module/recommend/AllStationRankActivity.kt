@@ -41,5 +41,11 @@ class AllStationRankActivity : BaseRegionActivity<NothingPresenter, Nullable>() 
         setTitle("排行榜")
     }
 
+    override fun initInject() {
+        activityComponent.inject(this)
+    }
+
+
+
 
 }

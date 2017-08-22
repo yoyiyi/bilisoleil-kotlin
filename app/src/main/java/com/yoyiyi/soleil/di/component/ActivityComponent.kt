@@ -11,6 +11,7 @@ import com.yoyiyi.soleil.module.bangumi.BangumiDetailActivity
 import com.yoyiyi.soleil.module.bangumi.BangumiIndexActivity
 import com.yoyiyi.soleil.module.bangumi.BangumiScheduleActivity
 import com.yoyiyi.soleil.module.discover.*
+import com.yoyiyi.soleil.module.recommend.AllStationRankActivity
 import com.yoyiyi.soleil.module.region.AdActivity
 import com.yoyiyi.soleil.module.region.AllRegionRankActivity
 import com.yoyiyi.soleil.module.region.RegionTypeActivity
@@ -63,6 +64,8 @@ interface ActivityComponent {
     fun inject(totalSearchActivity: TotalSearchActivity)
 
     fun inject(searchActivity: SearchActivity)
+
+    fun inject(allStationRankActivity: AllStationRankActivity)
 
 
 }
