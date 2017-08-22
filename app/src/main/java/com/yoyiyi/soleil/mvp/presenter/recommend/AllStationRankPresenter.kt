@@ -33,13 +33,12 @@ class AllStationRankPresenter @Inject constructor(private val retrofitHelper: Re
     }*/
 
     override fun getAllStationRankData(type: String) {
-        val subscriber = retrofitHelper.getAllStationRank(type)
+        addSubscribe(retrofitHelper.getAllStationRank(type)
                 .compose(rxSchedulerHelper())
                 .subscribeWith(object : BaseSubscriber<AllStationRank>(mView) {
                     override fun onSuccess(t: AllStationRank) {
                         mView?.showAllStationRank(t.rank.list)
                     }
-                })
-        addSubscribe(subscriber)
+                }))
     }
 }
