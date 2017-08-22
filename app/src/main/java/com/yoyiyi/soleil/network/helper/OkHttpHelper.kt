@@ -16,6 +16,7 @@ import com.yoyiyi.soleil.utils.NetworkUtils
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import java.io.File
+import java.io.IOException
 import java.util.concurrent.TimeUnit
 
 /**
@@ -24,15 +25,15 @@ import java.util.concurrent.TimeUnit
 object OkHttpHelper {
     @Volatile var mOkHttpClient: OkHttpClient
     //读取时间
-    const val DEFAULT_READ_TIMEOUT_MILLIS = 20_000L
+     val DEFAULT_READ_TIMEOUT_MILLIS = 20_000L
     //写入时间
-    const val DEFAULT_WRITE_TIMEOUT_MILLIS = 20_000L
+     val DEFAULT_WRITE_TIMEOUT_MILLIS = 20_000L
     //超时时间
-    const val DEFAULT_CONNECT_TIMEOUT_MILLIS = 20_000L
+     val DEFAULT_CONNECT_TIMEOUT_MILLIS = 20_000L
     //最大缓存
-    const private val HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = 20_000_000L //设置20M
+     private val HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = 20_000_000L //设置20M
     //长缓存有效期为7天
-    const val CACHE_STALE_LONG = (60 * 60 * 24 * 7).toLong()
+     val CACHE_STALE_LONG = (60 * 60 * 24 * 7).toLong()
 
     init {
         val loggingInterceptor = HttpLoggingInterceptor()
@@ -94,7 +95,7 @@ object OkHttpHelper {
      * 添加UA拦截器，B站请求API需要加上UA才能正常使用
      */
     private class UserAgentInterceptor : Interceptor {
-        override fun intercept(chain: Interceptor.Chain): Response? {
+        @Throws(IOException::class) override fun intercept(chain: Interceptor.Chain): Response? {
             try {
                 val originalRequest = chain.request()
                 val requestWithUserAgent = originalRequest.newBuilder()
@@ -111,8 +112,7 @@ object OkHttpHelper {
 
 
     private class RewriteCacheControlInterceptor : Interceptor {
-        override fun intercept(chain: Interceptor.Chain): Response? {
-            try {
+        @Throws(IOException::class) override fun intercept(chain: Interceptor.Chain): Response {
                 var request = chain.request()
                 if (!NetworkUtils.isConnected(AppUtils.getAppContext())) {
                     request = request.newBuilder().cacheControl(CacheControl.FORCE_CACHE).build()
@@ -128,12 +128,7 @@ object OkHttpHelper {
                             .header("Cache-Control", "public, only-if-cached, max-stale=" + CACHE_STALE_LONG)
                             .removeHeader("Pragma").build()
                 }
-
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-            return  null
-
+            
         }
     }
 }

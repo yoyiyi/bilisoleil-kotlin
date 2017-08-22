@@ -22,8 +22,8 @@ class BangumiSchedulePresenter @Inject constructor(private val mRetrofitHelper: 
         val subscriber = mRetrofitHelper.getBangumiSchedule()
                 .compose(rxSchedulerHelper())
                 .subscribeWith(object : BaseListSubscriber<BangumiSchedule>(mView) {
-                    override fun onSuccess(bangumiScheduleList: List<BangumiSchedule>) {
-                        mView?.showBangumiSchedule(bangumiScheduleList)
+                    override fun onSuccess(t: List<BangumiSchedule>) {
+                        mView?.showBangumiSchedule(t)
                     }
                 })
         addSubscribe(subscriber)
