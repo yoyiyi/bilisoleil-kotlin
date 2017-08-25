@@ -167,11 +167,6 @@
             android:name=".module.search.SearchActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-        <!-- 全站排行 -->
-        <activity
-            android:name=".module.recommend.AllStationRankActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"/>
         <!-- 视频播放 -->
         <activity
             android:name=".module.app.video.VideoPlayerActivity"
