@@ -79,8 +79,7 @@ class BrowerActivity : AppCompatActivity() {
     }
 
     private fun initVariables() {
-        val intent = intent
-        if (intent != null) {
+        intent?.let {
             mTitle = intent.getStringExtra(Constants.EXTRA_TITLE)
             mUrl = intent.getStringExtra(Constants.EXTRA_URL)
             mImg = intent.getStringExtra(Constants.EXTRA_IMAGE)
