@@ -39,7 +39,6 @@ class RetrofitHelper(private val appService: AppService,
                      private val im9Service: Im9Service) {
 
 
-    /*******************************AppApi ****************************************************/
     fun getSplash(): Flowable<Splash> = appService.getSplash()
 
     fun getLivePartition(): Flowable<HttpResponse<LivePartition>> = liveService.getLivePartition()
@@ -59,10 +58,8 @@ class RetrofitHelper(private val appService: AppService,
     fun getVideoDetail(): Flowable<VideoDetail> = appService.getVideoDetail()
 
     fun getVideoDetailComment(): Flowable<VideoDetailComment> = apiService.getVideoDetailComment()
-    /*******************************RankApi */
 
     fun getAllRegionRank(type: String): Flowable<AllRegionRank> = rankService.getAllRegionRank(type)
-
 
     fun getLiveEntrance(): Flowable<HttpResponse<List<LiveEntrance>>> = liveService.getLiveEntrance()
 
@@ -80,155 +77,27 @@ class RetrofitHelper(private val appService: AppService,
 
     fun getSeason(): Flowable<Season> = appService.getSeason()
 
-
     fun getSearchArchive(keyword: String, page: Int, pagesize: Int): Flowable<HttpResponse<SearchArchive>> = appService.getSearchArchive(keyword, page, pagesize)
-
-    /*******************************RankApi */
-
 
     fun getAllStationRank(type: String): Flowable<AllStationRank> = rankService.getAllStationRank(type)
 
-    /*******************************BangumiApi */
-
     fun getChaseBangumi(): Flowable<HttpResponse<ChaseBangumi>> = bangumiService.getChaseBangumi()
-
 
     fun getRecommendBangumi(): Flowable<HttpResponse<RecommendBangumi>> = bangumiService.getRecommendBangumi()
 
-
     fun getBangumiSchedule(): Flowable<HttpResponse<List<BangumiSchedule>>> = bangumiService.getBangumiSchedule()
-
 
     fun getBangumiIndex(): Flowable<HttpResponse<BangumiIndex>> = bangumiService.getBangumiIndex()
 
-
     fun getBangumiDetail(): Flowable<HttpResponse<BangumiDetail>> = bangumiService.getBangumiDetail()
-
 
     fun getBangumiDetailRecommend(): Flowable<HttpResponse<BangumiDetailRecommend>> = bangumiService.getBangumiDetailRecommend()
 
     fun getBangumiDetailComment(): Flowable<BangumiDetailComment> = apiService.getBangumiDetailComment()
 
-/*
-  public Flowable<TopicCenter> getTopicCenter() {
-        return mApiService.getTopicCenter();
-    }
-
-    val splash: Flowable<Splash>
-        get() = mAppService.getSplash()
-
-    val recommend: Flowable<HttpResponse<List<Recommend>>>
-        get() = mAppService.getRecommend()
-
-    val region: Flowable<HttpResponse<List<Region>>>
-        get() = mAppService.getRegion()
-
-    val hotSearchTag: Flowable<HttpResponse<HotSearchTag>>
-        get() = mAppService.getHotSearchTag()
-
-    fun getSearchArchive(keyword: String, page: Int, pagesize: Int): Flowable<HttpResponse<SearchArchive>> {
-        return mAppService.getSearchArchive(keyword, page, pagesize)
-    }
-
-    fun getRegionRecommend(rid: Int): Flowable<HttpResponse<RegionRecommend>> {
-        return mAppService.getRegionRecommend(rid)
-    }
-
-    fun getRegionType(rid: Int): Flowable<HttpResponse<RegionType>> {
-        return mAppService.getRegionType(rid)
-    }
-
-    val videoDetail: Flowable<VideoDetail>
-        get() = mAppService.getVideoDetail()
-
-    val videoDetailComment: Flowable<VideoDetailComment>
-        get() = mApiService.getVideoDetailComment()
-
-    val upDetail: Flowable<UpDetail>
-        get() = mAppService.getUpDetail()
-
-    val search: Flowable<Search>
-        get() = mAppService.getSearch()
-
-    val up: Flowable<Up>
-        get() = mAppService.getUp()
-
-    val movie: Flowable<Movie>
-        get() = mAppService.getMovie()
-
-    val season: Flowable<Season>
-        get() = mAppService.getSeason()
-    val videoPlayer: Flowable<VideoPlayer>
-        get() = mAppService.getVideoPlayer()
-    */
-    /*******************************LiveApi */
-    /*
-
-        val liveRecommend: Flowable<HttpResponse<LiveRecommend>>
-            get() = mLiveService.getLiveRecommend()
-
-        val livePartition: Flowable<HttpResponse<LivePartition>>
-            get() = mLiveService.getLivePartition()
-
-        val liveEntrance: Flowable<HttpResponse<List<LiveEntrance>>>
-            get() = mLiveService.getLiveEntrance()
-
-        */
-    /*******************************BangumiApi */
-    /*
-
-        val chaseBangumi: Flowable<HttpResponse<ChaseBangumi>>
-            get() = mBangumiService.getChaseBangumi()
-
-        val recommendBangumi: Flowable<HttpResponse<RecommendBangumi>>
-            get() = mBangumiService.getRecommendBangumi()
-
-        val bangumiSchedule: Flowable<HttpResponse<List<BangumiSchedule>>>
-            get() = mBangumiService.getBangumiSchedule()
-
-        val bangumiIndex: Flowable<HttpResponse<BangumiIndex>>
-            get() = mBangumiService.getBangumiIndex()
-
-        val bangumiDetail: Flowable<HttpResponse<BangumiDetail>>
-            get() = mBangumiService.getBangumiDetail()
-
-        val bangumiDetailRecommend: Flowable<HttpResponse<BangumiDetailRecommend>>
-            get() = mBangumiService.getBangumiDetailRecommend()
-
-        */
-    /*******************************RankApi */
-    /*
-        fun getAllRegionRank(type: String): Flowable<AllRegionRank> {
-            return mRankService.getAllRegionRank(type)
-        }
-
-        fun getAllStationRank(type: String): Flowable<AllStationRank> {
-            return mRankService.getAllStationRank(type)
-        }
-
-        */
-    /*******************************ApiApi */
-    /*
-        val topicCenter: Flowable<TopicCenter>
-            get() = mApiService.getTopicCenter()
-
-        fun getActivityCenter(page: Int, pageSize: Int): Flowable<ActivityCenter> {
-            return mApiService.getActivityCenter(page, pageSize)
-        }
-
-        val bangumiDetailComment: Flowable<BangumiDetailComment>
-            get() = mApiService.getBangumiDetailComment()
-
-        */
-
-
-    /*******************************Im9Api */
-
     fun getInterestCategrory(): Flowable<HttpResponse<InterestCategrory>> = im9Service.getInterestCategrory()
 
-
     fun getCommunity(): Flowable<HttpResponse<Community>> = im9Service.getCommunity()
-
 
     fun getInterestAd(): Flowable<HttpResponse<InterestAd>> = im9Service.getInterestAd()
 

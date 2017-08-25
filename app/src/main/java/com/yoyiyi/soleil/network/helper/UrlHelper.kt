@@ -35,10 +35,10 @@ object UrlHelper {
     }
 
     fun getFaceUrl(info: UserDetail): String {
-        if (info.card!!.face!!.contains(".hdslb.com")) {
-            return info.card!!.face!!
+        if (info.card.face.contains(".hdslb.com")) {
+            return info.card.face
         }
-        var face = HDSLB_HOST + info.card!!.face
+        var face = HDSLB_HOST + info.card.face
         if (face.contains("{SIZE}")) {
             face = face.replace("{SIZE}", "")
         }

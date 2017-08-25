@@ -41,26 +41,5 @@ interface ApiService {
      */
     @GET("/x/v2/reply?access_key=0e6adb874025dfabaa3ced3a7b22049d&appkey=1d8b6e7d45233436&build=505000&mobi_app=android&oid=9938411&plat=2&platform=android&pn=1&ps=20&sort=0&ts=1497422373&type=1&sign=071c418a32ebc452e078308a04e1be4e")
      fun getVideoDetailComment(): Flowable<VideoDetailComment>
-    /**
-     * 活动中心
-     */
-    /*
-        @GET("event/getlist?device=phone&mobi_app=iphone")
-        fun getActivityCenter(@Query("page") page: Int, @Query("pagesize") pageSize: Int): Flowable<ActivityCenter>
 
-        */
-    /**
-     * 番剧详情评论
-     */
-    /*
-        @get:GET("x/v2/reply?access_key=ccfbb1b10ce8ab8418a2e00b9ca9a3a0&appkey=1d8b6e7d45233436&build=505000&mobi_app=" + "android&oid=9716141&plat=2&platform=android&pn=1&ps=20&sort=0&ts=1497169314&type=1&sign=ecca925ba55cecd151b5839f19d57657")
-        val bangumiDetailComment: Flowable<BangumiDetailComment>
-
-        */
-    /**
-     * 视频评论
-     */
-    /*
-        @get:GET("/x/v2/reply?access_key=0e6adb874025dfabaa3ced3a7b22049d&appkey=1d8b6e7d45233436&build=505000&mobi_app=android&oid=9938411&plat=2&platform=android&pn=1&ps=20&sort=0&ts=1497422373&type=1&sign=071c418a32ebc452e078308a04e1be4e")
-        val videoDetailComment: Flowable<VideoDetailComment>*/
 }

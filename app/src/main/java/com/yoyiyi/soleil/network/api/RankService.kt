@@ -14,29 +14,6 @@ import retrofit2.http.Path
  */
 
 interface RankService {
-/*
-    */
-    /**
-     * 全站排行
-     * @param type
-     * *
-     * @return
-     */
-    /*
-        @GET("index/rank/{type}")
-        fun getAllStationRank(@Path("type") type: String): Flowable<AllStationRank>
-
-        */
-    /**
-     * 全区排行
-
-     * @param type
-     * *
-     * @return
-     */
-    /*
-        @GET("index/rank/{type}")
-        fun getAllRegionRank(@Path("type") type: String): Flowable<AllRegionRank>*/
 
     /**
      * 全区排行
