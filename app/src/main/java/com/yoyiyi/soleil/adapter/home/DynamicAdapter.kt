@@ -60,7 +60,7 @@ class DynamicAdapter(data: List<MulDynamic>?) : BaseMultiItemQuickAdapter<MulDyn
                                 .setText(R.id.tv_title_time,
                                         TimeUtils.getFriendlyTimeSpanByNow((itemBean.ctime * Math.pow(10.0, 3.0)).toLong()))
                                 .setText(R.id.tv_title, itemBean.name)
-                                .setText(R.id.tv_video_title, itemBean?.title)
+                                .setText(R.id.tv_video_title, itemBean.title)
                                 .setText(R.id.tv_duration, FormatUtils.formatDuration("${itemBean.duration}"))
                                 .setVisible(R.id.tv_duration, true)
                                 .setVisible(R.id.iv_video_play_num, true)
