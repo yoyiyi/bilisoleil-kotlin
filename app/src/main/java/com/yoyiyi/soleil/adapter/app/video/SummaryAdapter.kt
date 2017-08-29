@@ -12,7 +12,6 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.bean.app.video.MulSummary
 import com.yoyiyi.soleil.module.app.up.UpDetailActivity
-import com.yoyiyi.soleil.module.search.TotalSearchActivity
 import com.yoyiyi.soleil.utils.NumberUtils
 import com.yoyiyi.soleil.utils.time.TimeUtils
 import com.yoyiyi.soleil.widget.flowlayout.FlowLayout
@@ -80,7 +79,7 @@ class SummaryAdapter(data: List<MulSummary>) : BaseMultiItemQuickAdapter<MulSumm
                         override fun getView(flowLayout: FlowLayout, i: Int, listBean: String): View {
                             val mTags = LayoutInflater.from(mContext).inflate(R.layout.layout_hot_tags_item, flowLayout, false) as TextView
                             mTags.text = listBean
-                            //  mTags.setOnClickListener{ TotalSearchActivity.startActivity(mContext, listBean.key)}
+                           //   mTags.setOnClickListener{ TotalSearchActivity.startActivity(mContext, listBean.key)}
                             return mTags
                         }
                     }

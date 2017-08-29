@@ -32,7 +32,7 @@ class LoginActivity : BaseActivity() {
     override fun initWidget() {
         //名称监听
         RxView.focusChanges(et_username)
-                .compose(bindToLifecycle<Boolean>())
+                .compose(bindToLifecycle())
                 .subscribe { aBoolean ->
                     if (aBoolean) {
                         if (et_username.text.isNotEmpty()) {
@@ -48,7 +48,7 @@ class LoginActivity : BaseActivity() {
                 }
         //密码监听
         RxView.focusChanges(et_password)
-                .compose(bindToLifecycle<Boolean>())
+                .compose(bindToLifecycle())
                 .subscribe { aBoolean ->
                     if (aBoolean) {
                         iv_icon_left.setImageResource(R.drawable.ic_22_hide)
@@ -82,7 +82,7 @@ class LoginActivity : BaseActivity() {
         //点击删除监听
         RxView.clicks(delete_username)
                 .throttleFirst(5, TimeUnit.SECONDS)//5秒内取第一个事件 防止重复
-                .compose(bindToLifecycle<Any>())
+                .compose(bindToLifecycle())
                 .subscribe {
                     // 清空用户名以及密码
                     et_username.setText("")
