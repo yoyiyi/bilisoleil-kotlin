@@ -36,13 +36,13 @@ class DynamicAdapter(data: List<MulDynamic>?) : BaseMultiItemQuickAdapter<MulDyn
                 val itemBean = mulDynamic.group
                 holder.setVisible(R.id.fl_recent, itemBean?.isRecent == 1)
                 holder.getView<RelativeLayout>(R.id.fl_recent)
-                        .setOnClickListener({
+                        .setOnClickListener {
                             mulDynamic.flag = false
                             val pos = holder.adapterPosition
                             notifyItemChanged(pos)
                             expand(pos, false)
 
-                        })
+                        }
                 if (mulDynamic.flag) {
                     holder.setVisible(R.id.fl_recent, true)
                     holder.setText(R.id.tv_recent, "还有${itemBean?.recent_count}个视频被隐藏")
@@ -156,44 +156,43 @@ class DynamicAdapter(data: List<MulDynamic>?) : BaseMultiItemQuickAdapter<MulDyn
             }
             MulDynamic.TYPE_LV1 -> {
                 mulDynamic.recent?.let {
-                holder.setVisible(R.id.iv_avatar, true)
-                        .setVisible(R.id.tv_tag, false)
-                        .setText(R.id.tv_title, it.name)
-                        .setText(R.id.tv_title_time, TimeUtils.getFriendlyTimeSpanByNow((it.ctime.times(Math.pow(10.0, 3.0))).toLong()))
-                        .setVisible(R.id.fl_recent, false)
-                        .setText(R.id.tv_video_title, it.title)
-                        .setText(R.id.tv_duration, FormatUtils.formatDuration("${it.duration}"))
-                        .setVisible(R.id.tv_duration, true)
-                        .setVisible(R.id.iv_video_play_num, true)
-                        .setVisible(R.id.tv_video_play_num, true)
-                        .setVisible(R.id.tv_video_favourite, true)
-                        .setVisible(R.id.iv_video_online_region, true)
-                        .setText(R.id.tv_video_play_num, " " + NumberUtils.format("${it.play}"))
-                        .setText(R.id.tv_video_favourite, " " + NumberUtils.format("${it.favorite}"))
-                        .setVisible(R.id.iv_tag_video_play_num, false)
-                        .setVisible(R.id.tv_tag_video_favourite, false)
-                        .setVisible(R.id.iv_tag_video_online_region, false)
-                        .setText(R.id.tv_tag_video_play_num,
-                                "${it.name}${it.tag.let { "·${it.tag_name}" }}")
-                Glide.with(mContext)
-                        .load(it.face)
-                        .centerCrop()
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .placeholder(R.drawable.bili_default_avatar)
-                        .dontAnimate()
-                        .into(holder.getView<CircleImageView>(R.id.iv_avatar))
-                Glide.with(mContext)
-                        .load(it.cover)
-                        .centerCrop()
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .placeholder(R.drawable.bili_default_image_tv)
-                        .dontAnimate()
-                        .into(holder.getView<ImageView>(R.id.iv_preview))
-                    
-                    
-                    
+                    holder.setVisible(R.id.iv_avatar, true)
+                            .setVisible(R.id.tv_tag, false)
+                            .setText(R.id.tv_title, it.name)
+                            .setText(R.id.tv_title_time, TimeUtils.getFriendlyTimeSpanByNow((it.ctime.times(Math.pow(10.0, 3.0))).toLong()))
+                            .setVisible(R.id.fl_recent, false)
+                            .setText(R.id.tv_video_title, it.title)
+                            .setText(R.id.tv_duration, FormatUtils.formatDuration("${it.duration}"))
+                            .setVisible(R.id.tv_duration, true)
+                            .setVisible(R.id.iv_video_play_num, true)
+                            .setVisible(R.id.tv_video_play_num, true)
+                            .setVisible(R.id.tv_video_favourite, true)
+                            .setVisible(R.id.iv_video_online_region, true)
+                            .setText(R.id.tv_video_play_num, " " + NumberUtils.format("${it.play}"))
+                            .setText(R.id.tv_video_favourite, " " + NumberUtils.format("${it.favorite}"))
+                            .setVisible(R.id.iv_tag_video_play_num, false)
+                            .setVisible(R.id.tv_tag_video_favourite, false)
+                            .setVisible(R.id.iv_tag_video_online_region, false)
+                            .setText(R.id.tv_tag_video_play_num,
+                                    "${it.name}${it.tag.let { "·${it.tag_name}" }}")
+                    Glide.with(mContext)
+                            .load(it.face)
+                            .centerCrop()
+                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .placeholder(R.drawable.bili_default_avatar)
+                            .dontAnimate()
+                            .into(holder.getView<CircleImageView>(R.id.iv_avatar))
+                    Glide.with(mContext)
+                            .load(it.cover)
+                            .centerCrop()
+                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .placeholder(R.drawable.bili_default_image_tv)
+                            .dontAnimate()
+                            .into(holder.getView<ImageView>(R.id.iv_preview))
+
+
                 }
-                
+
             }
         }
     }
