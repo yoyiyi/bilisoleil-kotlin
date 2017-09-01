@@ -31,7 +31,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     override fun getLayoutId(): Int = R.layout.activity_main
 
 
-
     private fun initFragment() {
         mFragments.add(HomeFragment.newInstance())
 
@@ -47,7 +46,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     @SuppressLint("CommitTransaction")
     fun switchFragmentIndex(index: Int) {
-        with(supportFragmentManager.beginTransaction()) {
+        supportFragmentManager.beginTransaction().apply {
             if (mCurrentPos != -1)
                 hide(mFragments[mCurrentPos])
             if (!mFragments[index].isAdded) {
