@@ -1,10 +1,6 @@
 package com.yoyiyi.soleil.di.scope
 
-import java.lang.annotation.Retention
-
 import javax.inject.Scope
-
-import java.lang.annotation.RetentionPolicy.RUNTIME
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -14,5 +10,5 @@ import java.lang.annotation.RetentionPolicy.RUNTIME
  */
 
 @Scope
-@Retention(RUNTIME)
+@Retention(AnnotationRetention.RUNTIME)
 annotation class FragmentScope

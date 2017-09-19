@@ -1,11 +1,6 @@
 package com.yoyiyi.soleil.di.qualifier
 
-import java.lang.annotation.Documented
-import java.lang.annotation.Retention
-
 import javax.inject.Qualifier
-
-import java.lang.annotation.RetentionPolicy.RUNTIME
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -15,6 +10,6 @@ import java.lang.annotation.RetentionPolicy.RUNTIME
  */
 
 @Qualifier
-@Documented
-@Retention(RUNTIME)
+@MustBeDocumented
+@Retention(AnnotationRetention.RUNTIME)
 annotation class Im9Url
