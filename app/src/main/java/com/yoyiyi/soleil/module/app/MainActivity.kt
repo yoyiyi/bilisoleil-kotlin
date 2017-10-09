@@ -66,8 +66,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         AppUtils.runOnUIDelayed({
-            val id = item.itemId
-            when (id) {
+            when (item.itemId) {
                 R.id.item_vip -> startActivity(Intent(this@MainActivity, VipActivity::class.java))
                 R.id.item_unicom -> BrowerActivity.startActivity(this@MainActivity, Constants.BLACK_BOARD_URL, "联通免流量服务", "")
                 R.id.item_down -> startActivity(Intent(this@MainActivity, OfflineDownloadActivity::class.java))

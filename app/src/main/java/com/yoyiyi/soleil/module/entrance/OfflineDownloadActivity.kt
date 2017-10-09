@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.base.BaseActivity
+import com.yoyiyi.soleil.ext.toast
 import com.yoyiyi.soleil.utils.ToastUtils
 import com.yoyiyi.soleil.utils.sdcard.SDCardUtils
 import kotlinx.android.synthetic.main.activity_offline_download.*
@@ -55,6 +56,7 @@ class OfflineDownloadActivity : BaseActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.menu_more) {
+            "离线设置".toast()
             ToastUtils.showLongToast("离线设置")
         }
         return super.onOptionsItemSelected(item)

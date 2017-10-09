@@ -57,7 +57,6 @@ abstract class BaseActivity : RxAppCompatActivity() {
     }
 
     open fun initRecyclerView() {
-
     }
 
     /**

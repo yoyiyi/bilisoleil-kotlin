@@ -39,6 +39,10 @@ class SplashActivity : RxAppCompatActivity(), SplashContract.View {
         setContentView(R.layout.activity_splash)
         //设置透明
         StatusBarUtil.setTransparent(this)
+        if (!isTaskRoot && intent.hasCategory(Intent.CATEGORY_LAUNCHER) && intent.action != null && intent.action == Intent.ACTION_MAIN) {//防止重复实例化app
+            finish()
+            return@onCreate
+        }
         initInject()
         initWidget()
         loadData()
