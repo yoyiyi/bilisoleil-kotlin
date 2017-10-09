@@ -11,7 +11,7 @@ import com.yoyiyi.soleil.base.BaseActivity
 import com.yoyiyi.soleil.constant.Constants
 import com.yoyiyi.soleil.module.MainActivity
 import com.yoyiyi.soleil.utils.AppUtils
-import com.yoyiyi.soleil.utils.NetworkUtils
+import com.yoyiyi.soleil.utils.net.NetworkUtils
 import com.yoyiyi.soleil.utils.PrefsUtils
 import com.yoyiyi.soleil.utils.ToastUtils
 import kotlinx.android.synthetic.main.activity_login.*

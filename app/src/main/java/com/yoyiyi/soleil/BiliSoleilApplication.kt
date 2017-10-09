@@ -9,7 +9,11 @@ import com.yoyiyi.soleil.di.component.AppComponent
 import com.yoyiyi.soleil.di.component.DaggerAppComponent
 import com.yoyiyi.soleil.di.module.ApiModule
 import com.yoyiyi.soleil.di.module.AppModule
-import com.yoyiyi.soleil.utils.*
+import com.yoyiyi.soleil.utils.AppUtils
+import com.yoyiyi.soleil.utils.CrashHandler
+import com.yoyiyi.soleil.utils.LogUtils
+import com.yoyiyi.soleil.utils.PrefsUtils
+import com.yoyiyi.soleil.utils.net.NetworkUtils
 import java.util.*
 
 @Suppress("DEPRECATION")

@@ -1,4 +1,4 @@
-package com.yoyiyi.soleil.utils;
+package com.yoyiyi.soleil.utils.net;
 
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -17,7 +17,9 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-import com.yoyiyi.soleil.widget.NetworkService;
+import com.yoyiyi.soleil.utils.AppUtils;
+import com.yoyiyi.soleil.utils.LogUtils;
+import com.yoyiyi.soleil.utils.ToastUtils;
 
 import java.lang.reflect.Method;
 
@@ -413,10 +415,12 @@ public class NetworkUtils {
                         LogUtils.i(TAG, "网络更改为 无网络  CURRENT_NETWORK_STATE =" + CURRENT_NETWORK_STATE);
                         break;
                     case 1:
+                        ToastUtils.showSingleLongToast("当前为WIFI网络");
                         setOnChangeInternet(true);//设置网络监听
                         LogUtils.i(TAG, "网络更改为 WIFI网络  CURRENT_NETWORK_STATE=" + CURRENT_NETWORK_STATE);
                         break;
                     case 2:
+                        ToastUtils.showSingleLongToast("当前为数据流量");
                         setOnChangeInternet(true);//设置网络监听
                         LogUtils.i(TAG, "网络更改为 移动网络  CURRENT_NETWORK_STATE =" + CURRENT_NETWORK_STATE);
                         break;

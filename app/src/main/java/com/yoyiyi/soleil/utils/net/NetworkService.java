@@ -1,4 +1,4 @@
-package com.yoyiyi.soleil.widget;
+package com.yoyiyi.soleil.utils.net;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -8,7 +8,6 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.IBinder;
-import com.yoyiyi.soleil.utils.NetworkUtils;
 
 /**
  * 网络状态监听服务

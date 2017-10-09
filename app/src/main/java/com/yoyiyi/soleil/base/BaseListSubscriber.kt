@@ -4,7 +4,7 @@ import com.yoyiyi.soleil.network.exception.ApiException
 import com.yoyiyi.soleil.network.response.HttpResponse
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.LogUtils
-import com.yoyiyi.soleil.utils.NetworkUtils
+import com.yoyiyi.soleil.utils.net.NetworkUtils
 import io.reactivex.subscribers.ResourceSubscriber
 import retrofit2.HttpException
 import java.net.SocketTimeoutException

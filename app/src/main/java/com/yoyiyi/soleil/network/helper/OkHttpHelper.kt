@@ -12,7 +12,7 @@ import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.yoyiyi.soleil.network.support.ApiConstants
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.utils.FileUtils
-import com.yoyiyi.soleil.utils.NetworkUtils
+import com.yoyiyi.soleil.utils.net.NetworkUtils
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import java.io.File

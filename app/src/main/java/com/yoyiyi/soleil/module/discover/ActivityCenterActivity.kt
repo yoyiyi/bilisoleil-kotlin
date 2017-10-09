@@ -10,7 +10,7 @@ import com.yoyiyi.soleil.bean.discover.ActivityCenter
 import com.yoyiyi.soleil.mvp.contract.discover.ActivityCenterContract
 import com.yoyiyi.soleil.mvp.presenter.discover.ActivityCenterPresenter
 import com.yoyiyi.soleil.utils.AppUtils
-import com.yoyiyi.soleil.utils.NetworkUtils
+import com.yoyiyi.soleil.utils.net.NetworkUtils
 import com.yoyiyi.soleil.widget.CustomLoadMoreView
 
 /**
@@ -109,6 +109,7 @@ class ActivityCenterActivity : BaseRefreshActivity<ActivityCenterPresenter, Acti
 
     override fun showError(msg: String) {
         super.showError(msg)
+        mPage--
         mIsError = true
     }
 
