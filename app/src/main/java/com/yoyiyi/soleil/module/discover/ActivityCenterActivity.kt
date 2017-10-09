@@ -10,6 +10,7 @@ import com.yoyiyi.soleil.bean.discover.ActivityCenter
 import com.yoyiyi.soleil.mvp.contract.discover.ActivityCenterContract
 import com.yoyiyi.soleil.mvp.presenter.discover.ActivityCenterPresenter
 import com.yoyiyi.soleil.utils.AppUtils
+import com.yoyiyi.soleil.utils.NetworkUtils
 import com.yoyiyi.soleil.widget.CustomLoadMoreView
 
 /**
@@ -57,6 +58,7 @@ class ActivityCenterActivity : BaseRefreshActivity<ActivityCenterPresenter, Acti
     override fun initPresenter() {
         mPresenter.attachView(this)
     }
+
     override fun initRecyclerView() {
         mAdapter = ActivityCenterAdapter(mList)
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -88,7 +90,7 @@ class ActivityCenterActivity : BaseRefreshActivity<ActivityCenterPresenter, Acti
         AppUtils.runOnUIDelayed({
             //加载更多
             mAdapter?.itemCount?.let {
-                if (it >= mTotal) {
+                if (it > mTotal) {
                     mAdapter?.loadMoreEnd()//结束加载
                 } else {
                     if (!mIsError) {
@@ -116,5 +118,13 @@ class ActivityCenterActivity : BaseRefreshActivity<ActivityCenterPresenter, Acti
         mAdapter?.setEnableLoadMore(true)
     }
 
-
+    override fun initWidget() {
+        super.initWidget()
+        NetworkUtils.OnChangeInternetListener {
+            mIsError = !it
+            if (!mIsError) {
+                mAdapter?.setEnableLoadMore(true)
+            }
+        }
+    }
 }
