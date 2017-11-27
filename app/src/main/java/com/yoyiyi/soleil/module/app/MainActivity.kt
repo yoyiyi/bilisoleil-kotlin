@@ -46,14 +46,16 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     @SuppressLint("CommitTransaction")
     fun switchFragmentIndex(index: Int) {
-        supportFragmentManager.beginTransaction().apply {
-            if (mCurrentPos != -1)
-                hide(mFragments[mCurrentPos])
-            if (!mFragments[index].isAdded) {
-                add(R.id.flContent, mFragments[index])
-            }
-            show(mFragments[index]).commit()
-        }
+        supportFragmentManager
+                .beginTransaction()
+                .apply {
+                    if (mCurrentPos != -1)
+                        hide(mFragments[mCurrentPos])
+                    if (!mFragments[index].isAdded) {
+                        add(R.id.flContent, mFragments[index])
+                    }
+                    show(mFragments[index]).commit()
+                }
     }
 
     /**
