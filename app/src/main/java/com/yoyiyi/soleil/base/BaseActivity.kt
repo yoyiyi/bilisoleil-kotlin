@@ -29,8 +29,8 @@ abstract class BaseActivity : RxAppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
         mContext = this
-        mToolbar = findViewById(R.id.toolbar) as Toolbar?
-        mError = findViewById(R.id.cl_error) as ConstraintLayout?
+        mToolbar = findViewById(R.id.toolbar) as? Toolbar
+        mError = findViewById(R.id.cl_error) as? ConstraintLayout
         initStatusBar()
         initInject()
         initPresenter()

@@ -33,7 +33,7 @@ abstract class BaseFragment : RxFragment() {
 
 
     override fun onAttach(context: Context?) {
-        mActivity = context as Activity?
+        mActivity = context as? Activity
         mContext = context
         super.onAttach(context)
     }
