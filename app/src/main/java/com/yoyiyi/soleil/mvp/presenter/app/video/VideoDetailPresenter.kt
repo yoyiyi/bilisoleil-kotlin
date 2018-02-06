@@ -32,10 +32,11 @@ class VideoDetailPresenter @Inject constructor(private val retrofitHelper: Retro
                     }
                 });*/
         addSubscribe(retrofitHelper.getVideoDetail()
-                .flatMap({
+                .flatMap {
                     mView?.showVideoDetail(it.data)
                     retrofitHelper.getVideoDetailComment()
-                }).compose(rxSchedulerHelper())
+                }
+                .compose(rxSchedulerHelper())
                 .subscribeWith(object : BaseSubscriber<VideoDetailComment>(mView) {
                     override fun onSuccess(t: VideoDetailComment) {
                         mView?.showVideoDetailComment(t.data)

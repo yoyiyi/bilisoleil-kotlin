@@ -1,7 +1,7 @@
 package com.yoyiyi.soleil.ext
 
 import android.widget.Toast
-import com.yoyiyi.soleil.BiliSoleilApplication
+import com.yoyiyi.soleil.App
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -9,5 +9,5 @@ import com.yoyiyi.soleil.BiliSoleilApplication
  * 描述:弹吐司
  */
 fun String.toast(): Unit {
-    Toast.makeText(BiliSoleilApplication.instance, this, Toast.LENGTH_LONG).show()
+    Toast.makeText(App.instance, this, Toast.LENGTH_LONG).show()
 }

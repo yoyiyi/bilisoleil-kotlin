@@ -8,7 +8,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.view.KeyEvent
 import android.view.MenuItem
-import com.yoyiyi.soleil.BiliSoleilApplication
+import com.yoyiyi.soleil.App
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.base.BaseActivity
 import com.yoyiyi.soleil.constant.Constants
@@ -141,7 +141,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             toast("再按一次退出")
             exitTime = System.currentTimeMillis()
         } else {
-            BiliSoleilApplication.instance.exitApp()
+            App.instance.exitApp()
         }
     }
 }

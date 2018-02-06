@@ -1,7 +1,7 @@
 package com.yoyiyi.soleil.base
 
 import android.view.View
-import com.yoyiyi.soleil.BiliSoleilApplication
+import com.yoyiyi.soleil.App
 import com.yoyiyi.soleil.di.component.ActivityComponent
 import com.yoyiyi.soleil.di.component.DaggerActivityComponent
 import com.yoyiyi.soleil.di.module.ActivityModule
@@ -38,7 +38,7 @@ abstract class BaseInjectActivity<T : BaseContract.BasePresenter<*>> : BaseActiv
      */
     override fun onDestroy() {
         mPresenter.detachView()
-        BiliSoleilApplication.instance.removeActivity(this)
+        App.instance.removeActivity(this)
         super.onDestroy()
     }
 

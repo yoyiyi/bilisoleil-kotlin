@@ -7,7 +7,7 @@ import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.Toolbar
 import android.view.View
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
-import com.yoyiyi.soleil.BiliSoleilApplication
+import com.yoyiyi.soleil.App
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.utils.AppUtils
 import com.yoyiyi.soleil.widget.statusbar.StatusBarUtil
@@ -35,7 +35,7 @@ abstract class BaseActivity : RxAppCompatActivity() {
         initInject()
         initPresenter()
         initVariables()
-        BiliSoleilApplication.instance.addActivity(this)
+        App.instance.addActivity(this)
         mToolbar?.let {
             //初始化Toolbar
             initToolbar()

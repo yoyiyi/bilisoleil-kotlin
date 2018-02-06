@@ -11,19 +11,20 @@ import javax.inject.Inject
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
- * *
+ *
  * @date 创建时间：2017/5/17 18:00
- * * 描述:活动中心resenter
+ * 描述:活动中心resenter
  */
 
-class ActivityCenterPresenter @Inject constructor(private val retrofitHelper: RetrofitHelper) : RxPresenter<ActivityCenterContract.View>(), ActivityCenterContract.Presenter<ActivityCenterContract.View> {
+class ActivityCenterPresenter @Inject constructor(private val retrofitHelper: RetrofitHelper) : RxPresenter<ActivityCenterContract.View>(),
+        ActivityCenterContract.Presenter<ActivityCenterContract.View> {
 
     override fun getActivityCenterData(page: Int, pageSize: Int) {
         addSubscribe(retrofitHelper.getActivityCenter(page, pageSize)
                 .compose(rxSchedulerHelper())
                 .subscribeWith(object : BaseSubscriber<ActivityCenter>(mView) {
                     override fun onSuccess(t: ActivityCenter) {
-                            mView?.showActivityCenter(t.list, t.total)
+                        mView?.showActivityCenter(t.list, t.total)
                     }
                 }))
     }

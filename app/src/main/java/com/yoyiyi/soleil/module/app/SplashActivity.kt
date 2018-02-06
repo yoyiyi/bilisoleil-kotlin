@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.jakewharton.rxbinding2.view.RxView
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
-import com.yoyiyi.soleil.BiliSoleilApplication
+import com.yoyiyi.soleil.App
 import com.yoyiyi.soleil.R
 import com.yoyiyi.soleil.bean.app.Splash
 import com.yoyiyi.soleil.constant.Constants
@@ -51,7 +51,7 @@ class SplashActivity : RxAppCompatActivity(), SplashContract.View {
 
     fun initInject() {
         DaggerActivityComponent.builder()
-                .appComponent(BiliSoleilApplication.instance.appComponent)
+                .appComponent(App.instance.appComponent)
                 .activityModule(ActivityModule(this))
                 .build()
                 .inject(this)

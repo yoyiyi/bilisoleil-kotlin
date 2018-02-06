@@ -1,7 +1,7 @@
 package com.yoyiyi.soleil.base
 
 import android.view.View
-import com.yoyiyi.soleil.BiliSoleilApplication
+import com.yoyiyi.soleil.App
 import com.yoyiyi.soleil.di.component.DaggerFragmentComponent
 import com.yoyiyi.soleil.di.component.FragmentComponent
 import com.yoyiyi.soleil.di.module.FragmentModule
@@ -21,7 +21,7 @@ abstract class BaseInjectFragment<T : BaseContract.BasePresenter<*>> : BaseFragm
     val fragmentModule: FragmentModule get() = FragmentModule(this)
 
     val fragmentComponent: FragmentComponent get() = DaggerFragmentComponent.builder()
-            .appComponent(BiliSoleilApplication.instance.appComponent)
+            .appComponent(App.instance.appComponent)
             .fragmentModule(fragmentModule)
             .build()
 

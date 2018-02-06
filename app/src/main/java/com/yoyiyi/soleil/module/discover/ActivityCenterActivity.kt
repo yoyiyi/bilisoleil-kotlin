@@ -10,14 +10,15 @@ import com.yoyiyi.soleil.bean.discover.ActivityCenter
 import com.yoyiyi.soleil.mvp.contract.discover.ActivityCenterContract
 import com.yoyiyi.soleil.mvp.presenter.discover.ActivityCenterPresenter
 import com.yoyiyi.soleil.utils.AppUtils
+import com.yoyiyi.soleil.utils.LogUtils
 import com.yoyiyi.soleil.utils.net.NetworkUtils
 import com.yoyiyi.soleil.widget.CustomLoadMoreView
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
- * *
+ *
  * @date 创建时间：2017/6/5 22:28
- * * 描述:活动中心
+ * 描述:活动中心
  */
 class ActivityCenterActivity : BaseRefreshActivity<ActivityCenterPresenter, ActivityCenter.ListBean>(), ActivityCenterContract.View, BaseQuickAdapter.RequestLoadMoreListener {
 
@@ -121,10 +122,19 @@ class ActivityCenterActivity : BaseRefreshActivity<ActivityCenterPresenter, Acti
 
     override fun initWidget() {
         super.initWidget()
-        NetworkUtils.OnChangeInternetListener {
+        NetworkUtils.setOnChangeInternetListener {
+            LogUtils.d("ceshi", it)
             mIsError = !it
             if (!mIsError) {
                 mAdapter?.setEnableLoadMore(true)
+            }
+        }
+
+        NetworkUtils.setOnChangeInternetListener {
+            LogUtils.d("ceshi", it)
+            mIsError = !it
+            if (!mIsError) {
+
             }
         }
     }

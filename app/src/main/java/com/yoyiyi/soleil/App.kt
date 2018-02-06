@@ -46,7 +46,7 @@ import java.util.*
  * * #               佛祖保佑         永无BUG             #
  * * #                                                   #
  */
-class BiliSoleilApplication : Application() {
+class App : Application() {
 
     private var allActivities: HashSet<Activity>? = null
     val appComponent: AppComponent by lazy {
@@ -57,14 +57,14 @@ class BiliSoleilApplication : Application() {
     }
 
     companion object {
-        lateinit var instance: BiliSoleilApplication
+        lateinit var instance: App
 
     }
 
 
     override fun onCreate() {
         super.onCreate()
-        AppUtils.init(this)
+        AppUtils.init(this)?
         instance = this
         initNetwork()
         initStetho()

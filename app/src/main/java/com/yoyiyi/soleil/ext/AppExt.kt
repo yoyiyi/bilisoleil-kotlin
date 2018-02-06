@@ -2,7 +2,7 @@ package com.yoyiyi.soleil.ext
 
 
 import android.content.Context
-import com.yoyiyi.soleil.BiliSoleilApplication
+import com.yoyiyi.soleil.App
 
 /**
  * @author zzq  作者 E-mail:   soleilyoyiyi@gmail.com
@@ -10,7 +10,7 @@ import com.yoyiyi.soleil.BiliSoleilApplication
  * 描述:
  */
 
-fun Context.getComponent() = BiliSoleilApplication.instance.appComponent
+fun Context.getComponent() = App.instance.appComponent
 
 
 
