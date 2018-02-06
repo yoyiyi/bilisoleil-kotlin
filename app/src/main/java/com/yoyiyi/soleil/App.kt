@@ -64,7 +64,7 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        AppUtils.init(this)?
+        AppUtils.init(this)
         instance = this
         initNetwork()
         initStetho()
